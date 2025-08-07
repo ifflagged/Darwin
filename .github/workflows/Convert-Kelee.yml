@@ -1,0 +1,101 @@
+# https://github.com/bunizao/Mirrored/blob/main/.github/workflows/convert.yml
+
+name: Extract Kelee plugins
+
+on:
+  schedule:
+    - cron: '5,35 * * * *'  # 每小时的第 0 分钟和第 30 分钟执行
+  workflow_dispatch:
+
+jobs:
+  Converting:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    services:
+      docker:
+        image: xream/script-hub:latest
+        ports:
+          - 9100:9100
+          - 9101:9101
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl jq netcat-openbsd
+
+      - name: Wait for Docker services to be ready
+        run: |
+          echo "Waiting for Docker services to be ready..."
+          for i in {1..10}; do
+            nc -z localhost 9100 && nc -z localhost 9101 && break
+            sleep 10
+          done
+          
+      - name: Generate plugin URLs
+        run: |
+          plugin_base_url="https://github.com/${GITHUB_REPOSITORY}/raw/main/Modules/Loon/Kelee/Official/"
+          for file in Modules/Loon/Kelee/Official/*; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              plugin_local_url="${plugin_base_url}${filename}"
+              echo "$plugin_local_url" >> plugin_local_url.txt
+            fi
+          done
+
+      - name: Process to different files
+        run: |
+          category="Jacob"
+          encoded_category=$(echo "$category" | jq -sRr @uri)
+          while read -r plugin_local_url; do
+            Modules_name=$(basename "$plugin_local_url" .plugin)
+            encoded_Modules_name=$(echo "$Modules_name" | jq -sRr @uri)
+
+            Surge_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true"
+            Surge_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
+            Loon_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.plugin?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.plugin?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
+            Shadowrocket_url="http://localhost:9100/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true"
+            Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${plugin_local_url}/_end_/${encoded_Modules_name}.sgmodule?type=loon-plugin&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
+
+            mkdir -p Modules/{Surge,Loon,Shadowrocket}/Kelee/Beta
+
+            # Download plugin files
+            echo "Converting to ${Modules_name}.sgmodule"
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/Kelee/${Modules_name}.sgmodule" "$Surge_url" || echo "Failed to download ${Modules_name}.sgmodule"
+            curl -A "Surge Mac/2985" -L -o "Modules/Surge/Kelee/Beta/${Modules_name}.sgmodule" "$Surge_Beta_url" || echo "Failed to download ${Modules_name}.sgmodule"
+            echo "Converting to ${Modules_name}.plugin"
+            # curl -A "Surge Mac/2985" -L -o "Modules/Loon/Kelee/${Modules_name}.plugin" "$Loon_url" || echo "Failed to download ${Modules_name}.plugin"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/Kelee/Beta/${Modules_name}.plugin" "$Loon_Beta_url" || echo "Failed to download ${Modules_name}.plugin"
+            echo "Converting to $.srmodule"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/Kelee/${Modules_name}.srmodule" "$Shadowrocket_url" || echo "Failed to download ${Modules_name}.srmodule"
+            curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/Kelee/Beta/${Modules_name}.srmodule" "$Shadowrocket_Beta_url" || echo "Failed to download ${Modules_name}.srmodule"
+          done < plugin_local_url.txt
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE="$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
+    
+          git add Modules/*
+    
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            COMMIT_MESSAGE="Converted files at $DATE (UTC+8)"
+            git stash
+            git pull --rebase
+            git stash pop
+            git add Modules/*
+            git commit -m "$COMMIT_MESSAGE"
+            git push
+          fi
