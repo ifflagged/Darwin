@@ -114,7 +114,7 @@ jobs:
         if git diff --cached --quiet; then
           echo "No changes to commit"
         else
-          COMMIT_MESSAGE="Converted files at $DATE (UTC+8)"
+          COMMIT_MESSAGE="Downloaded files at $DATE (UTC+8)"
           git stash
           git pull --rebase
           git stash pop
