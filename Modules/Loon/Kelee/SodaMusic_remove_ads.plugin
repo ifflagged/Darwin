@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-05-18 01:29:34
+#!date=2025-08-12 13:09:47
 
 [Rewrite]
 ^https:\/\/beta-luna\.douyin\.com\/luna\/feed\/song-tab\? response-body-json-jq 'del(.items[] | select(.type == "video_track_mix"))'
@@ -23,6 +23,7 @@
 ^https:\/\/beta-luna\.douyin\.com\/luna\/media_ads\? - reject-dict
 ^https:\/\/beta-luna\.douyin\.com\/luna\/commerce\/upsells\? - reject-dict
 ^https:\/\/beta-luna\.douyin\.com\/luna\/commerce\/v2\/commerce_info\? - reject-dict
+^https:\/\/beta-luna\.douyin\.com\/luna\/listen-video\/reminder\? - reject-dict
 
 [Script]
 http-response ^https:\/\/beta-luna\.douyin\.com\/luna\/me\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_17, argument=%5B%5B%22json-del%22%2C%5B%22reward_ad_banner%22%5D%5D%5D
