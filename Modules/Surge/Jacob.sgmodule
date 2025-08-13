@@ -706,6 +706,7 @@ AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWOR
 # Bilibili_remove_ads
 DOMAIN,line3-h5-mobile-api.biligame.com,REJECT
 DOMAIN-SUFFIX,chat.bilibili.com,REJECT
+AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
 # Module-Common
 DOMAIN,api-dsp.8ziben.com,REJECT
 DOMAIN,v66-ad.ndcjl.com,REJECT
