@@ -10,7 +10,7 @@
 #!system_version=15
 #!loon_version=3.2.9(837)
 #!homepage=https://hub.kelee.one
-#!date=2025-08-08 02:16:05
+#!date=2025-08-13 14:08:00
 
 [Argument]
 showUpList=select, "auto", "show", "hide",tag=[动态]中[最常访问]的显示方式, desc=auto：仅当列表中存在直播状态时显示；show：始终显示；hide：始终隐藏。
@@ -26,9 +26,10 @@ DOMAIN,api.biliapi.net,REJECT
 DOMAIN,app.biliapi.net,REJECT
 DOMAIN,line3-h5-mobile-api.biligame.com,REJECT
 DOMAIN-SUFFIX,chat.bilibili.com,REJECT
+AND,((DOMAIN-SUFFIX,chat.bilibili.com),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,tracker)))),REJECT
 
 [Rewrite]
-^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? response-body-json-jq '.data[][]?="chat.bilibili.com:3478"'
+^https:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? response-body-json-jq '.data[][]?="stun.chat.bilibili.com:3478"'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show|event\/list2)\? response-body-json-jq '.data |= with_entries(if .key | IN("show", "event_list") then .value = [] else . end)'
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
