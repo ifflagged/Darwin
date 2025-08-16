@@ -831,6 +831,8 @@ DOMAIN-KEYWORD,ads.amap.com,REJECT
 URL-REGEX,"^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native",REJECT
 # haiersmarthomes
 DOMAIN-SUFFIX,ehaier.com,REJECT
+# JD_remove_ads
+URL-REGEX,"^http:\/\/\w{32}\.jddebug\.com\/diagnose\?",REJECT
 # outlook
 DOMAIN,acdn.adnxs.com,REJECT
 DOMAIN,mediation.adnxs.com,REJECT
@@ -1476,6 +1478,8 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/zj\.haier\.net\/omsappapi\/resource\/v\d\/resBagList$ mock-response-body data-type=text status-code=200
 ^https?:\/\/zj\.haier\.net\/omssceneapi\/house\/v\d\/recommend\/listByRoom$ mock-response-body data-type=text status-code=200
 ^https?:\/\/service\.haiersmarthomes\.com\/management\/banner\/getBannerList\?source=4 mock-response-body data-type=text data="{}" status-code=200
+# JD_remove_ads
+^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend[06]) - reject-dict
 # jparking
 ^https?:\/\/e\.jparking\.cn\/abTest-gateway\/abTest-api - reject
 ^https?:\/\/sytgate\.jslife\.com\.cn\/base-gateway\/config\/queryAppNewVersion - reject
@@ -1846,6 +1850,9 @@ http-response ^https?:\/\/zj\.haier\.net\/omsappapi\/resource\/v\d\/get\/resourc
 # jd_price2
 http-request ^https?:\/\/apapia-sqk-weblogic\.manmanbuy\.com\/baoliao\/center\/menu$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/githubdulong/jd_price2/jd_price.js, requires-body=true, timeout=60, tag={MMMCK_SCRIPT}
 http-response ^https?:\/\/in\.m\.jd\.com\/product\/graphext\/\d+\.html script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/githubdulong/jd_price2/jd_price.js, requires-body=true, timeout=60, tag=京东比价
+# JD_remove_ads
+http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data.JDMessage.socketmonitor.isSocketEstablishedAhead%22%2C0%5D%2C%5B%22data.JDMessage.socketmonitor.isSocketReport%22%2C0%5D%2C%5B%22data.JDHttpToolKit.httpdns.httpdns%22%2C0%5D%5D%5D%5D
+http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/JD_remove_ads/JD_remove_ads.js, requires-body=true, tag=移除京东广告
 # mstand
 http-response ^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/mstand/wechatApplet.js, requires-body=true, tag=mstand
 # manner
