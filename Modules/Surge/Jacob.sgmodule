@@ -310,6 +310,7 @@ DOMAIN-SUFFIX,adcanvas.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,bianxianmao.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,gentags.net,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,dcloud.net.cn,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,tec73.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,ads.g.doubleclick,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,sdk.1rtb.net,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,sensorsdata.cn,REJECT,extended-matching,pre-matching
