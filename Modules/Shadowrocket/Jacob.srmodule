@@ -93,6 +93,7 @@ DOMAIN-SUFFIX,is.autonavi.com,DIRECT
 DOMAIN,gspe12-cn-ssl.ls.apple.com,DIRECT
 DOMAIN,gspe19-cn-ssl.ls.apple.com,DIRECT
 # BlockAdvertisers
+AND,((DOMAIN-KEYWORD,tnc),(OR,((DOMAIN-SUFFIX,capcutapi.com),(DOMAIN-SUFFIX,zijieapi.com),(DOMAIN-SUFFIX,isnssdk.com),(DOMAIN-SUFFIX,toutiaoapi.com),(DOMAIN-SUFFIX,bytedance.com),(DOMAIN-SUFFIX,snssdk.com),(DOMAIN-SUFFIX,sgsnssdk.com)))),DIRECT
 AND,((OR,((DOMAIN-KEYWORD,api-access),(DOMAIN-KEYWORD,log-api))),(DOMAIN-KEYWORD,pangolin-sdk-toutiao)),REJECT
 AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),REJECT
 AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,normal),(DOMAIN-SUFFIX,zijieapi.com)),REJECT
