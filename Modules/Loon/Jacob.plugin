@@ -854,6 +854,7 @@ DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
 DOMAIN-SUFFIX,mads.meituan.com,REJECT
 DOMAIN-SUFFIX,d.meituan.net,REJECT
 DOMAIN-KEYWORD,report.meituan,REJECT
+DOMAIN-KEYWORD,dnspod.meituan.httpdns,REJECT
 # meitu
 DOMAIN,adui.tg.meitu.com,REJECT
 DOMAIN,corp.meitu.com,REJECT
