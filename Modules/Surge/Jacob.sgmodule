@@ -1228,8 +1228,6 @@ iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject
 # bilibili
 ^https:\/\/api\.bilibili\.com\/pgc\/page\/channel\?(.*)&mobi_app=iphone&(.*)$ https://api.bilibili.com/pgc/page/channel?$1&mobi_app=iphone_i&$2 header
-# Bilibili_remove_ads
-^(https:\/\/api\.bilibili\.com\/pgc\/page\/channel\?.*)(&mobi_app=iphone)(&.*)$ $1$2_i$3 header
 # BiliBili.ADBlock
 ^https?:\/\/(grpc|app)\.bili(bili\.com|api\.net)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ - reject
 # Module-Common
@@ -1379,9 +1377,9 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 ^https:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive\? data-type=text data="{"code":0,"data":{"closeType":"close_win","container":[],"showTime":""},"message":"success"}" status-code=200 header="Content-Type:text/plain"
 ^https:\/\/ap[ip]\.bilibili\.com\/x\/(resource\/(top\/activity|patch\/tab)|v2\/search\/square|vip\/ads\/materials)\? data-type=text data="{"code":-404,"message":"-404","ttl":1,"data":null}" status-code=200 header="Content-Type:text/plain"
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA"
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ data-type=base64 data="AAAAACkaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7IgAoAToAQgBKAA=="
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ data-type=base64 data="AAAAAAIIAQ=="
+^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus$ data-type=base64 data="AAAAABMKEQgCEgl0ZWVuYWdlcnMgAioA"
+^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ data-type=base64 data="AAAAACkaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7IgAoAToAQgBKAA=="
+^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.view\.v1\.View\/TFInfo$ data-type=base64 data="AAAAAAIIAQ=="
 # BiliBili.ADBlock
 ^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words data-type=text data="{}" header="application/json"
 ^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr data-type=text data="{}" header="application/json"
