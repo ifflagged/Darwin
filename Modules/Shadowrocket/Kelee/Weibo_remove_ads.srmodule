@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-08-07 02:09:48
+#!date=2025-08-24 16:07:27
 
 [Rule]
 DOMAIN-SUFFIX,uve.weibo.com,DIRECT
@@ -28,7 +28,7 @@ DOMAIN-SUFFIX,biz.weibo.com,REJECT
 ^https:\/\/api\.weibo\.cn\/2\/search\/container_discover\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/hot\/hours_spotlight\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/video\/redpacket\? - reject-dict
-^https:\/\/api\.weibo\.cn\/!\/(sug\/list\/finderchange|was\/finder\/searchbarchange)\? - reject-dict
+^https:\/\/api\.weibo\.cn\/!\/(?:sug\/list\/finderchange|was\/finder\/searchbarchange)\? - reject-dict
 ^https:\/\/api\.weibo\.cn\/2\/video\/tiny_video_info_show\? - reject-dict
 ^https:\/\/bootrealtime\.uve\.weibo\.com\/v[23]\/ad\/realtime - reject-dict
 ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/(?:get-lbs-cell-info\.php|sdkconfig\.php) - reject-dict
