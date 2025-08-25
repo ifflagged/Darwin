@@ -120,21 +120,21 @@ http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/statuses\/(container_detail_
 # 微博转发区广告
 http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/statuses\/container_detail_forward\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_ads.js, requires-body=true, timeout=60, tag=微博转发区广告, enable={RemoveRepostAds}
 
-http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/statuses\/repost_timeline\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博转发区广告, enable={RemoveRepostAds}
+http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/statuses\/repost_timeline\? script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博转发区广告, enable={RemoveRepostAds}
 
 # 微博去广告以及去除各部分推广模块 - cherish
-http-response ^https?:\/\/m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(container_timeline|container_timeline_hot|unread_hot_timeline|extend|video_mixtimeline)|profile/(me|container_timeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块, enable={FullAdsCleaner}
+http-response ^https?:\/\/m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(container_timeline|container_timeline_hot|unread_hot_timeline|extend|video_mixtimeline)|profile/(me|container_timeline)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/weibo/weibo_main.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块, enable={FullAdsCleaner}
 
 http-response ^https?:\/\/(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_launch.js, requires-body=true, timeout=60, tag=微博去广告以及去除各部分推广模块, enable={FullAdsCleaner}
 
 # 自定义tab皮肤
-http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/!\/client\/light_skin script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_main.js, requires-body=true, timeout=60, tag=自定义tab皮肤, enable={SetTabSkinWithoutVip}
+http-response ^https?:\/\/m?api\.weibo\.c(n|om)\/2\/!\/client\/light_skin script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js, requires-body=true, timeout=60, tag=自定义tab皮肤, enable={SetTabSkinWithoutVip}
 
 # 非会员设置tab皮肤 - cherish
-http-response ^https?:\/\/new\.vip\.weibo\.c(n|om)\/littleskin\/preview script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_main.js, requires-body=true, timeout=60, tag=非会员设置tab皮肤, enable={SetTabSkinWithoutVip}
+http-response ^https?:\/\/new\.vip\.weibo\.c(n|om)\/littleskin\/preview script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js, requires-body=true, timeout=60, tag=非会员设置tab皮肤, enable={SetTabSkinWithoutVip}
 
 # 解锁微博会员APP图标
-http-response ^https?:\/\/new\.vip\.weibo\.c(n|om)\/aj\/appicon\/list script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/weibo/weibo_vip.js, requires-body=true, timeout=60, tag=解锁微博会员APP图标, enable={UnlockVipIcons}
+http-response ^https?:\/\/new\.vip\.weibo\.c(n|om)\/aj\/appicon\/list script-path=https://github.com/fmz200/wool_scripts/raw/main/Scripts/weibo/weibo_vip.js, requires-body=true, timeout=60, tag=解锁微博会员APP图标, enable={UnlockVipIcons}
 
 [MITM]
 hostname = *.weibo.cn, *.weibo.com, weibo.com

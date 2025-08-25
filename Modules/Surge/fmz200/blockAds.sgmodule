@@ -538,7 +538,7 @@ http:\/\/ad\.myfriday\.cn\/d\/json\/1\.1 - reject
 # hostname = open.fitdays.cn
 ^https?:\/\/open\.fitdays\.cn\/uploads\/ad\/ - reject
 # 开屏广告
-^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/1 https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/hengdian.json 302
+^https?:\/\/api\.hengdianfilm\.com\/\/cinema\/queryAvailableBannerInfo\/1 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/hengdian.json 302
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.wamai\.store\.detail\.miniapp\.popup - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopcouponpopupservice\.getshopcouponspopup - reject
 # hostname = dict-mobile.iciba.com, mobile-pic.cache.iciba.com, service.iciba.com, *.kingsoft-office-service.com
@@ -3102,7 +3102,7 @@ https://.+\.gamersky.com/v1/statisticAd data-type=text data="{}" status-code=200
 
 ^https?:\/\/wrapper\.cyapi\.cn\/v1\/activity\? data-type=file data="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/caiyun.json" status-code=200 header="Content-Type:application/json"
 
-^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB05 data-type=file data="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/A3341AB05.json" status-code=200 header="Content-Type:application/json"
+^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB05 data-type=file data="https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ccbLife/A3341AB05.json" status-code=200 header="Content-Type:application/json"
 
 ^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList data-type=text data="{"status":"SUCCESS"}" header="Content-Type:application/json"
 
@@ -3198,7 +3198,7 @@ body_rewrite_3235 = type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.
 12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/12306.js, requires-body=true, timeout=60
 
 # > 555影视
-555影视广告 = type=http-response, pattern="^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend", script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/555Ad.js, requires-body=true, timeout=60
+555影视广告 = type=http-response, pattern="^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend", script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js, requires-body=true, timeout=60
 
 # > 51信用卡管家
 51信用卡管家 = type=http-response, pattern=^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/51card.js, requires-body=true, timeout=60
@@ -3260,19 +3260,19 @@ myBlockAds = type=http-response, pattern=^https:\/\/poplayer\.template\.alibaba\
 blued登录后个人界面广告 = type=http-response, pattern=^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/blued.js, requires-body=true, timeout=60
 
 # > 百度地图
-百度地图广告 = type=http-response, pattern=^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/baidumap.js, requires-body=true, timeout=60
+百度地图广告 = type=http-response, pattern=^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/baidumap.js, requires-body=true, timeout=60
 
 # > 百度贴吧
 百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/tieba-json.js, requires-body=true, timeout=60
 
-百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=60
+百度贴吧广告 = type=http-response, pattern=^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js, requires-body=true, binary-body-mode=true, timeout=60
 
 # > 哔哩哔哩
 bilibili.airborne = type=http-request, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bilibili.protobuf.request.js, requires-body=true, binary-body-mode=true, argument=[{{{logLevel}}}]
 
-bilibili.webpage = type=http-response, pattern=^https:\/\/live\.bilibili\.com\/blackboard\/era\/.+\.html\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/webpage.bilibili.js, requires-body=true
+bilibili.webpage = type=http-response, pattern=^https:\/\/live\.bilibili\.com\/blackboard\/era\/.+\.html\?, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/webpage.bilibili.js, requires-body=true
 
-bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="[{{{showUpList}}}, {{{purifyTopReplies}}}, {{{airborne}}}, {{{logLevel}}}]"
+bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, argument="[{{{showUpList}}}, {{{purifyTopReplies}}}, {{{airborne}}}, {{{logLevel}}}]"
 
 # > 哔哩哔哩漫画
 哔哩哔哩漫画 = type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/UCenterConf, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bilibiliManga.js, requires-body=true, timeout=60
@@ -3302,10 +3302,10 @@ bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|a
 财新广告 = type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/caixinAd.js, requires-body=true, timeout=60
 
 # 开屏广告
-大众点评开屏广告 = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/dpmobile\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/dianping.js, requires-body=true, timeout=60
+大众点评开屏广告 = type=http-response, pattern=^https?:\/\/img\.meituan\.net\/dpmobile\/, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dianping.js, requires-body=true, timeout=60
 
 # (黑屏25秒)
-动画疯 = type=http-response, pattern=^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d/(token|m3u8).php\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/BahamutAnimeAds.js, requires-body=true, timeout=60
+动画疯 = type=http-response, pattern=^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d/(token|m3u8).php\?, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js, requires-body=true, timeout=60
 
 # > 滴滴出行
 滴滴出行 = type=http-response, pattern=^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/didiAds.js, requires-body=true, timeout=60
@@ -3331,7 +3331,7 @@ bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|a
 微信小程序个人中心净化 = type=http-response, pattern=^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/didiAds.js, requires-body=true, timeout=60
 
 # hostname = app-v1.ecoliving168.com
-电影猎手去广告 = type=http-response, pattern=^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/dianyinglieshou.js, requires-body=true, timeout=60
+电影猎手去广告 = type=http-response, pattern=^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\?, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js, requires-body=true, timeout=60
 
 # 开屏广告及首页推荐流及底部状态栏优化
 叮咚买菜 = type=http-response, pattern=^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/(?>bottomNavi|homeFlowDetail), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ddxq.js, requires-body=true, timeout=60
@@ -3343,32 +3343,32 @@ bilibili.protobuf = type=http-response, pattern=^https:\/\/(grpc\.biliapi\.net|a
 叮咚买菜 = type=http-response, pattern=^https?:\/\/user\.api\.ddxq\.mobi\/userportal-service\/api\/v\d\/user\/queryMyPage, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ddxq.js, requires-body=true, timeout=60
 
 # > Flightradar24
-Flightradar24解锁 = type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/Flightradar24.js, requires-body=true, timeout=60
+Flightradar24解锁 = type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js, requires-body=true, timeout=60
 
 # > 飞客茶馆
 飞客茶馆 = type=http-response, pattern=^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/fly.js, requires-body=true, timeout=60
 
-飞客茶馆 = type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/flyert.js, requires-body=true, timeout=60
+飞客茶馆 = type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/flyert.js, requires-body=true, timeout=60
 
 # > 粉笔
 粉笔开屏广告 = type=http-response, pattern=^https?:\/\/tiku\.fenbi\.com\/activity\/app\/launcher\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/fenbi.js, requires-body=true, timeout=60
 
 # hostname = apis.folidaymall.com
-复游会微信小程序 = type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/foliday.js, requires-body=true, timeout=60
+复游会微信小程序 = type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/foliday.js, requires-body=true, timeout=60
 
 # > 航旅纵横
-航旅纵横 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/umetrip_ads.js, requires-body=true, timeout=60
+航旅纵横 = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js, requires-body=true, timeout=60
 
 # > 盒马
-盒马 = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/freshippo.js, requires-body=true, timeout=60
+盒马 = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js, requires-body=true, timeout=60
 
 # 感谢【可莉】分享
-汇付天下 = type=http-response, pattern=^https:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/huifutianxia_ads.js, requires-body=true, timeout=60
+汇付天下 = type=http-response, pattern=^https:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/huifutianxia_ads.js, requires-body=true, timeout=60
 
-汇付天下 = type=http-response, pattern=^https:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\/ad, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/huifutianxia_ads.js, requires-body=true, timeout=60
+汇付天下 = type=http-response, pattern=^https:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\/ad, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/huifutianxia_ads.js, requires-body=true, timeout=60
 
 # 移除 轮播图 置顶文章 信息流广告
-ithome = type=http-response, pattern=^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ithome.js, requires-body=true, timeout=60
+ithome = type=http-response, pattern=^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js, requires-body=true, timeout=60
 
 # > 建行生活
 建行生活 = type=http-response, pattern=^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB04, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ccbLifeAds.js, requires-body=true, timeout=60
@@ -3377,7 +3377,7 @@ ithome = type=http-response, pattern=^https?:\/\/napi\.ithome\.com\/api\/(news\/
 建行生活内置饿了么 = type=http-response, pattern=^https?:\/\/g\.alicdn\.com\/.*o2o-ad, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/alicdn.js, requires-body=true, timeout=60
 
 # > 京东
-京东 = type=http-response, pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/jingdong.js, requires-body=true, timeout=60
+京东 = type=http-response, pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body=true, timeout=60
 
 # > 京喜
 京喜 = type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/jingxiAd.js, requires-body=true, timeout=60
@@ -3398,7 +3398,7 @@ keep = type=http-response, pattern=^https?:\/\/api\.gotokeep\.com\/nuocha\/cours
 keep = type=http-response, pattern=^https?:\/\/api\.gotokeep\.com\/sportpage\/sport\/v\d\/mysport, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/keep.js, requires-body=true, timeout=60
 
 # > 夸克
-夸克 = type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/quark.js, requires-body=true, timeout=60
+夸克 = type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js, requires-body=true, timeout=60
 
 # > 酷我音乐
 酷我音乐 = type=http-response, pattern=^https?:\/\/(mgxhtj|nmobi|searchrecterm)\.kuwo\.cn\/(mgxh|mobi|recterm)\.s, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/kuwo.js, requires-body=true, timeout=60
@@ -3416,22 +3416,22 @@ keep = type=http-response, pattern=^https?:\/\/api\.gotokeep\.com\/sportpage\/sp
 快手联盟,优量汇,穿山甲「广告联盟」 = type=http-response, pattern=^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/adsense.js, requires-body=true, timeout=60
 
 # > 酷安
-酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/coolapk.js, requires-body=true, timeout=60
+酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\?, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body=true, timeout=60
 
-酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/main\/(dataList|indexV8|init), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/coolapk.js, requires-body=true, timeout=60
+酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/main\/(dataList|indexV8|init), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body=true, timeout=60
 
-酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/coolapk.js, requires-body=true, timeout=60
+酷安 = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList\?, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js, requires-body=true, timeout=60
 
 # 首页北京城市导览图片,首页上方轮播图片净化
 旅途随身听 = type=http-response, pattern=^https?:\/\/www\.1314zhilv\.com\/ltsstnew\/(common\/getJGQIconNew|city\/getAllBannelByCity), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ltsst-ad.js, requires-body=true, timeout=60
 
 # > 罗森点点
-罗森点点 = type=http-response, pattern=^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/lawson.js, requires-body=true, timeout=60
+罗森点点 = type=http-response, pattern=^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lawson.js, requires-body=true, timeout=60
 
-罗森点点 = type=http-response, pattern=^https:\/\/lawsonapi\.yorentown\.com\/portal\/app\/globalLaunch\/listAdvert, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/lawson.js, requires-body=true, timeout=60
+罗森点点 = type=http-response, pattern=^https:\/\/lawsonapi\.yorentown\.com\/portal\/app\/globalLaunch\/listAdvert, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lawson.js, requires-body=true, timeout=60
 
 # > 买单吧
-mdb = type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/rcg\/index\.html\?callbackurl=rcg\/index\.html&orclogin=1&, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/mdb.js, requires-body=true, timeout=60
+mdb = type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/rcg\/index\.html\?callbackurl=rcg\/index\.html&orclogin=1&, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mdb.js, requires-body=true, timeout=60
 
 # 我的页面
 芒果TV我的页面 = type=http-response, pattern=^https?:\/\/me\.bz\.mgtv\.com\/v3\/module\/list\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cnftp.js, requires-body=true, timeout=60
@@ -3456,10 +3456,10 @@ mdb = type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\
 马蜂窝 = type=http-response, pattern=^https?:\/\/mapi\.mafengwo\.cn\/user\/profile\/get_(list|profile), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/mafengwo.js, requires-body=true, timeout=60
 
 # 帖子末尾 看过此贴的用户也在看
-脉脉帖子末尾 = type=http-response, pattern=^https:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v6\/detail_recommend_feeds\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/maimai_ads.js, requires-body=true, timeout=60
+脉脉帖子末尾 = type=http-response, pattern=^https:\/\/(h3\.)?open\.taou\.com\/maimai\/feed\/v6\/detail_recommend_feeds\?, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/maimai/maimai_ads.js, requires-body=true, timeout=60
 
 # 移除信息流和评论区大块广告 信息流广告focus_feed / 评论区广告gossip_detail_comment / 评论区广告feed_detail_comment?
-脉脉 = type=http-response, pattern=^https:\/\/(h3\.)?open\.taou\.com\/maimai\/(feed|gossip)\/v\d\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/maimai_ads.js, requires-body=true, timeout=60
+脉脉 = type=http-response, pattern=^https:\/\/(h3\.)?open\.taou\.com\/maimai\/(feed|gossip)\/v\d\/(focus_feed|gossip_detail_comment|feed_detail_comment?)\?, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/maimai/maimai_ads.js, requires-body=true, timeout=60
 
 # > 美柚
 美柚App净化 = type=http-response, pattern=^https:\/\/config-service\.seeyouyima\.com\/api\/configs\/batch\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/meiyou_ads.js, requires-body=true, timeout=60
@@ -3467,13 +3467,13 @@ mdb = type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\
 美柚App净化 = type=http-response, pattern=^https:\/\/config-service\.seeyouyima\.com\/api\/configs\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/meiyou_ads.js, requires-body=true, timeout=60
 
 # > 咪咕视频
-咪咕视频个人中心去广告 = type=http-response, pattern=^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/miguvideo_ads.js, requires-body=true, timeout=60
+咪咕视频个人中心去广告 = type=http-response, pattern=^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js, requires-body=true, timeout=60
 
 # > 朴朴超市
-朴朴超市 = type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=2(%[A-Z0-9]+)+&store_id, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/PupuSplashAds.js, requires-body=true, timeout=60
+朴朴超市 = type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=2(%[A-Z0-9]+)+&store_id, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PupuSplashAds.js, requires-body=true, timeout=60
 
 # 首页开屏广告 感谢【德克萨斯】分享
-去哒 = type=http-response, pattern=^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/QuDa.js, requires-body=true, timeout=60
+去哒 = type=http-response, pattern=^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/QuDa.js, requires-body=true, timeout=60
 
 # 我的页净化
 去哒 = type=http-response, pattern=^https?:\/\/cupid\.51job(app)?\.com\/open\/my-page\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/51job.js, requires-body=true, timeout=60
@@ -3482,7 +3482,7 @@ mdb = type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\
 企迈（挪瓦咖啡、林里柠檬茶、霸王茶姬、陈香贵） = type=http-response, pattern=^https?:\/\/(?>webapi|miniapp)\.qmai\.cn\/web\/catering([0-9]-apiserver)?\/advertising\/ad\/advertiseInfo, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/qmai.js, requires-body=true, timeout=60
 
 # 过滤推广 关NSFW提示 感谢【xream】分享
-reddit = type=http-response, pattern=^https?:\/\/gql(-fed)?\.reddit\.com, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/reddit.js, requires-body=true, timeout=60
+reddit = type=http-response, pattern=^https?:\/\/gql(-fed)?\.reddit\.com, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js, requires-body=true, timeout=60
 
 # RRTV_level_info
 rrtv_json = type=http-response, pattern=^https?:\/\/api\.rr\.tv\/\w{3}\/level\/info, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/rrtv_json.js, requires-body=true, timeout=60
@@ -3579,13 +3579,13 @@ Smzdm = type=http-response, pattern=^https?:\/\/qianbao\.smzdm\.com\/v\d\/app\/h
 淘宝 = type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/myBlockAds.js, requires-body=true, timeout=60
 
 # > 腾讯新闻
-腾讯新闻 = type=http-response, pattern=^https?:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/event_detail|news_feed\/hot_module_list)), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/qq-news.js, requires-body=true, timeout=60
+腾讯新闻 = type=http-response, pattern=^https?:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/event_detail|news_feed\/hot_module_list)), script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js, requires-body=true, timeout=60
 
 # App去开屏广告(需全新应用). 若要去新闻列表广告需要搭配广告联盟模块
-vgTime = type=http-response, pattern=^https?:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/vgtime.js, requires-body=true, timeout=60
+vgTime = type=http-response, pattern=^https?:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js, requires-body=true, timeout=60
 
 # 微信跳过中间界面，支付宝链接、被封禁链接进行通知弹窗跳转，在微信中用快照显示被封禁的链接（可选），在微信中进行强制重定向（可选），群聊 / 扫码均可使用，可选项可在脚本 2、3 行更改，也可在 BoxJs 中更改。
-UnblockURLinWeChat-解除微信链接限制 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/UnblockURLinWeChat.js, requires-body=true, timeout=60
+UnblockURLinWeChat-解除微信链接限制 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js, requires-body=true, timeout=60
 
 # mian | 热推、有话想说、分享一下、歌曲下的祝福等小提示去除 ｜ 评论区 乐迷、星评等级 关注 等 图标去除
 NetEaseCloudMusic_mian = type=http-response, pattern=^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/(batch|v\d\/resource\/comment\/floor\/get), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/wyres.js, requires-body=true, binary-body-mode=true, timeout=20
@@ -3606,10 +3606,10 @@ NetEaseCloudMusic_mybarad = type=http-response, pattern=^https?:\/\/(ipv4|interf
 NetEaseCloudMusic_foll = type=http-response, pattern=^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/user\/follow\/users\/mixed\/get, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/wyres.js, requires-body=true, binary-body-mode=true, timeout=20
 
 # 首页净化，学习Tab界面净化，首页听读训练净化
-网易有道词典 = type=http-response, pattern=^https?:\/\/dict\.youdao\.com\/(homepage\/promotion|course\/tab\/home|homepage\/tile), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/dict-youdao-ad.js, requires-body=true, timeout=60
+网易有道词典 = type=http-response, pattern=^https?:\/\/dict\.youdao\.com\/(homepage\/promotion|course\/tab\/home|homepage\/tile), script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/youdao/dict-youdao-ad.js, requires-body=true, timeout=60
 
 # > 温尼伯站
-温尼伯站 = type=http-response, pattern=^https:\/\/vue3-api\.zhixiny\.cn\/v1\/initui\?key=index, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/wnbz.js, requires-body=true, timeout=60
+温尼伯站 = type=http-response, pattern=^https:\/\/vue3-api\.zhixiny\.cn\/v1\/initui\?key=index, script-path=https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js, requires-body=true, timeout=60
 
 # > 小米商城
 小米商城 = type=http-response, pattern=^https?:\/\/api\.m\.mi\.com\/v1\/app\/start, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/myBlockAds.js, requires-body=true, timeout=60
@@ -3695,7 +3695,7 @@ YouTube响应体 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.
 优酷开屏广告 = type=http-response, pattern=^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cnftp.js, requires-body=true, timeout=60
 
 # > 悠洗APP
-悠洗APP = type=http-response, pattern=^https?:\/\/api\.ulife\.group\/market\/homeIconDetail\/list\/v7, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/yx.js, requires-body=true, timeout=60
+悠洗APP = type=http-response, pattern=^https?:\/\/api\.ulife\.group\/market\/homeIconDetail\/list\/v7, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/yx.js, requires-body=true, timeout=60
 
 # 首页 - 悬浮图标、顶部横幅、开屏广告、关注页推荐、推荐信息流、热榜信息流、热榜直播、回答底部卡片、精简顶部标签
 知乎移除首页推广 = type=http-response, pattern=^https:\/\/(?:api|page-info)\.zhihu\.com\/(?:answers|articles)\/v2\/\d+, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/zhihu.js, requires-body=true
@@ -3732,7 +3732,7 @@ YouTube响应体 = type=http-response, pattern=^https:\/\/youtubei\.googleapis\.
 掌上公交小程序广告 = type=http-response, pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/zhangshanggongjiao.js, requires-body=true, timeout=60
 
 # “我的”页面去除冗余的模块
-转转 = type=http-response, pattern=^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/zhuanzhuan.js, requires-body=true, timeout=60
+转转 = type=http-response, pattern=^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3, script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js, requires-body=true, timeout=60
 
 # > 中国国际航空
 中国国际航空 = type=http-response, pattern=^https:\/\/m\.airchina\.com\.cn\/airchina\/gateway\/v\d(\.\d)*\/api\/services, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/airchina.js, timeout=60
