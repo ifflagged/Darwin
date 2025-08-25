@@ -1541,6 +1541,8 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 ^https?:\/\/api\.prod\.dj\.mstand\.cn\/system\/dms\/dmsAdSetting\/issue data-type=text data="{}"
 # manmanbuy
 ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx$ data-type=text data="{}"
+# mihome
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v\d\/resource\/realtime\/openingBanner data-type=text data="{}"
 # meituan
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/.+\.(gif|jpg)\.webp$ data-type=tiny-gif
 ^https?:\/\/img\.meituan\.net\/groceryimages\/\w+\.gif data-type=tiny-gif
