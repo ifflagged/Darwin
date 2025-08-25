@@ -1259,24 +1259,24 @@ https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do data-type
 ^https?:\/\/api\.zcool\.com\.cn\/.*common\/open-screen data-type=text data=" " status-code=200
 
 # > dongqiudi
-^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 data-type=file data="https://raw.githubusercontent.com/ddgksf2013/Scripts/master/dongqiudi.js"
+^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 data-type=file data="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dongqiudi.js"
 
 [Script]
 # > 369chuxing
 dict = type=http-response, pattern=^https?:\/\/api\.369cx\.cn\/v\d\/Splash\/GetSplashAd, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dict.js, requires-body=true, max-size=-1, timeout=60
 
 # > 555
-555Ad = type=http-response, pattern="^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/movie\/index_recommend", script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/555Ad.js, requires-body=true, max-size=-1, timeout=60
+555Ad = type=http-response, pattern="^https?:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/api\/v\d\/movie\/index_recommend", script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/555Ad.js, requires-body=true, max-size=-1, timeout=60
 
-123pan = type=http-response, pattern=^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_/-]+\.html, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/123pan.js, requires-body=true, max-size=-1, timeout=60
+123pan = type=http-response, pattern=^https?:\/\/www\.123pan\.com\/s\/[0-9a-zA-Z=_/-]+\.html, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/123pan.js, requires-body=true, max-size=-1, timeout=60
 
-12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/12306.js, requires-body=true, max-size=-1, timeout=60
+12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/12306.js, requires-body=true, max-size=-1, timeout=60
 
 # > amdc
-amdc = type=http-response, pattern=^http:\/\/amdc\.m\.taobao\.com, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js, requires-body=true, max-size=-1, timeout=60
+amdc = type=http-response, pattern=^http:\/\/amdc\.m\.taobao\.com, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/amdc.js, requires-body=true, max-size=-1, timeout=60
 
 # > ahfs
-ahfs = type=http-response, pattern=^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$), script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ahfs.js, requires-body=true, max-size=-1, timeout=60
+ahfs = type=http-response, pattern=^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/ahfs.js, requires-body=true, max-size=-1, timeout=60
 
 # > baiduditu
 baidumap = type=http-response, pattern=^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/baidumap.js, requires-body=true, max-size=-1, timeout=60
@@ -1287,7 +1287,7 @@ baishitv = type=http-response, pattern=^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/
 replaceBody = type=http-response, pattern=https://beta-api.crunchyroll.com/cms, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=offset_ms%22%3A%5Cd%2B-%3Eoffset_ms%22%3A99999999999999
 
 # > caixin
-caixinads = type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caixinads.js, requires-body=true, max-size=-1, timeout=60
+caixinads = type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/caixinads.js, requires-body=true, max-size=-1, timeout=60
 
 #BahamutAnimeAds = type=http-response, pattern=^https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d\/(token|m3u8).php\?, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js, requires-body=true, max-size=-1, timeout=60
 
@@ -1296,23 +1296,23 @@ replaceBody = type=http-response, pattern=^https?:\/\/maicai\.api\.ddxq\.mobi\/a
 
 replaceBody = type=http-response, pattern=^https?:\/\/.*flyert.*\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=adv-%3Eddgksf2013
 
-fly = type=http-response, pattern=^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/fly.js, requires-body=true, max-size=-1, timeout=60
+fly = type=http-response, pattern=^https?:\/\/.*flyert.*\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/fly.js, requires-body=true, max-size=-1, timeout=60
 
-hanglvzongheng = type=http-response, pattern=^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/hanglvzongheng.js, timeout=60
+hanglvzongheng = type=http-response, pattern=^https?:\/\/.*umetrip\.com\.cn\/gateway\/api\/umetrip\/native$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/hanglvzongheng.js, timeout=60
 
-#hanglvzongheng = type=http-response, pattern=^https?:\/\/114\.115\.217\.129\/gateway\/api\/umetrip\/native$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/hanglvzongheng.js, timeout=60
+#hanglvzongheng = type=http-response, pattern=^https?:\/\/114\.115\.217\.129\/gateway\/api\/umetrip\/native$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/hanglvzongheng.js, timeout=60
 
 # > i3
 #replaceBody = type=http-response, pattern=^https?:\/\/www\.i3zh\.com, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=cm-pop-up-banners-%3Eddgksf2013
 
 # > iQiYi
-iqiyi_open_ads = type=http-response, pattern=^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/iqiyi_open_ads.js, requires-body=true, max-size=-1, timeout=60
+iqiyi_open_ads = type=http-response, pattern=^https?:\/\/.*cupid\.iqiyi\.com\/mixer\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/iqiyi_open_ads.js, requires-body=true, max-size=-1, timeout=60
 
 # > ithome
 ithome = type=http-response, pattern=^https?:\/\/napi\.ithome\.com\/api\/news\/indexv\d\/iphone, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/ithome.js, requires-body=true, max-size=-1, timeout=60
 
 # > jingxi
-startup = type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/startup.js, requires-body=true, max-size=-1, timeout=60
+startup = type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/startup.js, requires-body=true, max-size=-1, timeout=60
 
 jd_json = type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/jd_json.js, requires-body=true, max-size=-1, timeout=60
 
@@ -1329,7 +1329,7 @@ coolapk = type=http-response, pattern=^https?:\/\/api\.coolapk\.com\/v6\/(feed\/
 coolapk = type=http-response, pattern=^https?:\/\/api.coolapk.com\/v6\/main\/init, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/coolapk.js, requires-body=true, max-size=-1, timeout=60
 
 # > kuake
-quark = type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/quark.js, requires-body=true, max-size=-1, timeout=60
+quark = type=http-response, pattern=^https?:\/\/open-cms-api\.(uc|quark)\.cn\/open-cms, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/quark.js, requires-body=true, max-size=-1, timeout=60
 
 # > manmanmai
 replaceBody = type=http-response, pattern=^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=splashAD-%3Eddgksf2013
@@ -1340,7 +1340,7 @@ abchina = type=http-response, pattern=^https?:\/\/mobilepaas\.abchina\.com\.cn:4
 # > ocleancare*
 replaceBody = type=http-response, pattern=^https?:\/\/careapi\.oclean\.com\/mall\/v\d\/User\/GetUserCenter, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=banner%22-%3Eddgksf2013%22
 
-pupumarket = type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pupumarket.js, requires-body=true, max-size=-1, timeout=60
+pupumarket = type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v\d\?position, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/pupumarket.js, requires-body=true, max-size=-1, timeout=60
 
 # > pinganjiankang
 pinganads = type=http-response, pattern=^https?:\/\/api\.jk\.cn\/m\.api, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/pinganads.js, timeout=60
@@ -1353,13 +1353,13 @@ qidian = type=http-response, pattern=^https?:\/\/apps\.teamair\.cn\/app\/version
 
 #spotify-json = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=60
 
-shunfeng_json = type=http-response, pattern=https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js, requires-body=true, max-size=-1, timeout=60
+shunfeng_json = type=http-response, pattern=https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/shunfeng_json.js, requires-body=true, max-size=-1, timeout=60
 
 # > shihuo
 replaceBody = type=http-response, pattern=^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=egin_time%22%3A%22%5Cd%7B4%7D-%3Eegin_time%22%3A%222099
 
 # > Stay
-stay = type=http-response, pattern=^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/stay.js, requires-body=true, max-size=-1, timeout=60
+stay = type=http-response, pattern=^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/stay.js, requires-body=true, max-size=-1, timeout=60
 
 # > shenmezhidemai
 smzdm_json = type=http-response, pattern=^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/smzdm_json.js, requires-body=true, max-size=-1, timeout=60
@@ -1377,7 +1377,7 @@ replaceBody = type=http-request, pattern=^https?:\/\/testflight\.apple\.com\/v2\
 v2ex = type=http-response, pattern=^https?:\/\/.*v2ex\.com\/($|t\/\d+), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/v2ex.js, requires-body=true, max-size=-1, timeout=60
 
 # > WeChat110
-weixin110 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/weixin110.js, requires-body=true, max-size=-1, timeout=60
+weixin110 = type=http-response, pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/weixin110.js, requires-body=true, max-size=-1, timeout=60
 
 replaceBody = type=http-response, pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=advertisement-%3Eddgksf2013
 

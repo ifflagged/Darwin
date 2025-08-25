@@ -94,7 +94,7 @@ weibo_json = type=http-response, pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/
 weibo_search_info = type=http-response, pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=get_searching_info, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/Weibo/weibo_search_info.json, requires-body=true, max-size=-1, timeout=60
 
 # > 微博国际版_屏蔽search_topic@shiro
-weibo_search_topic = type=http-response, pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_topic.json, requires-body=true, max-size=-1, timeout=60
+weibo_search_topic = type=http-response, pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/Weibo/weibo_search_topic.json, requires-body=true, max-size=-1, timeout=60
 
 # > 微博国际版_屏蔽开屏广告@ddgksf2013 
 weibo_json = type=http-response, pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/Weibo/weibo_json.js, requires-body=true, max-size=-1, timeout=60
