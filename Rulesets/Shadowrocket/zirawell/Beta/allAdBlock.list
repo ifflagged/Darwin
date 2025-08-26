@@ -651,7 +651,6 @@ DOMAIN-SUFFIX,alitui.weibo.com.cn
 DOMAIN-SUFFIX,amfi.gou.sogou.com
 DOMAIN-SUFFIX,analy.qq.com
 DOMAIN-SUFFIX,analytics.163.com
-DOMAIN-SUFFIX,analytics.meituan.net
 DOMAIN-SUFFIX,analytics.snssdk.com
 DOMAIN-SUFFIX,anquan.baidu.com
 DOMAIN-SUFFIX,antivirus.baidu.com
@@ -1318,6 +1317,7 @@ DOMAIN-KEYWORD,pangolin.snssdk.com
 DOMAIN-KEYWORD,pgdt.gtimg.c
 DOMAIN-KEYWORD,pglstatp-toutiao
 DOMAIN-KEYWORD,push.m.youku.com
+DOMAIN-KEYWORD,report.meituan
 DOMAIN-KEYWORD,s1.pstatp.com
 DOMAIN-KEYWORD,s2.pstatp.com
 DOMAIN-KEYWORD,s3.pstatp.com
