@@ -1,4 +1,4 @@
-#规则数量:1330
+#规则数量:1329
 #不支持的规则数量:0
 #已排除的规则数量:0
 
@@ -1318,7 +1318,6 @@ DOMAIN-KEYWORD,pangolin.snssdk.com
 DOMAIN-KEYWORD,pgdt.gtimg.c
 DOMAIN-KEYWORD,pglstatp-toutiao
 DOMAIN-KEYWORD,push.m.youku.com
-DOMAIN-KEYWORD,report.meituan
 DOMAIN-KEYWORD,s1.pstatp.com
 DOMAIN-KEYWORD,s2.pstatp.com
 DOMAIN-KEYWORD,s3.pstatp.com
