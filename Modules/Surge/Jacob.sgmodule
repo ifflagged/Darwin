@@ -21,7 +21,7 @@ encrypted-dns-follow-outbound-mode = false
 DOMAIN,httpdns.alicdn.com,REJECT,extended-matching
 DOMAIN,httpdns-api.aliyuncs.com,REJECT,extended-matching
 DOMAIN,httpdns-sc.aliyuncs.com,REJECT,extended-matching
-IP-CIDR,203.107.1.0/24,REJECT,no-resolve
+IP-CIDR,203.107.1.0/24,REJECT,no-resolve,pre-matching
 DOMAIN,httpsdns.baidu.com,REJECT,extended-matching
 DOMAIN,httpdns.baidu.com,REJECT,extended-matching
 DOMAIN,httpdns.baidubce.com,REJECT,extended-matching
