@@ -66,8 +66,8 @@ jobs:
             # 构建模块的 URL
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=surge-module&category=${encoded_category}&nore=true&jqEnabled=true"
-            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.plugin?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.plugin?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
+            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lpx?type=loon-plugin&target=loon-plugin&category=${encoded_category}&icon=Loon&nore=true&jqEnabled=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.sgmodule?type=surge-module&target=shadowrocket-module&category=${encoded_category}&nore=true&jqEnabled=true"
 
@@ -77,8 +77,8 @@ jobs:
             curl -A "Surge Mac/2985" -L -o "Modules/Surge/$author/Beta/$filename_noext.sgmodule" "$Surge_Beta_url" || echo "Failed to download $filename_noext.sgmodule"
 
             echo "Downloading Loon file: $Loon_url"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/$filename_noext.plugin" "$Loon_url" || echo "Failed to download $filename_noext.plugin"
-            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/Beta/$filename_noext.plugin" "$Loon_Beta_url" || echo "Failed to download $filename_noext.plugin"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/$filename_noext.lpx" "$Loon_url" || echo "Failed to download $filename_noext.lpx"
+            curl -A "Surge Mac/2985" -L -o "Modules/Loon/$author/Beta/$filename_noext.lpx" "$Loon_Beta_url" || echo "Failed to download $filename_noext.lpx"
 
             echo "Downloading Shadowrocket file: $Shadowrocket_url"
             curl -A "Surge Mac/2985" -L -o "Modules/Shadowrocket/$author/$filename_noext.srmodule" "$Shadowrocket_url" || echo "Failed to download $filename_noext.srmodule"
@@ -122,8 +122,8 @@ jobs:
                 
                 # 获取对应的 Loon 和 Shadowrocket 插件文件名
                 surge_Beta_file="Modules/Surge/$author/Beta/$module_folder.sgmodule"
-                loon_file="Modules/Loon/$author/$module_folder.plugin"
-                loon_Beta_file="Modules/Loon/$author/Beta/$module_folder.plugin"
+                loon_file="Modules/Loon/$author/$module_folder.lpx"
+                loon_Beta_file="Modules/Loon/$author/Beta/$module_folder.lpx"
                 shadowrocket_file="Modules/Shadowrocket/$author/$module_folder.srmodule"
                 shadowrocket_Beta_file="Modules/Shadowrocket/$author/Beta/$module_folder.srmodule"
 
