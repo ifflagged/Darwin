@@ -33,7 +33,7 @@ http-response ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\? sc
 
 http-response ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/card\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_22, argument=%5B%5B%22json-del%22%2C%5B%22preview_guide%22%5D%5D%5D
 
-http-response ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\/recently-played-media\? script-path=https://kelee.one/Resource/JavaScript/SodaMusic/SodaMusic_remove_ads.js, requires-body=true, tag=移除播放页面视频流
+http-response ^https:\/\/(beta-luna\.douyin|api5-lq\.qishui)\.com\/luna\/me\/recently-played-media\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/SodaMusic_remove_ads/SodaMusic_remove_ads.js, requires-body=true, tag=移除播放页面视频流
 
 [MITM]
 hostname = webcast-open.douyin.com, beta-luna.douyin.com, api.qishui.com, api5-lq.qishui.com, tnc*-*.zijieapi.com
