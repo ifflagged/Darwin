@@ -50,13 +50,13 @@ jobs:
           echo "⚠️ 目录不存在"
         fi
 
-    - name: Rename and move .lpx files
-      run: |
-        mkdir -p Modules/Loon/Kelee/Official
-        find Plugin -name '*.lpx' | while read file; do
-          base=$(basename "$file" .lpx)
-          cp "$file" "Modules/Loon/Kelee/Official/$base.plugin"
-        done
+#    - name: Rename and move .lpx files
+#      run: |
+#        mkdir -p Modules/Loon/Kelee/Official
+#        find Plugin -name '*.lpx' | while read file; do
+#          base=$(basename "$file" .lpx)
+#          cp "$file" "Modules/Loon/Kelee/Official/$base.plugin"
+#        done
 
     - name: Replace JS links in all plugins
       run: python3 ShalalaLala/Scripts/kelee_extract_and_replace.py
