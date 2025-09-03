@@ -62,8 +62,8 @@ jobs:
             # 构建模块的 URL
             Surge_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true"
             Surge_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=surge-rule-set&nore=true&jqEnabled=true"
-            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=loon-rule-set&icon=Loon&nore=true"
-            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true"
+            Loon_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true"
+            Loon_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.lsr?type=rule-set&target=loon-rule-set&icon=Loon&nore=true&jqEnabled=true"
             Shadowrocket_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true"
             Shadowrocket_Beta_url="http://localhost:9101/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=shadowrocket-rule-set&nore=true&jqEnabled=true"
             Clash_url="http://localhost:9100/file/_start_/${encoded_module_link}/_end_/${encoded_filename}.list?type=rule-set&target=stash-rule-set&nore=true"
@@ -75,8 +75,8 @@ jobs:
             curl -A "Surge Mac/2985" -L -o "Rulesets/Surge/$author/Beta/$filename_noext.list" "$Surge_Beta_url" || echo "Failed to download $filename_noext.list"
 
             echo "Downloading Loon file: $Loon_url"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/$filename_noext.list" "$Loon_url" || echo "Failed to download $filename_noext.list"
-            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/Beta/$filename_noext.list" "$Loon_Beta_url" || echo "Failed to download $filename_noext.list"
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/$filename_noext.lsr" "$Loon_url" || echo "Failed to download $filename_noext.lsr"
+            curl -A "Surge Mac/2985" -L -o "Rulesets/Loon/$author/Beta/$filename_noext.lsr" "$Loon_Beta_url" || echo "Failed to download $filename_noext.lsr"
 
             echo "Downloading Shadowrocket file: $Shadowrocket_url"
             curl -A "Surge Mac/2985" -L -o "Rulesets/Shadowrocket/$author/$filename_noext.list" "$Shadowrocket_url" || echo "Failed to download $filename_noext.list"
