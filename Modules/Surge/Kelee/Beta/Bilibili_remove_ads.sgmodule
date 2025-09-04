@@ -10,7 +10,7 @@
 #!system_version=15
 #!loon_version=3.2.9(837)
 #!homepage=https://hub.kelee.one
-#!date=2025-08-28 23:53:54
+#!date=2025-09-04 23:44:49
 #!arguments=showUpList:"auto",purifyTopReplies:true,purifyWebpage:true,airborne:false,logLevel:"off"
 
 [Rule]
