@@ -1,5 +1,5 @@
 #!name=Apple天气增强
-#!desc=解锁Apple天气的全部功能、替换空气质量数据源、添加下一小时降水数据、添加天气数据，仅支持iOS 18和iPadOS 18。
+#!desc=解锁Apple天气的全部功能、替换空气质量数据源、添加下一小时降水数据、添加天气数据。
 #!author=VirgilClyne[https://github.com/VirgilClyne], WordlessEcho[https://github.com/WordlessEcho], 001[https://github.com/001ProMax]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/AppleWeather.png
 #!category=Jacob
@@ -10,7 +10,7 @@
 #!system_version=18
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-05 00:08:25
+#!date=2025-09-05 00:18:03
 #!arguments=DataSets:"airQuality,Weather.Provider:"WeatherKit",NextHour.Provider:"ColorfulClouds",AQI.Provider:"ColorfulClouds",AQI.ReplaceProviders:"QWeather",AQI.ComparisonProvider:"Auto",AQI.Local.ReplaceScales:"HJ6332012",AQI.Local.Scale:"EPA_NowCast",AQI.Local.ConvertUnits:false,API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",LogLevel:"WARN"
 
 [Rule]
