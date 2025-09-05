@@ -9,7 +9,7 @@
 #!system_version=18
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-05 00:18:03
+#!date=2025-09-05 22:07:11
 #!arguments=DataSets:"airQuality,Weather.Provider:"WeatherKit",NextHour.Provider:"ColorfulClouds",AQI.Provider:"ColorfulClouds",AQI.ReplaceProviders:"QWeather",AQI.ComparisonProvider:"Auto",AQI.Local.ReplaceScales:"HJ6332012",AQI.Local.Scale:"EPA_NowCast",AQI.Local.ConvertUnits:false,API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",LogLevel:"WARN"
 
 [Rule]
