@@ -86,6 +86,7 @@ IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT,no-resolve
 # iRingo.WeatherKit
 DOMAIN,weather-analytics-events.apple.com,REJECT-DROP
 DOMAIN-SUFFIX,tthr.apple.com,REJECT-DROP,extended-matching
+DOMAIN,tether.edge.apple,REJECT-DROP,extended-matching
 # iRingo.Location
 DOMAIN,gspe1-ssl.ls.apple.com,DIRECT
 # iRingo.Maps
