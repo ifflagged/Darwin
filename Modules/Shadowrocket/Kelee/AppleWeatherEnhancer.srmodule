@@ -10,12 +10,14 @@
 #!system_version=18
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-05 22:07:11
+#!date=2025-09-11 15:47:00
 #!arguments=DataSets:"airQuality,Weather.Provider:"WeatherKit",NextHour.Provider:"ColorfulClouds",AQI.Provider:"ColorfulClouds",AQI.ReplaceProviders:"QWeather",AQI.ComparisonProvider:"Auto",AQI.Local.ReplaceScales:"HJ6332012",AQI.Local.Scale:"EPA_NowCast",AQI.Local.ConvertUnits:false,API.ColorfulClouds.Token:"",API.QWeather.Host:"devapi.qweather.com",API.QWeather.Token:"",API.WAQI.Token:"",LogLevel:"WARN"
 
 [Rule]
-DOMAIN,weather-analytics-events.apple.com,REJECT
-DOMAIN-SUFFIX,tthr.apple.com,REJECT
+DOMAIN,weather-analytics-events.apple.com,REJECT-DROP
+DOMAIN,tether.edge.apple,REJECT-DROP
+DOMAIN-SUFFIX,tthr.apple.com,REJECT-DROP
+AND,((OR,((IP-CIDR,17.0.0.0/8,no-resolve),(IP-CIDR6,2620:149::/32,no-resolve))),(PROTOCOL,QUIC)),REJECT
 
 [Script]
 Availability响应处理 = type=http-response, pattern=^https?:\/\/weatherkit\.apple\.com\/api\/v1\/availability\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/AppleWeatherEnhancer/response.bundle.js, requires-body=true, argument="[{{{DataSets}}},{{{Weather.Provider}}},{{{NextHour.Provider}}},{{{AQI.Provider}}},{{{AQI.ReplaceProviders}}},{{{AQI.ComparisonProvider}}},{{{AQI.Local.ReplaceScales}}},{{{AQI.Local.Scale}}},{{{AQI.Local.ConvertUnits}}},{{{API.ColorfulClouds.Token}}},{{{API.QWeather.Host}}},{{{API.QWeather.Token}}},{{{API.WAQI.Token}}},{{{LogLevel}}}]"
