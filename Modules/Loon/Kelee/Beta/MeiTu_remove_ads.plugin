@@ -8,17 +8,14 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-05-13 15:17:08
+#!date=2025-08-31 18:06:06
+
+[Rule]
+DOMAIN,adui.tg.meitu.com,REJECT
 
 [Rewrite]
-^https:\/\/api\.xiuxiu\.meitu\.com\/v\d\/common\/config\.json response-body-json-del data.home_top_live data.splashControl
-^https:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/tool\/common\/operation_icon\.json response-body-json-del data.home_top_icon
 ^https:\/\/api\.posters\.meitu\.com\/common\/init\.json response-body-json-del data.vip
-^https:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/tool\/common\/home\.json response-body-json-del data[0].items[10] data[1].scheme data[1].wallet_title data[1].items[1] data[1].items[1] data[2].items[1]
-^https:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/vip\/sub_popup\.json - reject-dict
-^https:\/\/(api|tool)\.xiuxiu\.meitu\.com\/\/v\d\/vip\/popup_show\.json - reject-dict
-^https:\/\/api\.posters\.meitu\.com\/homepage\/leaflets\.json\? - reject-dict
 
 [MITM]
-hostname = api.xiuxiu.meitu.com, tool.xiuxiu.meitu.com, api.posters.meitu.com
+hostname = api.posters.meitu.com
 

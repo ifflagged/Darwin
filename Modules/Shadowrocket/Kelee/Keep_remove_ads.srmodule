@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-05-23 13:32:55
+#!date=2025-09-07 18:09:57
 
 [Rule]
 DOMAIN,kad.gotokeep.com,REJECT

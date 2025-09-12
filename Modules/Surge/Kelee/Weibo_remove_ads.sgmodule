@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-08-24 16:07:27
+#!date=2025-08-24 19:27:15
 
 [Rule]
 DOMAIN-SUFFIX,uve.weibo.com,DIRECT

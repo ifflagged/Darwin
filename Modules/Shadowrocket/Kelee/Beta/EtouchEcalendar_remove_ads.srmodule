@@ -8,12 +8,13 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-05-13 15:17:08
+#!date=2025-09-06 20:56:43
 
 [Rule]
 DOMAIN,sdk.ad.sfys365.com,REJECT
 
 [URL Rewrite]
+^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/auth\/voice_room_entrance\/list\? - reject-dict
 ^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/question_spots\/panel\? - reject-dict
 ^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/jujia\/flow\? - reject-dict
 ^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/album\/hl_card\? - reject-dict
