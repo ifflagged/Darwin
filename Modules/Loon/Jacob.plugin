@@ -877,6 +877,8 @@ DOMAIN,tuiguang.meitu.com,REJECT
 DOMAIN,stat.meitudata.com,REJECT
 # seeYouYiMa
 DOMAIN,ad.seeyouyima.com,REJECT
+# beautycam
+DOMAIN,aaid.uyunad.com,REJECT
 # Pinduoduo
 DOMAIN,sdk.1rtb.net,REJECT
 DOMAIN,titan.pinduoduo.com,REJECT
