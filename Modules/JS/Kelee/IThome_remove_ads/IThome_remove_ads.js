@@ -1,8 +1,8 @@
-// 2025-09-18 21:01:22
+// 2025-09-18 21:40:48
 
 (() => {
     if (!$response?.body) return $done({});
-    
+
     let modified = false;
     let body;
     
@@ -13,11 +13,7 @@
         return $done({});
     }
 
-    const { url } = $request;
-    if (!url.includes("/api/topmenu/getfeeds?")) {
-        return $done({});
-    }
-    
+    // 获取参数值
     const removeAllBanners = $argument?.removeAllBanners !== undefined ? $argument.removeAllBanners : true;
     const removePinnedArticles = $argument?.removePinnedArticles !== undefined ? $argument.removePinnedArticles : true;
     
@@ -73,11 +69,13 @@
         modified ||= (originalLength !== body.data.list.length);
     };
     
+    // 执行所有过滤函数
     removeAllBannersFunc();
     removePinnedArticlesFunc();
     removeBannerAdsFunc();
     removeFeedAdsFunc();
     
+    // 仅在修改时重新序列化
     $done(modified ? {
         body: JSON.stringify(body),
     } : {});
