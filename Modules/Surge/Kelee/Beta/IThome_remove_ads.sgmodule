@@ -8,15 +8,15 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-18 04:08:07
-#!arguments=removeBanners:false,removePinnedArticles:false
+#!date=2025-09-18 21:23:13
+#!arguments=removeAllBanners:false,removePinnedArticles:false
 
 [URL Rewrite]
 ^https?:\/\/api\.zuihuimai\.com\/static\/.*\/hongbao - reject
 ^https?:\/\/dat\.ruanmei\.com\/ithome\/money\/acd\.json$ - reject
 
 [Script]
-IT之家去广告 = type=http-response, pattern=^https:\/\/napi\.ithome\.com\/api\/topmenu\/getfeeds\?, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/IThome_remove_ads/IThome_remove_ads.js, requires-body=true, argument="[{{{removeBanners}}},{{{removePinnedArticles}}}]"
+IT之家去广告 = type=http-response, pattern=^https:\/\/napi\.ithome\.com\/api\/(news\/indexv2\/|topmenu\/getfeeds\?), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/IThome_remove_ads/IThome_remove_ads.js, requires-body=true, argument="[{{{removeAllBanners}}},{{{removePinnedArticles}}}]"
 
 [MITM]
 hostname = %APPEND% napi.ithome.com, api.zuihuimai.com, dat.ruanmei.com
