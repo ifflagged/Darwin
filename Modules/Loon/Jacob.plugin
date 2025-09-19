@@ -814,9 +814,11 @@ AND,((IP-ASN,63646,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)),REJECT
 # dianping
 DOMAIN,r.dianping.com,REJECT
 DOMAIN,tte.meituan.com,REJECT
+DOMAIN,lx0.meituan.com,REJECT
 DOMAIN,dpmtpush.dianping.com,REJECT
 DOMAIN,dynamicf.sankuai.com,REJECT
 DOMAIN,live-monitor-broker.sankuai.com,REJECT
+DOMAIN-SUFFIX,lx.meituan.net,REJECT
 IP-CIDR,101.32.16.204/32,REJECT,no-resolve
 IP-CIDR,119.29.126.137/32,REJECT,no-resolve
 # HKDouYin_remove_ads
@@ -1414,6 +1416,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/conf\.diditaxi\.com\.cn\/dynamic\/conf - reject-dict
 # dianping
 ^https?:\/\/103\.37\.155\.60\/fetch - reject
+^https?:\/\/catdot\.dianping\.com\/broker-service\/hijack - reject
 ^https?:\/\/mapi\.dianping\.com\/mapi\/operating\/(?>indexopsmodules|loadsplashconfig) - reject
 ^https?:\/\/mapi\.dianping\.com\/wdrpreload\/userprediction - reject
 ^https?:\/\/mapi\.dianping\.com\/adshopping - reject
