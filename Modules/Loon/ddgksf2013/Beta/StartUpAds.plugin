@@ -826,7 +826,7 @@ https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do - reject-
 # > zcool
 ^https?:\/\/api\.zcool\.com\.cn\/.*common\/open-screen - reject-200
 # > dongqiudi
-^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 mock-response-body data-type=file data-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dongqiudi.js
+^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 mock-response-body data-type=file data-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/dongqiudi.js
 
 [Script]
 # > 369chuxing
@@ -846,7 +846,7 @@ http-response ^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobi
 http-response ^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/ahfs.js, requires-body=true, timeout=60, tag=ahfs
 
 # > baiduditu
-http-response ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/baidumap.js, requires-body=true, timeout=60, tag=baidumap
+http-response ^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js, requires-body=true, timeout=60, tag=baidumap
 
 http-response ^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/baishitv.js, requires-body=true, timeout=60, tag=baishitv
 
@@ -920,7 +920,7 @@ http-response ^https?:\/\/apps\.teamair\.cn\/app\/version script-path=https://gi
 
 #http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=60, tag=spotify-json
 
-http-response https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/shunfeng_json.js, requires-body=true, timeout=60, tag=shunfeng_json
+http-response https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js, requires-body=true, timeout=60, tag=shunfeng_json
 
 # > shihuo
 http-response ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, timeout=30, tag=replaceBody, argument=egin_time%22%3A%22%5Cd%7B4%7D-%3Eegin_time%22%3A%222099
@@ -929,7 +929,7 @@ http-response ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\
 http-response ^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/stay.js, requires-body=true, timeout=60, tag=stay
 
 # > shenmezhidemai
-http-response ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/smzdm_json.js, requires-body=true, timeout=60, tag=smzdm_json
+http-response ^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js, requires-body=true, timeout=60, tag=smzdm_json
 
 # > shenzhouzuche
 http-response ^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dict.js, requires-body=true, timeout=60, tag=dict

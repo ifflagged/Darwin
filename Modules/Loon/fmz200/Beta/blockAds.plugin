@@ -2482,7 +2482,7 @@ https://.+\.gamersky.com/v1/statisticAd - reject-dict
 ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ mock-response-body data-type=base64 data="AAAAACkaHeaQnOe0ouinhumikeOAgeeVquWJp+aIlnVw5Li7IgAoAToAQgBKAA==" mock-data-is-base64=true
 ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo$ mock-response-body data-type=base64 data="AAAAAAIIAQ==" mock-data-is-base64=true
 ^https?:\/\/wrapper\.cyapi\.cn\/v1\/activity\? mock-response-body data-type=json data-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/caiyun.json status-code=200
-^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB05 mock-response-body data-type=json data-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/A3341AB05.json status-code=200
+^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB05 mock-response-body data-type=json data-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ccbLife/A3341AB05.json status-code=200
 ^https?:\/\/(ec|c)api\.lkcoffee\.com\/resource\/m\/eorder\/product\/popAppTagProductList mock-response-body data-type=json data="{"status":"SUCCESS"}"
 # 首页领券悬浮红包
 ^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/bubble\/operate\/info mock-response-body data-type=json data="{"code": 0}"
@@ -2555,10 +2555,10 @@ http-response ^https?:\/\/search\.video\.iqiyi\.com\/q\? script-path=https://git
 http-response ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cnftp.js, requires-body=true, timeout=60, tag=爱奇艺开屏广告,播放广告, enable={aiqiyi_enable}
 
 # 登录后个人界面广告
-http-response ^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/blued.js, requires-body=true, timeout=60, tag=blued登录后个人界面广告, enable={blued_enable}
+http-response ^https?:\/\/social\.blued\.cn\/users\/.+\/more\/ios\?v=2 script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js, requires-body=true, timeout=60, tag=blued登录后个人界面广告, enable={blued_enable}
 
 # > 百度地图
-http-response ^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/baidumap.js, requires-body=true, timeout=60, tag=百度地图广告, enable={bdduditu_enable}
+http-response ^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/baidumap.js, requires-body=true, timeout=60, tag=百度地图广告, enable={bdduditu_enable}
 
 # > 百度贴吧
 http-response ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/tieba-json.js, requires-body=true, timeout=60, tag=百度贴吧广告, enable={bddutpba_enable}
@@ -2570,7 +2570,7 @@ http-request ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.commu
 
 http-response ^https:\/\/live\.bilibili\.com\/blackboard\/era\/.+\.html\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/webpage.bilibili.js, requires-body=true, tag=bilibili.webpage, enable={purifyWebpage}
 
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=bilibili.protobuf, argument="[{showUpList}, {purifyTopReplies}, {airborne}, {logLevel}]"
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.protobuf.response.js, requires-body=true, binary-body-mode=true, tag=bilibili.protobuf, argument="[{showUpList}, {purifyTopReplies}, {airborne}, {logLevel}]"
 
 # > 哔哩哔哩漫画
 http-response ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/UCenterConf script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bilibiliManga.js, requires-body=true, timeout=60, tag=哔哩哔哩漫画, enable={bilimanhua_enable}
@@ -2587,7 +2587,7 @@ http-response ^https:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/plaza\? sc
 http-response ^https:\/\/api\.boohee\.com\/open-interface\/v1\/string\/market_page\?title=metabolism_config$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/bohe_ads.js, requires-body=true, timeout=60, tag=薄荷健康, enable={bohejmkh_enable}
 
 # > 菜鸟裹裹
-http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/header.js, timeout=60, tag=菜鸟裹裹, enable={cdnngogo_enable}
+http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/header.js, timeout=60, tag=菜鸟裹裹, enable={cdnngogo_enable}
 
 http-response ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cainiao.js, requires-body=true, timeout=60, tag=菜鸟裹裹, enable={cdnngogo_enable}
 
@@ -2629,7 +2629,7 @@ http-response ^https?:\/\/daijia\.kuaidadi\.com:443\/gateway script-path=https:/
 http-response ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/didiAds.js, requires-body=true, timeout=60, tag=微信小程序个人中心净化, enable={didiiuxk_enable}
 
 # hostname = app-v1.ecoliving168.com
-http-response ^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/dianyinglieshou.js, requires-body=true, timeout=60, tag=电影猎手去广告, enable={dyls_enable}
+http-response ^https:\/\/app-v1\.ecoliving168\.com\/api\/v1\/movie\/index_recommend\? script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js, requires-body=true, timeout=60, tag=电影猎手去广告, enable={dyls_enable}
 
 # 开屏广告及首页推荐流及底部状态栏优化
 http-response ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/(?>bottomNavi|homeFlowDetail) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ddxq.js, requires-body=true, timeout=60, tag=叮咚买菜, enable={ddmc_enable}
@@ -2644,7 +2644,7 @@ http-response ^https?:\/\/user\.api\.ddxq\.mobi\/userportal-service\/api\/v\d\/u
 http-response ^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/Flightradar24.js, requires-body=true, timeout=60, tag=Flightradar24解锁, enable={flightradar24_enable}
 
 # > 飞客茶馆
-http-response ^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/fly.js, requires-body=true, timeout=60, tag=飞客茶馆, enable={fwke_enable}
+http-response ^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1 script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js, requires-body=true, timeout=60, tag=飞客茶馆, enable={fwke_enable}
 
 http-response ^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/flyert.js, requires-body=true, timeout=60, tag=飞客茶馆, enable={fwke_enable}
 
@@ -2652,13 +2652,13 @@ http-response ^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin script-path=https://
 http-response ^https?:\/\/tiku\.fenbi\.com\/activity\/app\/launcher\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/fenbi.js, requires-body=true, timeout=60, tag=粉笔开屏广告, enable={ffbi_enable}
 
 # hostname = apis.folidaymall.com
-http-response ^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/foliday.js, requires-body=true, timeout=60, tag=复游会微信小程序
+http-response ^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/foliday.js, requires-body=true, timeout=60, tag=复游会微信小程序
 
 # > 航旅纵横
 http-response ^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/umetrip_ads.js, requires-body=true, timeout=60, tag=航旅纵横, enable={hlzh_enable}
 
 # > 盒马
-http-response ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/freshippo.js, requires-body=true, timeout=60, tag=盒马, enable={hema_enable}
+http-response ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream) script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js, requires-body=true, timeout=60, tag=盒马, enable={hema_enable}
 
 # 感谢【可莉】分享
 http-response ^https:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/huifutianxia_ads.js, requires-body=true, timeout=60, tag=汇付天下, enable={hftx_enable}
@@ -2669,13 +2669,13 @@ http-response ^https:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\
 http-response ^https?:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ithome.js, requires-body=true, timeout=60, tag=ithome, enable={itzj_enable}
 
 # > 建行生活
-http-response ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB04 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/ccbLifeAds.js, requires-body=true, timeout=60, tag=建行生活, enable={jhsh_enable}
+http-response ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB04 script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ccbLife/ccbLifeAds.js, requires-body=true, timeout=60, tag=建行生活, enable={jhsh_enable}
 
 # 内置饿了么
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/alicdn.js, requires-body=true, timeout=60, tag=建行生活内置饿了么, enable={jhsh_enable}
 
 # > 京东
-http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/jingdong.js, requires-body=true, timeout=60, tag=京东, enable={jkds_enable}
+http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js, requires-body=true, timeout=60, tag=京东, enable={jkds_enable}
 
 # > 京喜
 http-response ^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/jingxiAd.js, requires-body=true, timeout=60, tag=京喜, enable={jkxi_enable}
@@ -2711,7 +2711,7 @@ http-response ^https?:\/\/vip1\.kuwo\.cn\/vip\/(enc\/user\/vip\?op=ui|v\d\/theme
 http-response ^https?:\/\/vip1\.kuwo\.cn\/vip\/v\d\/user\/vip\?op=ui script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/kuwo.js, requires-body=true, timeout=60, tag=酷我音乐, enable={kuwoybyt_enable}
 
 # > 快手联盟,优量汇,穿山甲「广告联盟」
-http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/adsense.js, requires-body=true, timeout=60, tag=快手联盟,优量汇,穿山甲「广告联盟」, enable={glgclmmg_enable}
+http-response ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js, requires-body=true, timeout=60, tag=快手联盟,优量汇,穿山甲「广告联盟」, enable={glgclmmg_enable}
 
 # > 酷安
 http-response ^https?:\/\/api\.coolapk\.com\/v6\/feed\/(detail|replyList)\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/coolapk.js, requires-body=true, timeout=60, tag=酷安, enable={kuan_enable}
@@ -2765,7 +2765,7 @@ http-response ^https:\/\/config-service\.seeyouyima\.com\/api\/configs\/batch\? 
 http-response ^https:\/\/config-service\.seeyouyima\.com\/api\/configs\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/meiyou_ads.js, requires-body=true, timeout=60, tag=美柚App净化, enable={meiyou_enable}
 
 # > 咪咕视频
-http-response ^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/miguvideo_ads.js, requires-body=true, timeout=60, tag=咪咕视频个人中心去广告
+http-response ^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$ script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js, requires-body=true, timeout=60, tag=咪咕视频个人中心去广告
 
 # > 朴朴超市
 http-response ^https:\/\/j1\.pupuapi\.com\/client\/search\/hot_keywords\/v3 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/PupuSplashAds.js, requires-body=true, timeout=60, tag=朴朴超市, enable={pupuicui_enable}
@@ -2867,7 +2867,7 @@ http-response ^https?:\/\/s-api\.smzdm\.com\/sou\/list_v10\? script-path=https:/
 
 http-response ^https?:\/\/user-api\.smzdm\.com\/vip\/creator_user_center script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/smzdm_ads.js, requires-body=true, timeout=60, tag=什么值得买去广告, enable={smzdm_enable}
 
-http-response ^https?:\/\/user-api\.smzdm\.com\/vip$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/Smzdm.js, requires-body=true, timeout=60, tag=什么值得买去广告, enable={smzdm_enable}
+http-response ^https?:\/\/user-api\.smzdm\.com\/vip$ script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/smzdm/Smzdm.js, requires-body=true, timeout=60, tag=什么值得买去广告, enable={smzdm_enable}
 
 # 感谢【怎么肥事】分享
 http-response ^https?:\/\/app-api\.smzdm\.com\/util\/loading script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/Smzdm.js, requires-body=true, timeout=60, tag=Smzdm, enable={smzdm_enable}
@@ -2917,10 +2917,10 @@ http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/link\/pos
 http-response ^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/e?api\/user\/follow\/users\/mixed\/get script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/wyres.js, requires-body=true, binary-body-mode=true, timeout=20, tag=NetEaseCloudMusic_foll, enable={whyiyyybyt_enable}
 
 # 首页净化，学习Tab界面净化，首页听读训练净化
-http-response ^https?:\/\/dict\.youdao\.com\/(homepage\/promotion|course\/tab\/home|homepage\/tile) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/dict-youdao-ad.js, requires-body=true, timeout=60, tag=网易有道词典, enable={whyiyzdccidm_enable}
+http-response ^https?:\/\/dict\.youdao\.com\/(homepage\/promotion|course\/tab\/home|homepage\/tile) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/youdao/dict-youdao-ad.js, requires-body=true, timeout=60, tag=网易有道词典, enable={whyiyzdccidm_enable}
 
 # > 温尼伯站
-http-response ^https:\/\/vue3-api\.zhixiny\.cn\/v1\/initui\?key=index script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/wnbz.js, requires-body=true, timeout=60, tag=温尼伯站, enable={wfnibovj_enable}
+http-response ^https:\/\/vue3-api\.zhixiny\.cn\/v1\/initui\?key=index script-path=https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js, requires-body=true, timeout=60, tag=温尼伯站, enable={wfnibovj_enable}
 
 # > 小米商城
 http-response ^https?:\/\/api\.m\.mi\.com\/v1\/app\/start script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/myBlockAds.js, requires-body=true, timeout=60, tag=小米商城, enable={xnmiuhig_enable}
@@ -2953,7 +2953,7 @@ http-response ^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearc
 http-response ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/goofish.js?token=209863, requires-body=true, tag=同城页横幅广告
 
 # > 香蕉是一种水果
-http-response ^https?:\/\/.+?\.(pipi|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|(\/|)vod\/reqplay\/) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/xjsp.js, requires-body=true, timeout=60, tag=香蕉是一种水果, enable={xljnuiyivsuvgo_enable}
+http-response ^https?:\/\/.+?\.(pipi|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|(\/|)vod\/reqplay\/) script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js, requires-body=true, timeout=60, tag=香蕉是一种水果, enable={xljnuiyivsuvgo_enable}
 
 # 搜索页
 http-response ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(banner|hot)_list script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书搜索页, enable={xhs_enable}
@@ -2985,7 +2985,7 @@ http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/(v5\/note\/comment\/
 http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/interaction\/comment\/video\/download\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/xiaohongshu.js, requires-body=true, timeout=60, tag=小红书评论区去水印下载, enable={xhs_enable}
 
 # 响应体
-http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/youtube.response.js, requires-body=true, binary-body-mode=true, timeout=60, tag=YouTube响应体, enable={youtube_enable}
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch) script-path=https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js, requires-body=true, binary-body-mode=true, timeout=60, tag=YouTube响应体, enable={youtube_enable}
 
 # 播放详情页,首页信息流,顶部tab,我的页面,评论区
 http-response ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cnftp.js, requires-body=true, timeout=60, tag=优酷, enable={yzku_enable}
@@ -3040,7 +3040,7 @@ http-response ^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? script-p
 http-response ^https:\/\/marketing\.cmschina\.com\/mkt\/api\/v1\?.* script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/cmschina.js, requires-body=true, timeout=20, tag=招商证券去广告
 
 # > 掌上公交
-http-response ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/zhangshanggongjiao.js, requires-body=true, timeout=60, tag=掌上公交小程序广告, enable={vhuhgsjn_enable}
+http-response ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhangshanggongjiao.js, requires-body=true, timeout=60, tag=掌上公交小程序广告, enable={vhuhgsjn_enable}
 
 # “我的”页面去除冗余的模块
 http-response ^https?:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/blockAds/zhuanzhuan.js, requires-body=true, timeout=60, tag=转转, enable={vrvr_enable}

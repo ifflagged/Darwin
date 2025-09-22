@@ -1276,7 +1276,7 @@ https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do data-type
 ^https?:\/\/api\.zcool\.com\.cn\/.*common\/open-screen data-type=text data=" " status-code=200
 
 # > dongqiudi
-^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 data-type=file data="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dongqiudi.js"
+^https?:\/\/ap\.(dongqiudi|dongdianqiu)\.com\/plat\/v4 data-type=file data="https://raw.githubusercontent.com/ddgksf2013/Scripts/master/dongqiudi.js"
 
 [Script]
 # > 369chuxing
@@ -1296,7 +1296,7 @@ amdc = type=http-response, pattern="^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1
 ahfs = type=http-response, pattern=^https?:\/\/.*(xbwpys|ahhhhfs)\.com\/($|[0-9a-zA-Z_/]+\/$), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/ahfs.js, requires-body=true, max-size=-1, timeout=60
 
 # > baiduditu
-baidumap = type=http-response, pattern=^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/baidumap.js, requires-body=true, max-size=-1, timeout=60
+baidumap = type=http-response, pattern=^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js, requires-body=true, max-size=-1, timeout=60
 
 baishitv = type=http-response, pattern=^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/audit\/home\/getCommonMixData, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/baishitv.js, requires-body=true, max-size=-1, timeout=60
 
@@ -1370,7 +1370,7 @@ qidian = type=http-response, pattern=^https?:\/\/apps\.teamair\.cn\/app\/version
 
 #spotify-json = type=http-request, pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/, script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=60
 
-shunfeng_json = type=http-response, pattern=https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/shunfeng_json.js, requires-body=true, max-size=-1, timeout=60
+shunfeng_json = type=http-response, pattern=https://ccsp-egmas.sf-express.com/cx-app-base/base/app/ad/queryInfoFlow, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js, requires-body=true, max-size=-1, timeout=60
 
 # > shihuo
 replaceBody = type=http-response, pattern=^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/screen, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=egin_time%22%3A%22%5Cd%7B4%7D-%3Eegin_time%22%3A%222099
@@ -1379,7 +1379,7 @@ replaceBody = type=http-response, pattern=^https?:\/\/sh-gateway\.shihuo\.cn\/v\
 stay = type=http-response, pattern=^https?:\/\/api\.shenyin\.name\/stay-fork\/browse\/featured$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/stay.js, requires-body=true, max-size=-1, timeout=60
 
 # > shenmezhidemai
-smzdm_json = type=http-response, pattern=^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/smzdm_json.js, requires-body=true, max-size=-1, timeout=60
+smzdm_json = type=http-response, pattern=^https?:\/\/.*zdmimg\.com\/cpm\/api\/v\d\/advert_distribution\/get_all_advertise, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js, requires-body=true, max-size=-1, timeout=60
 
 # > shenzhouzuche
 dict = type=http-response, pattern=^https?:\/\/apiproxy\.zuche\.com\/resource\/cardes\/toufang\/marketing, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/StartUpAds/dict.js, requires-body=true, max-size=-1, timeout=60
