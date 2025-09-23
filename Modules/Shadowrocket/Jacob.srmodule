@@ -266,7 +266,7 @@ DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,adjust.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adjust.net.in,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT,extended-matching
-DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
+DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT,extended-matching
 DOMAIN-SUFFIX,xinduoad.com,REJECT
 DOMAIN,statis.miwuad.com,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
