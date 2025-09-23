@@ -19,7 +19,9 @@ if (url.includes("/dpmobile") || url.includes("/goodsawardpic")) {
   if (headopt1 && !headopt2) {
     $done({body: "", headers: "", status: "HTTP/1.1 404 Not Found"});
   } else if (url.includes(".gif.webp")) {
-    $done({bodyBytes: new ArrayBuffer(8)});
+    const imgBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=";
+    const imgBuffer = Uint8Array.from(atob(imgBase64), c => c.charCodeAt(0));
+    $done({bodyBytes: imgBuffer});
   } else {
     $done({});
   }
