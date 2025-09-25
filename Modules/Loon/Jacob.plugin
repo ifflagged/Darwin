@@ -1429,7 +1429,6 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf - reject
 ^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/(?>ehc|titansx|ddblue|edfu)\/ - reject
 ^https?:\/\/mapi\.dianping\.com\/mapi\/intelliindex mock-response-body data-type=text data="{}" status-code=200
-^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/rms\.meituan\.com\/api\/v\d\/rmsmina\/c\/queryWechatAdvertisement mock-response-body data-type=text data="{}" status-code=200
 ^https?:\/\/p\d\.meituan\.net\/nrpresourcevenus\/\w+\.gif mock-response-body data-type=tiny-gif status-code=200
 ^https?:\/\/p\d\.meituan\.net\/travelcube\/(?!c129a661)\w+\.gif mock-response-body data-type=tiny-gif status-code=200
@@ -1828,8 +1827,7 @@ http-response ^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget\? script-p
 http-response ^https:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_22, argument=%5B%5B%22json-del%22%2C%5B%22data.instances.center_marketing_card%22%2C%22data.instances.center_widget_list%22%5D%5D%5D
 http-response ^https:\/\/api\.udache\.com\/gulfstream\/porsche\/v1\/dache_homepage_layout\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_26, argument=%5B%5B%22json-del%22%2C%5B%22data.instances.car_icon_01.data.icon_info_new_agreement%22%5D%5D%5D
 # dianping
-http-response ^https?:\/\/img\.meituan\.net\/dpmobile\/ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/dianping/dianping.js, requires-body=true, tag=dianping
-http-response ^https?:\/\/img\.meituan\.net\/goodsawardpic\/\w+\.(?!gif)\w+ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/dianping/dianping.js, requires-body=true, tag=dianping
+http-response ^https?:\/\/img\.meituan\.net\/(?>dpmobile|goodsawardpic)\/ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/dianping/dianping.js, requires-body=true, tag=dianping
 http-response ^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/picassovc script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/dianping/dianping.js, requires-body=true, tag=dianping
 # HKDouYin_remove_ads
 http-response ^https:\/\/((aweme\.snssdk\.com|api5-normal-m\.amemv\.com)|api5-normal-m\.amemv\.com)\/aweme\/homepage\/sidebar_data\/\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_22, argument=%5B%5B%22json-del%22%2C%5B%22data_map.recently_apps%22%2C%22data_map.recently_users%22%5D%5D%5D
