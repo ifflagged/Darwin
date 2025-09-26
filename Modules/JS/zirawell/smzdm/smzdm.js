@@ -7,6 +7,8 @@
 
  QuantumultX rewrite link:
  https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/S/什么值得买/rewrite/smzdm.conf
+Surge module link:
+ https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/App/S/什么值得买/smzdm.sgmodule
 
  ********************************/
 
