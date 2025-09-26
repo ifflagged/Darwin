@@ -10,7 +10,7 @@
 #!system_version=15
 #!loon_version=3.2.9(837)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-14 01:10:22
+#!date=2025-09-27 01:20:12
 
 [Argument]
 showUpList=select, "auto", "show", "hide",tag=[动态]中[最常访问]的显示方式, desc=auto：仅当列表中存在直播状态时显示；show：始终显示；hide：始终隐藏。
