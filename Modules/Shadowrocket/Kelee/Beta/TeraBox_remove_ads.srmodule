@@ -1,0 +1,19 @@
+#!name=TeraBox去广告
+#!desc=移除开屏广告、应用内悬浮窗、弹窗广告及横幅广告。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/TeraBox.png
+#!category=Jacob
+
+#!openUrl=https://apps.apple.com/app/id1509453185
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-10-09 12:38:19
+
+[URL Rewrite]
+^https:\/\/www\.terabox\.com\/adx\/ - reject-dict
+^https:\/\/www\.terabox\.com\/api\/ad\/ - reject-dict
+
+[MITM]
+hostname = %APPEND% www.terabox.com
+
