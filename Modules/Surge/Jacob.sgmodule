@@ -122,6 +122,7 @@ DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,pangle.io,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,iflyad.bj.openstorage.cn,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,bjimp.voiceads.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,1rtb.net,REJECT
@@ -266,6 +267,7 @@ DOMAIN-SUFFIX,adjust.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,adjust.net.in,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT,extended-matching,pre-matching
+DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,xinduoad.com,REJECT
 DOMAIN,statis.miwuad.com,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
@@ -287,6 +289,16 @@ DOMAIN-SUFFIX,unityads.unitychina.cn,REJECT
 DOMAIN-SUFFIX,tapjoy.com,REJECT
 DOMAIN-SUFFIX,ads.vungle.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,adsmoloco.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,smadex.com,REJECT
+DOMAIN-SUFFIX,tapad.com,REJECT
+DOMAIN-SUFFIX,adsappier.com,REJECT
+DOMAIN-SUFFIX,inmobi.com,REJECT
+DOMAIN-SUFFIX,inmobicdn.net,REJECT
+DOMAIN-SUFFIX,appsflyersdk.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,applvn.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,moloco.com,REJECT
+DOMAIN-SUFFIX,rayjump.com,REJECT
+DOMAIN-SUFFIX,rixengine.com,REJECT
 # functional
 DOMAIN,lookup.api.bsb.baidu.com,REJECT,extended-matching,pre-matching
 DOMAIN,safebrowsing.g.applimg.com,REJECT,extended-matching,pre-matching
@@ -325,9 +337,7 @@ DOMAIN-SUFFIX,u51.me,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,hiaiabc.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,fstats.xyz,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,doubleclick.net,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,applvn.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,appsflyer.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,appsflyersdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ad.gameley.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,app-measurement.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,appier.net,REJECT,extended-matching,pre-matching
@@ -370,7 +380,6 @@ DOMAIN,tosv.byted.org,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk.volces.com,REJECT,extended-matching,pre-matching
 DOMAIN,mssdk-bu.bytedance.com,REJECT,extended-matching,pre-matching
 DOMAIN,volceapplog.com,REJECT,extended-matching,pre-matching
-DOMAIN-SUFFIX,pangle.io,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,ic.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,analytics.snssdk.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,-normal-lq.zijieapi.com,REJECT,extended-matching,pre-matching
