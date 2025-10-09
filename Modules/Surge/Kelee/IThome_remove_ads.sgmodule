@@ -8,11 +8,10 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-27 00:39:45
+#!date=2025-10-09 22:32:05
 #!arguments=removePinnedArticles:false,removeAllBanners:false
 
 [URL Rewrite]
-^https?:\/\/api\.zuihuimai\.com\/static\/.*\/hongbao - reject
 ^https?:\/\/dat\.ruanmei\.com\/ithome\/money\/acd\.json$ - reject
 
 [Script]
