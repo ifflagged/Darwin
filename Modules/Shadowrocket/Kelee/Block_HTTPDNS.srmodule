@@ -184,6 +184,7 @@ URL-REGEX,"^http:\/\/139\.196\.12\.179:8053\/httpdns\/",REJECT
 ^https?:\/\/2401:b180:2000:30::1c\/\d+\/d - reject
 ^https?:\/\/2401:b180:2000:20::10\/\d+\/d - reject
 ^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/http\/urlConfig\.do$ - reject-dict
+^https?:\/\/amdc\.alipay\.com\/query - reject-dict
 ^https?:\/\/cdn\.wup\.huya\.com\/monitor\/monitor\.jsp - reject
 ^https:\/\/msglb\.91160\.com\/msg\/outer\/broker\/get$ - reject-dict
 ^https:\/\/gslbali\.ximalaya\.com\/linkeye-cloud\/httpdns\/ - reject

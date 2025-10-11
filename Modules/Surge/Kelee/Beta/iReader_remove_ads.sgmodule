@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-09-28 00:31:22
+#!date=2025-10-11 08:34:06
 
 [Rule]
 DOMAIN,saad.ms.zhangyue.net,REJECT

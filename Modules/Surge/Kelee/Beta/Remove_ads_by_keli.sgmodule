@@ -133,10 +133,6 @@ http-response-jq ^https?:\/\/api\.fenxianglife\.com\/njia\/index\/popup\/v2 '.da
 
 ^https?:\/\/conf-darwin\.xycdn\.com data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/iyes\.youku\.com\/uts\/v1\/start\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.get\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
-
 ^https:\/\/gw\.chuangkit\.com\/team\/app\/common\/ad\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/qiye\.gaoding\.com\/api\/v3\/oc\/v2\/delivery-pits\/ios-splash\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -146,6 +142,8 @@ http-response-jq ^https?:\/\/api\.fenxianglife\.com\/njia\/index\/popup\/v2 '.da
 ^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.(jpg|png)\?imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/api\.zcool\.com\.cn\/v\d\.\d\.\d/common\/open-screen data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+^https:\/\/shealthyapi\.senssun\.com\/v1\/app\/banner\/findByType\?type=bottom$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/lanfanapp\.com\/api\/v1\/ads\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 

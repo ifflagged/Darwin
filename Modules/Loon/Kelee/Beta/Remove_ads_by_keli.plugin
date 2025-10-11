@@ -97,13 +97,12 @@ DOMAIN,open-pixon.ads-pixiv.net,REJECT
 ^https?:\/\/toblog\.ctobsnssdk\.com - reject-200
 ^https?:\/\/conf-darwin\.xycdn\.com - reject-dict
 ^https?:\/\/sdk1xyajs\.data\.kuiniuca\.com - reject
-^https:\/\/iyes\.youku\.com\/uts\/v1\/start\/ - reject-dict
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.get\/ - reject-dict
 ^https:\/\/gw\.chuangkit\.com\/team\/app\/common\/ad\/ - reject-dict
 ^https:\/\/qiye\.gaoding\.com\/api\/v3\/oc\/v2\/delivery-pits\/ios-splash\/ - reject-dict
 ^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.jpg\?imageMogr2\/quality\/ - reject-dict
 ^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.(jpg|png)\?imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) - reject-dict
 ^https:\/\/api\.zcool\.com\.cn\/v\d\.\d\.\d/common\/open-screen - reject-dict
+^https:\/\/shealthyapi\.senssun\.com\/v1\/app\/banner\/findByType\?type=bottom$ - reject-dict
 ^https:\/\/lanfanapp\.com\/api\/v1\/ads\/ - reject-dict
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_STARTUP - reject-dict
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_DEVICE - reject-dict
