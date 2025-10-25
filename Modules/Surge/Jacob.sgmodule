@@ -279,6 +279,7 @@ DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
 DOMAIN,mercury-gateway.ixiaochuan.cn,REJECT
 DOMAIN,adapi.izuiyou.com,REJECT
 DOMAIN-SUFFIX,domob.cn,REJECT
+DOMAIN-SUFFIX,adwangmai.com,REJECT
 DOMAIN-SUFFIX,bxsnews.com,REJECT
 DOMAIN-SUFFIX,tradplusad.com,REJECT
 DOMAIN-SUFFIX,fancyapi.com,REJECT
