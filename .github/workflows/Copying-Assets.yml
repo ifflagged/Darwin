@@ -29,7 +29,8 @@ jobs:
         run: |
           REPOS=(
             "NSRingo/WeatherKit"
-            "NSRingo/GeoServices"
+            "NSRingo/Maps"
+            "NSRingo/LocationService"
             "NSRingo/Siri"
             "NSRingo/TV"
             "NSRingo/News"
