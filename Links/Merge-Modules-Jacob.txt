@@ -9,7 +9,7 @@ Modules/Surge/VirgilClyne/HTTPDNS.Block.sgmodule # Loon,Copy
 Modules/Surge/VirgilClyne/DNS.sgmodule # Loon,Copy
 
 Modules/Surge/NSRingo/iRingo.WeatherKit.sgmodule # Loon,Shadowrocket
-Modules/Surge/NSRingo/iRingo.Location.sgmodule # Loon,Shadowrocket
+Modules/Surge/NSRingo/iRingo.LocationService.sgmodule # Loon,Shadowrocket
 Modules/Surge/NSRingo/iRingo.Maps.sgmodule # Loon,Shadowrocket
 Modules/Surge/NSRingo/iRingo.Siri.sgmodule # Loon,Shadowrocket
 
