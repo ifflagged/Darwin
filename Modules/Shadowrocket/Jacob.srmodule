@@ -831,6 +831,12 @@ DOMAIN,stat.meitudata.com,REJECT,extended-matching
 # beautycam
 DOMAIN,aaid.uyunad.com,REJECT,extended-matching
 # Pinduoduo
+IP-CIDR,114.110.98.3/32,REJECT,no-resolve
+IP-CIDR,114.110.98.2/32,REJECT,no-resolve
+IP-CIDR,36.152.46.3/32,REJECT,no-resolve
+IP-CIDR,114.110.96.6/32,REJECT,no-resolve
+IP-CIDR,36.152.46.13/32,REJECT,no-resolve
+IP-CIDR,121.5.84.85/32,REJECT,no-resolve
 DOMAIN,sdk.1rtb.net,REJECT
 DOMAIN,titan.pinduoduo.com,REJECT
 IP-CIDR,183.194.214.21/32,REJECT,no-resolve
@@ -1383,6 +1389,10 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/api\.pinduoduo\.com\/api\/engels\/reviews\/require\/append - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/my_order_group - reject-dict
 ^https:\/\/api\.pinduoduo\.com\/api\/caterham\/v3\/query\/likes - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/phantom\/gbdbpdv\/extra - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/manufacturer\/cross\/shortcut\/list - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/dunkirk\/liveactivity\/push\/create\/url\/report - reject-dict
+^https:\/\/api\.pinduoduo\.com\/api\/growth\/nagato\/app\/index\/gather - reject-dict
 # qunar
 ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject
 # lkcoffee
