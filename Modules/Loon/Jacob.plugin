@@ -1595,7 +1595,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/wiki_related_modul - reject-200
 # smzdm_remove_ads
 ^https:\/\/app-api\.smzdm\.com\/util\/update$ response-body-json-jq 'def r: if type=="object" then if has("ad_campaign_name") and (.ad_campaign_name|type=="string") and (.ad_campaign_name|test("\\S")) then empty else . end elif type=="array" then map(r) else . end; .data.operation_float |= map(map(r))'
-^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/smzdm/home_smzdm_remove_ads.jq"
+^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/smzdm_remove_ads/home_smzdm_remove_ads.jq"
 ^https:\/\/haojia-api\.smzdm\.com\/home\/list\? response-body-json-jq '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
 ^https:\/\/s-api\.smzdm\.com\/sou\/list_v10\? response-body-json-jq '.data.rows |= map(select(.model_type != "ads")) | .data.top_aladdin |= map(select(has("ad") | not))'
 ^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-jq '.data.search_hot.home |= map(select(.article_tag.article_title != "广告"))'
