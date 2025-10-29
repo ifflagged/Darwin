@@ -1823,11 +1823,6 @@ manner = type=http-response, pattern=^https?:\/\/triangle\.wearemanner\.com\/mp-
 meituan = type=http-response, pattern=^https?:\/\/p\d\.meituan\.net\/linglong\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/meituan/meituan.js, requires-body=true, max-size=0
 # meitu
 meitu = type=http-response, pattern=^https?:\/\/((h5|api)\.xiuxiu|api-sub|api\.posters)\.meitu\.com\/.+\/(vip|user|h\d|center|home), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/meitu/meitu.js, requires-body=true, max-size=0
-# Pinduoduo
-Pinduoduo = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/search, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ZenmoFeiShi/Pinduoduo/Pinduoduo.js, requires-body=true, max-size=-1, timeout=60
-Pinduoduo = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/philo\/personal\/hub, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ZenmoFeiShi/Pinduoduo/Pinduoduo.js, requires-body=true, max-size=-1, timeout=60
-Pinduoduo = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/alexa\/homepage\/hub, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ZenmoFeiShi/Pinduoduo/Pinduoduo.js, requires-body=true, max-size=-1, timeout=60
-Pinduoduo = type=http-response, pattern=^https:\/\/api\.pinduoduo\.com\/api\/oak\/integration\/render, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ZenmoFeiShi/Pinduoduo/Pinduoduo.js, requires-body=true, max-size=-1, timeout=60
 # SmzdmAds
 smzdm_json = type=http-response, pattern=^https?:\/\/s-api.smzdm\.com\/sou\/search_default_keyword, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/SmzdmAds/smzdm_json.js, requires-body=true, max-size=-1, timeout=60
 smzdm_json = type=http-response, pattern=^https?:\/\/app-api\.smzdm\.com\/util\/loading, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/SmzdmAds/smzdm_json.js, requires-body=true, max-size=-1, timeout=60
