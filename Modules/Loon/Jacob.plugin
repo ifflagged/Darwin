@@ -31,6 +31,11 @@ UrlInfoSet.LocationShift = select,"AUTO","AutoNavi","Apple",tag=[URL信息集] �
 TileSet.Earth = select,"AUTO","AutoNavi","Apple",tag=[瓦片数据集] 地球图像,desc=此选项影响地球视图下行政区划、地貌等信息的显示。
 TileSet.Roads = select,"AUTO","CN","XX",tag=[瓦片数据集] 道路图像与四处看看,desc=此选项影响卫星视图下的道路图像与四处看看可用路段。
 TileSet.Satellite = select,"HYBRID","AUTO","CN","XX",tag=[瓦片数据集] 卫星图像,desc=此选项影响所列位图、影像与模型数据。
+# iRingo.Siri
+CountryCode = select,"US","OFF","AUTO","CN","HK","TW","SG","JP","AU","GB","KR","CA","IE",tag=国家或地区代码,desc=不同国家或地区提供的内容或有差别，此选项同时会影响分配给您不同地区的 Siri 服务器。
+SiriLocale = select,"zh_CN","OFF","AUTO","zh_TW","yue_CN","zh_HK","ja_JP","en_CA","en_SG","en_AU","en_IE","en_US","en_GB","ko_KR",tag=Siri 区域,desc=忽略系统中“Siri”的“语言”设置，强制采用这里的设置。
+Region = select,"OFF","AUTO","CN","HK","TW","SG","US","JP","AU","GB","KR","CA","IE",tag=区域,desc=作用未知，待测试。
+SiriResponseLanguageVariant = select,"zh_CN","OFF","AUTO","zh_TW","yue_CN","zh_HK","ja_JP","en_CA","en_SG","en_AU","en_IE","en_US","en_GB","ko_KR",tag=Siri 响应语言修改,desc=自定义 Siri 回复时使用的语言。
 # bilibili
 动态最常访问=input,auto,tag=动态最常访问, desc=动态最常访问
 创作中心=input,0,tag=创作中心, desc=创作中心
@@ -894,31 +899,36 @@ DOMAIN,ad.seeyouyima.com,REJECT
 # beautycam
 DOMAIN,aaid.uyunad.com,REJECT
 # Pinduoduo
-IP-CIDR,114.110.98.3/32,REJECT,no-resolve
-IP-CIDR,114.110.98.2/32,REJECT,no-resolve
-IP-CIDR,36.152.46.3/32,REJECT,no-resolve
-IP-CIDR,114.110.96.6/32,REJECT,no-resolve
-IP-CIDR,36.152.46.13/32,REJECT,no-resolve
-IP-CIDR,121.5.84.85/32,REJECT,no-resolve
-DOMAIN,sdk.1rtb.net,REJECT
+DOMAIN,cdl-1.pddpic.com,REJECT
 DOMAIN,titan.pinduoduo.com,REJECT
-IP-CIDR,183.194.214.21/32,REJECT,no-resolve
-IP-CIDR,49.235.102.190/32,REJECT,no-resolve
-IP-CIDR,81.69.116.33/32,REJECT,no-resolve
-IP-CIDR,183.194.214.20/32,REJECT,no-resolve
-IP-CIDR,117.185.244.145/32,REJECT,no-resolve
-IP-CIDR,101.35.204.35/32,REJECT,no-resolve
-IP-CIDR,114.110.97.97/32,REJECT,no-resolve
-IP-CIDR,81.69.104.17/32,REJECT,no-resolve
+DOMAIN,cdl-p2.pddpic.com,REJECT
+DOMAIN,cd-1.pddpic.com,REJECT
+DOMAIN,apm.pinduoduo.com,REJECT
+DOMAIN,th-b.pinduoduo.com,REJECT
+DOMAIN,file.pinduoduo.com,REJECT
+DOMAIN,ta.pinduoduo.com,REJECT
+DOMAIN,th.pinduoduo.com,REJECT
+DOMAIN,th-a.pinduoduo.com,REJECT
+DOMAIN,ta-a.pinduoduo.com,REJECT
+DOMAIN,meta.pinduoduo.com,REJECT
+DOMAIN,apm-a.pinduoduo.com,REJECT
 IP-CIDR,117.185.242.187/32,REJECT,no-resolve
 IP-CIDR,117.185.242.18/32,REJECT,no-resolve
-IP-CIDR,183.194.214.14/32,REJECT,no-resolve
+IP-CIDR,49.235.102.190/32,REJECT,no-resolve
 IP-CIDR,114.110.96.1/32,REJECT,no-resolve
+IP-CIDR,81.69.104.17/32,REJECT,no-resolve
+IP-CIDR,81.69.116.33/32,REJECT,no-resolve
+IP-CIDR,114.110.98.2/32,REJECT,no-resolve
+IP-CIDR,183.194.214.21/32,REJECT,no-resolve
+IP-CIDR,114.110.97.97/32,REJECT,no-resolve
+IP-CIDR,114.110.98.3/32,REJECT,no-resolve
+IP-CIDR,183.194.214.14/32,REJECT,no-resolve
+IP-CIDR,36.152.46.3/32,REJECT,no-resolve
+IP-CIDR,183.194.214.20/32,REJECT,no-resolve
 IP-CIDR,36.152.46.15/32,REJECT,no-resolve
-IP-CIDR,114.110.97.30/32,REJECT,no-resolve
-IP-CIDR,81.69.130.131/32,REJECT,no-resolve
-IP-CIDR,114.110.96.26/32,REJECT,no-resolve
-IP-CIDR,101.35.212.35/32,REJECT,no-resolve
+IP-CIDR,36.152.46.13/32,REJECT,no-resolve
+IP-CIDR,117.185.244.145/32,REJECT,no-resolve
+DOMAIN,m.pinduoduo.net,REJECT
 # smzdm_remove_ads
 DOMAIN,adx-api.zdmimg.com,REJECT
 # smzdm
@@ -1395,7 +1405,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace 'Ac
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story\? response-body-json-jq 'if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN("vertical_ad_av", "vertical_ad_live", "vertical_ad_picture") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end'
-^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? response-body-json-jq '.data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end'
 undefined undefined undefined
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? - reject-dict
@@ -1605,7 +1615,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/wiki_related_modul - reject-200
 # smzdm_remove_ads
 ^https:\/\/app-api\.smzdm\.com\/util\/update$ response-body-json-jq 'def r: if type=="object" then if has("ad_campaign_name") and (.ad_campaign_name|type=="string") and (.ad_campaign_name|test("\\S")) then empty else . end elif type=="array" then map(r) else . end; .data.operation_float |= map(map(r))'
-^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/smzdm_remove_ads/home_smzdm_remove_ads.jq"
+^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/smzdm/home_smzdm_remove_ads.jq"
 ^https:\/\/haojia-api\.smzdm\.com\/home\/list\? response-body-json-jq '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
 ^https:\/\/s-api\.smzdm\.com\/sou\/list_v10\? response-body-json-jq '.data.rows |= map(select(.model_type != "ads")) | .data.top_aladdin |= map(select(has("ad") | not))'
 ^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-jq '.data.search_hot.home |= map(select(.article_tag.article_title != "广告"))'
@@ -1795,6 +1805,14 @@ http-request ^https?:\/\/gspe35-ssl\.ls\.apple\.(com|cn)\/config\/announcements 
 http-response ^https?:\/\/gspe35-ssl\.ls\.apple\.(com|cn)\/config\/announcements script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Maps/response.bundle.js, requires-body=1, binary-body-mode=1, tag=🗺️ Maps.config.announcements.response, argument=[{GeoManifest.Dynamic.Config.CountryCode},{UrlInfoSet.Dispatcher},{UrlInfoSet.Directions},{UrlInfoSet.RAP},{UrlInfoSet.LocationShift},{TileSet.Earth},{TileSet.Roads},{TileSet.Satellite},{LogLevel}]
 http-request ^https?:\/\/gspe35-ssl\.ls\.apple\.(com|cn)\/geo_manifest\/dynamic\/config script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Maps/request.bundle.js, tag=🗺️ Maps.config.announcements.request, argument=[{GeoManifest.Dynamic.Config.CountryCode},{UrlInfoSet.Dispatcher},{UrlInfoSet.Directions},{UrlInfoSet.RAP},{UrlInfoSet.LocationShift},{TileSet.Earth},{TileSet.Roads},{TileSet.Satellite},{LogLevel}]
 http-response ^https?:\/\/gspe35-ssl\.ls\.apple\.(com|cn)\/geo_manifest\/dynamic\/config script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Maps/response.bundle.js, requires-body=1, binary-body-mode=1, tag=🗺️ Maps.geo_manifest.dynamic.config.response, argument=[{GeoManifest.Dynamic.Config.CountryCode},{UrlInfoSet.Dispatcher},{UrlInfoSet.Directions},{UrlInfoSet.RAP},{UrlInfoSet.LocationShift},{TileSet.Earth},{TileSet.Roads},{TileSet.Satellite},{LogLevel}]
+# iRingo.Siri
+http-request ^https?:\/\/(api-siri|api2|api-.+)\.smoot\.apple\.com\/search script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=⭕ Siri.Search.request , argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/(guzzoni|api2|api-.+)\.smoot\.apple\.com\/apple\.parsec\.siri\.v2alpha\.SiriSearch\/SiriSearch requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=⭕ Siri.SiriSearch.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/api-safari(-.+)?\.smoot\.apple\.com\/apple\.parsec\.safari\.v1alpha\.SafariSearch\/SafariSearch requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=🔍 Safari.SafariSearch.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/api-lookup(-.+)?\.smoot\.apple\.com\/apple\.parsec\.lookup\.v1alpha\.LookupSearch\/LookupSearch requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=🔍 Lookup.LookupSearch.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/(api2|api-.+)\.smoot\.apple\.com\/apple\.parsec\.visualsearch\.v2\.VisualSearch\/VisualSearch requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=🔍 Visualsearch.VisualSearch.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/(api-.+)\.smoot\.apple\.com\/apple\.parsec\.responseframework\.engagement\.v1alpha\.EngagementSearch\/EngagementSearch requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=🔍 ResponseFramework.Engagement.EngagementSearch.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
+http-request ^https?:\/\/(api-.+)\.smoot\.apple\.com\/apple\.parsec\.spotlight\.v1alpha\.ZkwSuggestService\/Suggest requires-body=1, binary-body-mode=1, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/NSRingo/iRingo.Siri/request.bundle.js, tag=🔍 Spotlight.ZkwSuggestService.request, argument=[{CountryCode},{SiriLocale},{Region},{SiriResponseLanguageVariant},{LogLevel}]
 # adunion
 http-response ^https?:\/\/mi\.gdt\.qq\.com\/gdt_mview script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/adunion/adsense.js, requires-body=true, tag=adunion
 http-response ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/adunion/amdc.js, tag=adunion
@@ -2011,5 +2029,5 @@ http-response ^https?:\/\/(.+-spclient|spclient\.wg)\.spotify\.com(:443)?\/color
 http-request ^https?:\/\/(.+\.)?boxjs\.(com|net) script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120, tag=BoxJs
 
 [MITM]
-hostname = *-spclient.spotify.com, *.amap.com, *.boxjs.com, *.boxjs.net, *.dianping.com, *.googlevideo.com, *.httpdns.pro, *.mcdn.bilivideo.cn, *.pornhub.com, *.weibo.cn, *.weibo.com, *.zdmimg.com, -buy.itunes.apple.com, -gateway.icloud.com, -gateway.icloud.com.cn, -ios.chat.openai.com, -mobile.12306.cn, -weather-data.apple.com, 103.37.155.60, 114.115.217.129, 119.29.29.*, 119.29.29.98, 119.29.29.99, 91porn.com, a.sinopecsales.com, a1d5b283e-wx621112590b635086.sh.wxgateway.com, acs.m.goofish.com, acs.m.taobao.com, ad.12306.cn, afd.baidu.com, amap-aos-info-nogw.amap.com, amdc-sibling.alipay.com.cn, amdc.alipay.com, amdc.m.taobao.com, ams-cdn.cdtft.cn, apapia-sqk-weblogic.manmanbuy.com, apapia-sqk.manmanbuy.com, api*.musical.ly, api-access.pangolin-sdk-toutiao.com, api-sams.walmartmobile.cn, api-sub.meitu.com, api.biliapi.net, api.bilibili.com, api.live.bilibili.com, api.m.jd.com, api.mcd.cn, api.pinduoduo.com, api.posters.meitu.com, api.prod.dj.mstand.cn, api.spotify.com, api.udache.com, api.vc.bilibili.com, api.xiuxiu.meitu.com, api2.helper.qq.com, api5-normal-m.amemv.com, apimobile.meituan.com, app-api.smzdm.com, app.biliapi.net, app.bilibili.com, app.dewu.com, article-api.smzdm.com, as.xiaojukeji.com, aweme.snssdk.com, awp-assets.meituan.net, axxd.xmseeyouyima.com, baike-api.smzdm.com, bk.bingo.qq.com, bla.gtimg.com, boxjs.com, boxjs.net, c.m.163.com, cache.bydauto.com.cn, capi.lkcoffee.com, cdn.api.fotoable.com, cdn.poizon.com, ci.xiaohongshu.com, client.app.coc.10086.cn, client.qunar.com, cloud.bluecardsoft.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, configuration.ls.apple.com, cover.baidu.com, csc-service.sgcc.com.cn, ct.xiaojukeji.com, cube.elemecdn.com, cy.cloud.ccb.com, ddplus.meituan.net, dinamicx.alibabausercontent.com, discuz.gtimg.cn, dispatcher.is.autonavi.com, dns.jd.com, dualstack*.amap.com, e.jparking.cn, ecapi.lkcoffee.com, edith.xiaohongshu.com, elemecdn.com, energy.xiaojukeji.com, fcvbjbcebos.baidu.com, flowplus.meituan.net, fuss10.elemecdn.com, g-acs.m.goofish.com, g.alicdn.com, g1.163.com, gist.githubusercontent.com, github.com, grpc.biliapi.net, gspe1-ssl.ls.apple.com, gspe35-ssl.ls.apple.com, guide-acs.m.taobao.com, gw.alicdn.com, gw3.ykccn.com, h.app.coc.10086.cn, h5.m.goofish.com, h5.smzdm.com, h5.xiuxiu.meitu.com, haojia-api.smzdm.com, haojia-cdn.smzdm.com, haojia.m.smzdm.com, heic.alicdn.com, home.mi.com, home.umetrip.com, homefront.qunar.com, homepage-api.smzdm.com, image1.ccb.com, imageadv.ccb.com, images.pinduoduo.com, img*.lkcoffee.com, img.meituan.net, img1.126.net, imgcache.qq.com, in.m.jd.com, is.snssdk.com, issuecdn.baidupcs.com, l*.51fanli.net, line3-h5-mobile-api.biligame.com, lion.didialift.com, live.bilibili.com, m*.amap.com, m.dianping.com, m.lkcoffee.com, manga.bilibili.com, mapi.dianping.com, mbs.boc.cn, mdn.alicdn.com, mea.meitudata.com, mi.gdt.qq.com, miniapp.qmai.cn, mmgr.gtimg.com, mobile.12306.cn, mobile.cmbchina.com, mp.weixin.qq.com, mtteve.beacon.qq.com, nex.163.com, npay.meituan.com, nr-op.elemecdn.com, ocrifs.ejoy.sinopec.com, osg-service.sgcc.com.cn, oss-zjrs.haier.net, oss.amap.com, p*.meituan.net, p.meituan.com, pan.baidu.com, poplayer.template.alibaba.com, portal-portm.meituan.com, post.m.smzdm.com, qde.qunar.com, qianbao.smzdm.com, qimgs.qunarzz.com, qt.qq.com, qzonestyle.gtimg.cn, raw.githubusercontent.com, rec.xiaohongshu.com, res.xiaojukeji.com, rms.meituan.com, s-api.smzdm.com, s3plus.meituan.net, security.wechat.com, service.haiersmarthomes.com, shopping.ele.me, sns.amap.com, spamblocker-api.zeekstudio.com, spclient.wg.spotify.com, splashqqlive.gtimg.com, sqt.meituan.com, sytgate.jslife.com.cn, t-dsp.pinduoduo.com, tfsmy.chengdu.gov.cn, tft-app.cdtft.cn, triangle.wearemanner.com, update.pan.baidu.com, upos-*-mirrorakam.akamaized.net, upos-sz-mirror*bstar1.bilivideo.com, user-api.smzdm.com, video-dsp.pddpic.com, vv.video.qq.com, w.meituan.net, waimai-guide.ele.me, wallet.95516.com, wcprd.hilton.com.cn, weatherkit.apple.com, web.meituan.com, webapi.qmai.cn, webappcfg.paas.cmbchina.com, weibo.com, weixin110.qq.com, www.baidu.com, www.bilibili.com, www.dpfile.com, www.google.com, www.meituan.com, www.xiaohongshu.com, www1.elecfans.com, wx.17u.cn, wxa.wxs.qq.com, wximg.wxs.qq.com, wxproj.seeyouyima.com, wxsmw.wxs.qq.com, x.seeyouyima.com, y.gtimg.cn, yixiu-abtest.alicdn.com, youtubei.googleapis.com, zhiyou.m.smzdm.com, zj.haier.net
+hostname = *-spclient.spotify.com, *.amap.com, *.boxjs.com, *.boxjs.net, *.dianping.com, *.googlevideo.com, *.httpdns.pro, *.mcdn.bilivideo.cn, *.pornhub.com, *.weibo.cn, *.weibo.com, *.zdmimg.com, -buy.itunes.apple.com, -gateway.icloud.com, -gateway.icloud.com.cn, -ios.chat.openai.com, -mobile.12306.cn, -weather-data.apple.com, 103.37.155.60, 114.115.217.129, 119.29.29.*, 119.29.29.98, 119.29.29.99, 91porn.com, a.sinopecsales.com, a1d5b283e-wx621112590b635086.sh.wxgateway.com, acs.m.goofish.com, acs.m.taobao.com, ad.12306.cn, afd.baidu.com, amap-aos-info-nogw.amap.com, amdc-sibling.alipay.com.cn, amdc.alipay.com, amdc.m.taobao.com, ams-cdn.cdtft.cn, apapia-sqk-weblogic.manmanbuy.com, apapia-sqk.manmanbuy.com, api*.musical.ly, api-*.smoot.apple.com, api-access.pangolin-sdk-toutiao.com, api-sams.walmartmobile.cn, api-sub.meitu.com, api.biliapi.net, api.bilibili.com, api.live.bilibili.com, api.m.jd.com, api.mcd.cn, api.pinduoduo.com, api.posters.meitu.com, api.prod.dj.mstand.cn, api.spotify.com, api.udache.com, api.vc.bilibili.com, api.xiuxiu.meitu.com, api2.helper.qq.com, api2.smoot.apple.com, api5-normal-m.amemv.com, apimobile.meituan.com, app-api.smzdm.com, app.biliapi.net, app.bilibili.com, app.dewu.com, article-api.smzdm.com, as.xiaojukeji.com, aweme.snssdk.com, awp-assets.meituan.net, axxd.xmseeyouyima.com, baike-api.smzdm.com, bk.bingo.qq.com, bla.gtimg.com, boxjs.com, boxjs.net, c.m.163.com, cache.bydauto.com.cn, capi.lkcoffee.com, cdn.api.fotoable.com, cdn.poizon.com, ci.xiaohongshu.com, client.app.coc.10086.cn, client.qunar.com, cloud.bluecardsoft.com, common.diditaxi.com.cn, conf.diditaxi.com.cn, configuration.ls.apple.com, cover.baidu.com, csc-service.sgcc.com.cn, ct.xiaojukeji.com, cube.elemecdn.com, cy.cloud.ccb.com, ddplus.meituan.net, dinamicx.alibabausercontent.com, discuz.gtimg.cn, dispatcher.is.autonavi.com, dns.jd.com, dualstack*.amap.com, e.jparking.cn, ecapi.lkcoffee.com, edith.xiaohongshu.com, elemecdn.com, energy.xiaojukeji.com, fcvbjbcebos.baidu.com, flowplus.meituan.net, fuss10.elemecdn.com, g-acs.m.goofish.com, g.alicdn.com, g1.163.com, gist.githubusercontent.com, github.com, grpc.biliapi.net, gspe1-ssl.ls.apple.com, gspe35-ssl.ls.apple.com, guide-acs.m.taobao.com, guzzoni.smoot.apple.com, gw.alicdn.com, gw3.ykccn.com, h.app.coc.10086.cn, h5.m.goofish.com, h5.smzdm.com, h5.xiuxiu.meitu.com, haojia-api.smzdm.com, haojia-cdn.smzdm.com, haojia.m.smzdm.com, heic.alicdn.com, home.mi.com, home.umetrip.com, homefront.qunar.com, homepage-api.smzdm.com, image1.ccb.com, imageadv.ccb.com, images.pinduoduo.com, img*.lkcoffee.com, img.meituan.net, img1.126.net, imgcache.qq.com, in.m.jd.com, is.snssdk.com, issuecdn.baidupcs.com, l*.51fanli.net, line3-h5-mobile-api.biligame.com, lion.didialift.com, live.bilibili.com, m*.amap.com, m.dianping.com, m.lkcoffee.com, manga.bilibili.com, mapi.dianping.com, mbs.boc.cn, mdn.alicdn.com, mea.meitudata.com, mi.gdt.qq.com, miniapp.qmai.cn, mmgr.gtimg.com, mobile.12306.cn, mobile.cmbchina.com, mp.weixin.qq.com, mtteve.beacon.qq.com, nex.163.com, npay.meituan.com, nr-op.elemecdn.com, ocrifs.ejoy.sinopec.com, osg-service.sgcc.com.cn, oss-zjrs.haier.net, oss.amap.com, p*.meituan.net, p.meituan.com, pan.baidu.com, poplayer.template.alibaba.com, portal-portm.meituan.com, post.m.smzdm.com, qde.qunar.com, qianbao.smzdm.com, qimgs.qunarzz.com, qt.qq.com, qzonestyle.gtimg.cn, raw.githubusercontent.com, rec.xiaohongshu.com, res.xiaojukeji.com, rms.meituan.com, s-api.smzdm.com, s3plus.meituan.net, security.wechat.com, service.haiersmarthomes.com, shopping.ele.me, sns.amap.com, spamblocker-api.zeekstudio.com, spclient.wg.spotify.com, splashqqlive.gtimg.com, sqt.meituan.com, sytgate.jslife.com.cn, t-dsp.pinduoduo.com, tfsmy.chengdu.gov.cn, tft-app.cdtft.cn, triangle.wearemanner.com, update.pan.baidu.com, upos-*-mirrorakam.akamaized.net, upos-sz-mirror*bstar1.bilivideo.com, user-api.smzdm.com, video-dsp.pddpic.com, vv.video.qq.com, w.meituan.net, waimai-guide.ele.me, wallet.95516.com, wcprd.hilton.com.cn, weatherkit.apple.com, web.meituan.com, webapi.qmai.cn, webappcfg.paas.cmbchina.com, weibo.com, weixin110.qq.com, www.baidu.com, www.bilibili.com, www.dpfile.com, www.google.com, www.meituan.com, www.xiaohongshu.com, www1.elecfans.com, wx.17u.cn, wxa.wxs.qq.com, wximg.wxs.qq.com, wxproj.seeyouyima.com, wxsmw.wxs.qq.com, x.seeyouyima.com, y.gtimg.cn, yixiu-abtest.alicdn.com, youtubei.googleapis.com, zhiyou.m.smzdm.com, zj.haier.net
 
