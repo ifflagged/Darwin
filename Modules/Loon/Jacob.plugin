@@ -384,6 +384,8 @@ IP-CIDR,81.71.61.216/32,REJECT,no-resolve
 DOMAIN,geo2.adobe.com,REJECT
 # adunion
 DOMAIN,adtracker.adfunlink.com,REJECT
+DOMAIN,apis.alenable.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 DOMAIN,init.supersonicads.com,REJECT
 DOMAIN,ws.tapjoyads.com,REJECT
 DOMAIN,hdns.ksyun.com,REJECT
@@ -398,10 +400,7 @@ DOMAIN,log-verify.mob.com,REJECT
 DOMAIN,api.adnet.mob.com,REJECT
 DOMAIN,g1.tagtic.cn,REJECT
 DOMAIN,log.tagtic.cn,REJECT
-DOMAIN,img.adnyg.com,REJECT
-DOMAIN,img.adnyg.com.w.kunlungr.com,REJECT
 DOMAIN,sdownload.stargame.com,REJECT
-DOMAIN,app-analytics-services.com,REJECT
 DOMAIN-SUFFIX,adview.cn,REJECT
 DOMAIN-SUFFIX,ttayy.cn,REJECT
 DOMAIN-SUFFIX,tobidad.cn,REJECT
@@ -422,6 +421,7 @@ DOMAIN-SUFFIX,dcloud.net.cn,REJECT
 DOMAIN-SUFFIX,tec73.com,REJECT
 DOMAIN-KEYWORD,ads.g.doubleclick,REJECT
 DOMAIN-KEYWORD,sdk.1rtb.net,REJECT
+DOMAIN-KEYWORD,img.adnyg.com,REJECT
 DOMAIN-KEYWORD,sensorsdata.cn,REJECT
 DOMAIN-SUFFIX,gozendata.com,REJECT
 DOMAIN-SUFFIX,gzads.com,REJECT
