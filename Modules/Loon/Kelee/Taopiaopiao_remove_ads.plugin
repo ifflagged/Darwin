@@ -1,5 +1,5 @@
 #!name=淘票票去广告
-#!desc=移除开屏广告、悬浮广告、轮播图广告，移除搜索填充词、为你推荐。
+#!desc=移除开屏广告、悬浮广告、轮播图广告和弹窗广告，移除搜索填充词和为你推荐。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
 #!tag=Jacob
@@ -8,15 +8,17 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-08 23:02:38
+#!date=2025-11-08 23:45:23
 
 [Rewrite]
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-body-json-jq '.data.returnValue.topTab |= map(select(.activeImage | not)) | .data.returnValue.topTab |= map(del(.backgroundColor))'
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.aristotle\.get\/ response-body-json-jq 'def filter_nodes: map(if .data.componentId? and (.data.componentId | type == "string") and (.data.componentId | (contains("tpp_banner") or . == "tpp_guess_like")) then empty else .nodes |= (if . then filter_nodes else . end) end); .data.nodes |= (if . then filter_nodes else . end)'
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.popup\.get\/ - reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopindependentadvertiseapi\.queryadvertise\/ - reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopitemadvertiseapi\.queryadvertise\/ - reject-dict
 
 [Script]
-http-response ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_12, argument=%5B%5B%22json-del%22%2C%5B%22data.returnValue.floatingBanner%22%2C%22data.returnValue.searchShadeList%22%5D%5D%5D
+http-response ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_13, argument=%5B%5B%22json-del%22%2C%5B%22data.returnValue.floatingBanner%22%2C%22data.returnValue.searchShadeList%22%5D%5D%5D
 
 [MITM]
 hostname = acs.m.taobao.com
