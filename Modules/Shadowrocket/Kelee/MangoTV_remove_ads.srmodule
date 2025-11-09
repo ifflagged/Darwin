@@ -1,5 +1,5 @@
 #!name=芒果TV去广告
-#!desc=过滤芒果TV客户端广告
+#!desc=移除开屏广告、信息流广告、播放页广告，精简我的页面。
 #!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md], RuCu6[https://github.com/RuCu6]
 #!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Mango_TV.png
 #!category=Jacob
@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-09 02:32:18
+#!date=2025-11-09 07:45:13
 
 [Rule]
 DOMAIN,credits.bz.mgtv.com,REJECT
@@ -35,7 +35,11 @@ DOMAIN-SUFFIX,da.mgtv.com,REJECT
 ^https?:\/\/mobileso\.bz\.mgtv\.com\/mobile\/recommend\/v\d\? - reject-dict
 
 [Script]
-body_rewrite_32 = type=http-response, pattern=^https?:\/\/mobile\.api\.(mgtv|hunantv)\.com\/mobile\/config\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data.dc_adConfig%22%2C0%5D%2C%5B%22data.XmsellSwitch%22%2C0%5D%2C%5B%22data.damang_tab%22%2C0%5D%2C%5B%22data.relative_ads%22%2C0%5D%2C%5B%22data.second_floor_guide_switch%22%2C0%5D%2C%5B%22data.XmVideoB%22%2C0%5D%2C%5B%22data.damang_duanju_tab%22%2C0%5D%5D%5D%5D
+body_rewrite_32 = type=http-response, pattern=^https?:\/\/mobile\.api\.(mgtv|hunantv)\.com\/mobile\/config\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data.dc_adConfig%22%2C0%5D%2C%5B%22data.XmsellSwitch%22%2C0%5D%2C%5B%22data.screenshot_share_switch%22%2C0%5D%2C%5B%22data.playerUseHttpDNS%22%2C0%5D%2C%5B%22data.damang_tab%22%2C0%5D%2C%5B%22data.relative_ads%22%2C0%5D%2C%5B%22data.second_floor_guide_switch%22%2C0%5D%2C%5B%22data.progress_bar_ad_switch%22%2C0%5D%2C%5B%22data.XmVideoB%22%2C0%5D%2C%5B%22data.damang_duanju_tab%22%2C0%5D%2C%5B%22data.playview_box_ad_switch%22%2C0%5D%2C%5B%22data.topBarSwitch%22%2C0%5D%2C%5B%22data.VIPSDKB2%22%2C0%5D%5D%5D%5D
+
+body_rewrite_35 = type=http-response, pattern=^https?:\/\/dc\d?\.bz\.mgtv\.com\/dynamic\/v\d\/channel\/index\/\w, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22adInfo%22%5D%5D%5D
+
+body_rewrite_37 = type=http-response, pattern=^https:\/\/mobile-thor\.api\.mgtv\.com\/v\d+\/vod\/info\?, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-del%22%2C%5B%22data.config.ad%22%2C%22data.config.vipNav%22%2C%22data.template.skinList%22%2C%22data.template.theme%22%5D%5D%5D
 
 [MITM]
 hostname = %APPEND% dc?.bz.mgtv.com, mobileso.bz.mgtv.com, damang.api.mgtv.com, hb-boom.api.mgtv.com, mobile.api.mgtv.com, mobile.api.hunantv.com, me.bz.mgtv.com, mobile-thor.api.mgtv.com
