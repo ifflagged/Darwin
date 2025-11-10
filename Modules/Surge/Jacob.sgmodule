@@ -169,10 +169,9 @@ DOMAIN,wn.pos.baidu.com,REJECT,extended-matching,pre-matching
 DOMAIN,miniapp-ad.cdn.bcebos.com,REJECT
 DOMAIN-SUFFIX,union.baidu.cn,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,union.baidu.com,REJECT,extended-matching,pre-matching
-DOMAIN,ad.tencentmusic.com,REJECT
 DOMAIN,adsmind.gdtimg.com,REJECT
 DOMAIN,adsmind.ugdtimg.com,REJECT
-DOMAIN,mc.tencentmusic.com,REJECT
+DOMAIN,ads.privacy.qq.com,REJECT
 DOMAIN,c2.gdt.qq.com,REJECT
 DOMAIN,2fwin.gdt.qq.com,REJECT
 DOMAIN,huatuocode.huatuo.qq.com,REJECT,extended-matching,pre-matching
@@ -181,7 +180,6 @@ DOMAIN,info6.video.qq.com,REJECT
 DOMAIN,ios.bugly.qq.com,REJECT
 DOMAIN,pro.bugly.qq.com,REJECT
 DOMAIN,ios.video.mpush.qq.com,REJECT
-DOMAIN,us.l.qq.com,REJECT
 DOMAIN,mi.gdt.qq.com,REJECT
 DOMAIN,otheve.beacon.qq.com,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT,extended-matching,pre-matching
@@ -202,11 +200,17 @@ DOMAIN,win.gdt.qq.com,REJECT
 DOMAIN,wup.imtt.qq.com,REJECT
 DOMAIN,tpstelemetry.tencent.com,REJECT,extended-matching,pre-matching
 DOMAIN,ii.gdt.qq.com,REJECT
+DOMAIN,stat.y.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,stat6.y.qq.com,REJECT
+DOMAIN,oth.str.mdt.qq.com,REJECT
+DOMAIN,h.trace.qq.com,REJECT
+DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN-KEYWORD,trace.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,trace.video.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-KEYWORD,ad.hunyuan.tencent.com,REJECT
 DOMAIN-SUFFIX,gdt.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN-SUFFIX,l.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,imtmp.net,REJECT
 DOMAIN-SUFFIX,ugdtimg.com,REJECT
 IP-CIDR,47.110.187.87/32,REJECT,no-resolve,pre-matching
 DOMAIN-SUFFIX,openinstall.io,REJECT,extended-matching,pre-matching
@@ -458,7 +462,6 @@ DOMAIN,appsupport.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,i.gtimg.cn,REJECT,extended-matching,pre-matching
 DOMAIN,qzonestyle.gtimg.cn,REJECT,extended-matching,pre-matching
 DOMAIN,splashqqlive.gtimg.com,REJECT,extended-matching,pre-matching
-DOMAIN,stat.y.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,twns.p2ptun.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,tp2p.kg.qq.com,REJECT,extended-matching,pre-matching
 DOMAIN,adsmind.apdcdn.tc.qq.com,REJECT,extended-matching,pre-matching

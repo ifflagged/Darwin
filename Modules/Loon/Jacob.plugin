@@ -240,10 +240,9 @@ DOMAIN,wn.pos.baidu.com,REJECT
 DOMAIN,miniapp-ad.cdn.bcebos.com,REJECT
 DOMAIN-SUFFIX,union.baidu.cn,REJECT
 DOMAIN-SUFFIX,union.baidu.com,REJECT
-DOMAIN,ad.tencentmusic.com,REJECT
 DOMAIN,adsmind.gdtimg.com,REJECT
 DOMAIN,adsmind.ugdtimg.com,REJECT
-DOMAIN,mc.tencentmusic.com,REJECT
+DOMAIN,ads.privacy.qq.com,REJECT
 DOMAIN,c2.gdt.qq.com,REJECT
 DOMAIN,2fwin.gdt.qq.com,REJECT
 DOMAIN,huatuocode.huatuo.qq.com,REJECT
@@ -252,7 +251,6 @@ DOMAIN,info6.video.qq.com,REJECT
 DOMAIN,ios.bugly.qq.com,REJECT
 DOMAIN,pro.bugly.qq.com,REJECT
 DOMAIN,ios.video.mpush.qq.com,REJECT
-DOMAIN,us.l.qq.com,REJECT
 DOMAIN,mi.gdt.qq.com,REJECT
 DOMAIN,otheve.beacon.qq.com,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT
@@ -273,11 +271,17 @@ DOMAIN,win.gdt.qq.com,REJECT
 DOMAIN,wup.imtt.qq.com,REJECT
 DOMAIN,tpstelemetry.tencent.com,REJECT
 DOMAIN,ii.gdt.qq.com,REJECT
+DOMAIN,stat.y.qq.com,REJECT
+DOMAIN,stat6.y.qq.com,REJECT
+DOMAIN,oth.str.mdt.qq.com,REJECT
+DOMAIN,h.trace.qq.com,REJECT
+DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN-KEYWORD,trace.qq.com,REJECT
 DOMAIN-KEYWORD,trace.video.qq.com,REJECT
 DOMAIN-KEYWORD,ad.hunyuan.tencent.com,REJECT
 DOMAIN-SUFFIX,gdt.qq.com,REJECT
 DOMAIN-SUFFIX,l.qq.com,REJECT
+DOMAIN-SUFFIX,imtmp.net,REJECT
 DOMAIN-SUFFIX,ugdtimg.com,REJECT
 IP-CIDR,47.110.187.87/32,REJECT,no-resolve
 DOMAIN-SUFFIX,openinstall.io,REJECT
@@ -529,7 +533,6 @@ DOMAIN,appsupport.qq.com,REJECT
 DOMAIN,i.gtimg.cn,REJECT
 DOMAIN,qzonestyle.gtimg.cn,REJECT
 DOMAIN,splashqqlive.gtimg.com,REJECT
-DOMAIN,stat.y.qq.com,REJECT
 DOMAIN,twns.p2ptun.qq.com,REJECT
 DOMAIN,tp2p.kg.qq.com,REJECT
 DOMAIN,adsmind.apdcdn.tc.qq.com,REJECT
@@ -1420,7 +1423,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace 'Ac
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story\? response-body-json-jq 'if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN("vertical_ad_av", "vertical_ad_live", "vertical_ad_picture") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end'
-^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? response-body-json-jq '.data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end'
 undefined undefined undefined
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? - reject-dict
