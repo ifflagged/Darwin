@@ -1,7 +1,6 @@
 # 如果"data.component[*].zz_content[*].ad_campaign_id"的字符串值是有效的，则删除"data.component[*].zz_content[*].ad_campaign_id"所在的对象
 # 如果"data.component[*].zz_content[*].tag"的字符串值是有效的，则删除"data.component[*].zz_content[*].tag"所在的对象
 # 如果"data.component[*].zz_content[*].model_type"的值是字符串类型的"ads"则删除"data.component[*].zz_content[*].model_type"所在的对象
-
 .data.component |= map(
   # 仅当 zz_content 是数组时执行过滤
   if (.zz_content | type) == "array" then
@@ -25,12 +24,19 @@
   )
 )
 
+# 如果"data.component[*].zz_content"数组中，"article_channel_type"的值是字符串类型的"questionnaire"时，则删除"data.component[*].zz_content[*].article_channel_type"所在的对象。
+| .data.component |= map(
+  .zz_content |= map(
+    select(. != null and type == "object" and .article_channel_type != "questionnaire")
+  )
+)
+
 # 移除首页主题皮肤背景
 # 删除"data.theme"
-| del(.data.theme) |
+| del(.data.theme)
 
 # 遍历"data.component"数组并安全删除"circular_banner_option"
-.data.component |= map(
+| .data.component |= map(
   if .zz_content | type == "object" then
     .zz_content |= del(.circular_banner_option)
   else
