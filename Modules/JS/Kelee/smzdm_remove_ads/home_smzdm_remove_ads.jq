@@ -17,17 +17,23 @@
 
 # 如果"data.component[*].zz_type"存在，且字符串的值不是"circular_banner"或"filter"或"list"，则删除"data.component[*].zz_type"所在的对象
 | .data.component |= map(
-  select(
-    if has("zz_type") then 
-      .zz_type | IN(["circular_banner", "filter", "list"][]) 
-    else true end
-  )
+  select(.zz_type == "circular_banner" or .zz_type == "filter" or .zz_type == "list")
 )
 
 # 如果"data.component[*].zz_content"数组中，"article_channel_type"的值是字符串类型的"questionnaire"时，则删除"data.component[*].zz_content[*].article_channel_type"所在的对象。
 | .data.component |= map(
-  .zz_content |= map(
-    select(. != null and type == "object" and .article_channel_type != "questionnaire")
+  .zz_content |= (
+    if type == "array" then
+      map(
+        if type == "object" and (.article_channel_type // "") == "questionnaire" then
+          empty
+        else
+          .
+        end
+      )
+    else
+      .
+    end
   )
 )
 
