@@ -170,28 +170,22 @@ DOMAIN,gspe19-2-cn-ssl.ls.apple.com,DIRECT
 DOMAIN,gspe79-cn-ssl.ls.apple.com,DIRECT
 # BlockAdvertisers
 AND,((DOMAIN-KEYWORD,tnc),(OR,((DOMAIN-SUFFIX,capcutapi.com),(DOMAIN-SUFFIX,zijieapi.com),(DOMAIN-SUFFIX,isnssdk.com),(DOMAIN-SUFFIX,toutiaoapi.com),(DOMAIN-SUFFIX,bytedance.com),(DOMAIN-SUFFIX,snssdk.com),(DOMAIN-SUFFIX,sgsnssdk.com)))),DIRECT
-AND,((OR,((DOMAIN-KEYWORD,api-access),(DOMAIN-KEYWORD,log-api))),(DOMAIN-KEYWORD,pangolin-sdk-toutiao)),REJECT
 AND,((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)),REJECT
-AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,normal),(DOMAIN-SUFFIX,zijieapi.com)),REJECT
+AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal.zijieapi.com)),REJECT
 DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 DOMAIN,dig.bdurl.net,REJECT
 DOMAIN,extlog.snssdk.com,REJECT
 DOMAIN,mcs.snssdk.com,REJECT
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
+DOMAIN-KEYWORD,pangolin-dsp-toutiao,REJECT
+DOMAIN-KEYWORD,pglstatp-sdk-toutiao,REJECT
+DOMAIN-KEYWORD,pglstatp-snssdk-toutiao,REJECT
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
+DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT
 DOMAIN-SUFFIX,byteadverts.com,REJECT
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
-DOMAIN-SUFFIX,pangolin-dsp-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,pangolin-dsp-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT
 DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
-DOMAIN-SUFFIX,panplayable-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,panplayable-toutiao.com,REJECT
-DOMAIN-SUFFIX,pglstatp-sdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pglstatp-snssdk-toutiao.com,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao-b.com,REJECT
-DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
 DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
@@ -512,9 +506,7 @@ DOMAIN-KEYWORD,-pack.byteimg.com,REJECT
 DOMAIN-KEYWORD,-analytics.bytescm.com,REJECT
 DOMAIN-KEYWORD,-tos.pstatp.com,REJECT
 DOMAIN-KEYWORD,p3.pstatp.com,REJECT
-DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
 DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT
-DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
 DOMAIN,open.kuaishou.com,REJECT
 DOMAIN-SUFFIX,kuaishouzt.com,REJECT
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT
@@ -1455,10 +1447,10 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace 'Ac
 ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.view\.v1\.View\/TFInfo$ mock-response-body data-type=base64 data="AAAAAAIIAQ==" mock-data-is-base64=true
 # Bilibili_remove_ads
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show|event\/list2)\? response-body-json-jq '.data |= with_entries(if .key | IN("show", "event_list") then .value = [] else . end)'
-^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story\? response-body-json-jq 'if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN("vertical_ad_av", "vertical_ad_live", "vertical_ad_picture") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end'
-^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? response-body-json-jq '.data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end'
 undefined undefined undefined
 ^https:\/\/line3-h5-mobile-api\.biligame\.com\/game\/live\/large_card_material\? - reject-dict
@@ -1786,7 +1778,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section\/ response-body-json-jq '.data.data.components |= map(select(.data and (.data|type=="object") and .data.template and (.data.template|type=="object") and .data.template.name and (.data.template.name|type=="string") and (.data.template.name|contains("fish_city_kingkong"))))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ response-body-json-jq '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq '.data.container.sections |= map(select(.template.name as $name | ["my_fy25_header","my_fy25_user_info","my_fy25_trade","my_fy25_appraise","my_fy25_tools"] | index($name)))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/FleaMarket/adapter_FleaMarket_remove_ads.jq"
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FleaMarket_remove_ads/adapter_FleaMarket_remove_ads.jq"
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/ response-body-json-jq '.data.circleList[].showInfo.titleImage |= (.lightUrl="" | .url="" | del(.width, .height))'
 ^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ response-body-json-jq '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end)'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ response-body-json-jq '.data.resultList |= map(select(.type != "MarketHotSpot"))'
@@ -2002,10 +1994,11 @@ http-response ^https:\/\/app-api\.smzdm\.com\/util\/update$ script-path=https://
 http-response ^https:\/\/haojia-api\.smzdm\.com\/home\/list\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_21, argument=%5B%5B%22json-del%22%2C%5B%22data.header_operation.theme%22%5D%5D%5D
 http-response ^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_23, argument=%5B%5B%22json-del%22%2C%5B%22data.super_coupon%22%5D%5D%5D
 http-response ^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_24, argument=%5B%5B%22json-del%22%2C%5B%22data.banner%22%5D%5D%5D
-http-response ^https:\/\/user-api\.smzdm\.com\/vip$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_25, argument=%5B%5B%22json-del%22%2C%5B%22data.activity_entrance_info%22%2C%22data.big_banner%22%2C%22data.top_banner%22%2C%22data.banner_switch%22%5D%5D%5D
+http-response ^https:\/\/user-api\.smzdm\.com\/vip$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_25, argument=%5B%5B%22json-del%22%2C%5B%22data.activity_entrance_info%22%2C%22data.big_banner%22%2C%22data.top_banner%22%2C%22data.banner_switch%22%2C%22data.yaoqingshaiwu%22%5D%5D%5D
 http-response ^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_30, argument=%5B%5B%22json-del%22%2C%5B%22data.search_faxian%22%2C%22data.tonglan%22%2C%22data.hongbao%22%5D%5D%5D
 http-response ^https:\/\/haojia-api\.smzdm\.com\/detail\/\d+\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_33, argument=%5B%5B%22json-del%22%2C%5B%22data.quan_log%22%5D%5D%5D
 http-response ^https:\/\/haojia-cdn\.smzdm\.com\/preload\/\d+\/fiphone\/v\d+_\d+_\d+\/wx\d+\/im\d+\/[0-9a-z]+\/[0-9a-z]+\.json$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_34, argument=%5B%5B%22json-del%22%2C%5B%22data.quan_log%22%5D%5D%5D
+http-response ^https:\/\/post\.m\.smzdm\.com\/ajax_app\/ajax_get_footer_list\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_35, argument=%5B%5B%22json-del%22%2C%5B%22data.tuiguang_ad%22%2C%22data.activity_banner%22%5D%5D%5D
 # smzdm
 http-response ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/smzdm/smzdm.js, requires-body=true, tag=smzdm
 http-response ^https?:\/\/user-api\.smzdm\.com\/vip script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/zirawell/smzdm/smzdm.js, requires-body=true, tag=smzdm
