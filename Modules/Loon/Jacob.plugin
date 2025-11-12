@@ -176,18 +176,12 @@ DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 DOMAIN,dig.bdurl.net,REJECT
 DOMAIN,extlog.snssdk.com,REJECT
 DOMAIN,mcs.snssdk.com,REJECT
-DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
-DOMAIN-KEYWORD,pangolin-dsp-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-sdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-snssdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-KEYWORD,pglstatp,REJECT
 DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT
 DOMAIN-SUFFIX,byteadverts.com,REJECT
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
-DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
-DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
-DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT
@@ -374,9 +368,14 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,adjust.com,REJECT
 DOMAIN-SUFFIX,adjust.net.in,REJECT
+DOMAIN,app-analytics-services.com,REJECT
+DOMAIN,odm.app-ads-services.com,REJECT
+DOMAIN,firebaselogging-pa.googleapis.com,REJECT
+DOMAIN,firebaseinappmessaging.googleapis.com,REJECT
+DOMAIN,firebaseremoteconfig.googleapis.com,REJECT
+DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
 DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
-DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,xinduoad.com,REJECT
 DOMAIN,statis.miwuad.com,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
@@ -421,7 +420,6 @@ DOMAIN,geo2.adobe.com,REJECT
 # adunion
 DOMAIN,adtracker.adfunlink.com,REJECT
 DOMAIN,apis.alenable.com,REJECT
-DOMAIN,app-analytics-services.com,REJECT
 DOMAIN,init.supersonicads.com,REJECT
 DOMAIN,ws.tapjoyads.com,REJECT
 DOMAIN,hdns.ksyun.com,REJECT
@@ -507,7 +505,9 @@ DOMAIN-KEYWORD,-pack.byteimg.com,REJECT
 DOMAIN-KEYWORD,-analytics.bytescm.com,REJECT
 DOMAIN-KEYWORD,-tos.pstatp.com,REJECT
 DOMAIN-KEYWORD,p3.pstatp.com,REJECT
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT
 DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT
 DOMAIN,open.kuaishou.com,REJECT
 DOMAIN-SUFFIX,kuaishouzt.com,REJECT
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT

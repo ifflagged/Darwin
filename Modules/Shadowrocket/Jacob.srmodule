@@ -105,18 +105,12 @@ DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 DOMAIN,dig.bdurl.net,REJECT,extended-matching
 DOMAIN,extlog.snssdk.com,REJECT
 DOMAIN,mcs.snssdk.com,REJECT,extended-matching
-DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT,extended-matching
-DOMAIN-KEYWORD,pangolin-dsp-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-sdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-snssdk-toutiao,REJECT
-DOMAIN-KEYWORD,pglstatp-toutiao,REJECT,extended-matching
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-KEYWORD,pglstatp,REJECT
 DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT
 DOMAIN-SUFFIX,byteadverts.com,REJECT
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
-DOMAIN-SUFFIX,pangolin.snssdk.com,REJECT
-DOMAIN-SUFFIX,sf3-ttcdn-tos.pstatp.com,REJECT
-DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT,extended-matching
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT,extended-matching
@@ -303,9 +297,14 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,adjust.com,REJECT,extended-matching
 DOMAIN-SUFFIX,adjust.net.in,REJECT
+DOMAIN,app-analytics-services.com,REJECT,extended-matching
+DOMAIN,odm.app-ads-services.com,REJECT
+DOMAIN,firebaselogging-pa.googleapis.com,REJECT
+DOMAIN,firebaseinappmessaging.googleapis.com,REJECT
+DOMAIN,firebaseremoteconfig.googleapis.com,REJECT
+DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,doubleclick-cn.net,REJECT,extended-matching
 DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT,extended-matching
-DOMAIN,fundingchoicesmessages.google.com,REJECT
 DOMAIN-SUFFIX,xinduoad.com,REJECT
 DOMAIN,statis.miwuad.com,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
@@ -350,7 +349,6 @@ DOMAIN,geo2.adobe.com,REJECT,extended-matching
 # adunion
 DOMAIN,adtracker.adfunlink.com,REJECT,extended-matching
 DOMAIN,apis.alenable.com,REJECT,extended-matching
-DOMAIN,app-analytics-services.com,REJECT,extended-matching
 DOMAIN,init.supersonicads.com,REJECT,extended-matching
 DOMAIN,ws.tapjoyads.com,REJECT,extended-matching
 DOMAIN,hdns.ksyun.com,REJECT,extended-matching
@@ -436,7 +434,9 @@ DOMAIN-KEYWORD,-pack.byteimg.com,REJECT,extended-matching
 DOMAIN-KEYWORD,-analytics.bytescm.com,REJECT,extended-matching
 DOMAIN-KEYWORD,-tos.pstatp.com,REJECT,extended-matching
 DOMAIN-KEYWORD,p3.pstatp.com,REJECT,extended-matching
+DOMAIN-KEYWORD,pangolin-sdk-toutiao,REJECT,extended-matching
 DOMAIN-KEYWORD,pangolin.snssdk.com,REJECT,extended-matching
+DOMAIN-KEYWORD,pglstatp-toutiao,REJECT,extended-matching
 DOMAIN,open.kuaishou.com,REJECT,extended-matching
 DOMAIN-SUFFIX,kuaishouzt.com,REJECT,extended-matching
 DOMAIN-SUFFIX,googleadsserving.cn,REJECT,extended-matching
