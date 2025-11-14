@@ -176,16 +176,16 @@ DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 DOMAIN,dig.bdurl.net,REJECT
 DOMAIN,extlog.snssdk.com,REJECT
 DOMAIN,mcs.snssdk.com,REJECT
-DOMAIN-KEYWORD,pangolin,REJECT
-DOMAIN-KEYWORD,pglstatp,REJECT
-DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-SUFFIX,bds.snssdk.com,REJECT
 DOMAIN-SUFFIX,byteadverts.com,REJECT
 DOMAIN-SUFFIX,ctobsnssdk.com,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-KEYWORD,pangolin,REJECT
+DOMAIN-KEYWORD,pglstatp,REJECT
+DOMAIN-KEYWORD,panplayable-toutiao,REJECT
 DOMAIN-KEYWORD,-ad-sign.byteimg.com,REJECT
 DOMAIN-KEYWORD,-ad.byteoversea.com,REJECT
 DOMAIN-KEYWORD,asiad.byteactivity,REJECT
-DOMAIN-SUFFIX,pangle.io,REJECT
 DOMAIN-KEYWORD,iflyad.bj.openstorage.cn,REJECT
 DOMAIN-KEYWORD,bjimp.voiceads.cn,REJECT
 DOMAIN-SUFFIX,1rtb.net,REJECT
@@ -245,38 +245,30 @@ DOMAIN-SUFFIX,union.baidu.com,REJECT
 DOMAIN,adsmind.gdtimg.com,REJECT
 DOMAIN,adsmind.ugdtimg.com,REJECT
 DOMAIN,ads.privacy.qq.com,REJECT
-DOMAIN,c2.gdt.qq.com,REJECT
-DOMAIN,2fwin.gdt.qq.com,REJECT
 DOMAIN,huatuocode.huatuo.qq.com,REJECT
 DOMAIN,info4.video.qq.com,REJECT
 DOMAIN,info6.video.qq.com,REJECT
 DOMAIN,ios.bugly.qq.com,REJECT
 DOMAIN,pro.bugly.qq.com,REJECT
 DOMAIN,ios.video.mpush.qq.com,REJECT
-DOMAIN,mi.gdt.qq.com,REJECT
 DOMAIN,otheve.beacon.qq.com,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT
 DOMAIN,pgdt.ugdtimg.com,REJECT
 DOMAIN,qzs.gdtimg.com,REJECT
 DOMAIN,qzs.qq.com,REJECT
 DOMAIN,rmonitor.qq.com,REJECT
-DOMAIN,sdk.e.qq.com,REJECT
 DOMAIN,sdkconfig.video.qq.com,REJECT
-DOMAIN,t.gdt.qq.com,REJECT
 DOMAIN,tmead.y.qq.com,REJECT
 DOMAIN,tmeadbak.y.qq.com,REJECT
 DOMAIN,tmeadcomm.y.qq.com,REJECT
 DOMAIN,tpns.qq.com,REJECT
-DOMAIN,v.gdt.qq.com,REJECT
-DOMAIN,v2.gdt.qq.com,REJECT
-DOMAIN,win.gdt.qq.com,REJECT
 DOMAIN,wup.imtt.qq.com,REJECT
 DOMAIN,tpstelemetry.tencent.com,REJECT
-DOMAIN,ii.gdt.qq.com,REJECT
 DOMAIN,stat.y.qq.com,REJECT
 DOMAIN,stat6.y.qq.com,REJECT
 DOMAIN,oth.str.mdt.qq.com,REJECT
 DOMAIN,h.trace.qq.com,REJECT
+DOMAIN,sdk.e.qq.com,REJECT
 DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN-KEYWORD,trace.qq.com,REJECT
 DOMAIN-KEYWORD,trace.video.qq.com,REJECT
@@ -293,7 +285,6 @@ DOMAIN-SUFFIX,igexin.com,REJECT
 DOMAIN-SUFFIX,umtrack.com,REJECT
 DOMAIN-SUFFIX,umeng.com,REJECT
 DOMAIN-SUFFIX,umsns.com,REJECT
-DOMAIN-SUFFIX,umengcloud.com,REJECT
 DOMAIN-SUFFIX,lydass.net,REJECT
 DOMAIN-SUFFIX,lydass.com.cn,REJECT
 DOMAIN-SUFFIX,lydaas.net,REJECT
@@ -315,6 +306,7 @@ DOMAIN-SUFFIX,dratio.com,REJECT
 DOMAIN-SUFFIX,umtrack0.com,REJECT
 DOMAIN-SUFFIX,whalecloud.com,REJECT
 DOMAIN-SUFFIX,umtrack2.com,REJECT
+DOMAIN-SUFFIX,umengcloud.com,REJECT
 DOMAIN-SUFFIX,um1.cn,REJECT
 DOMAIN-SUFFIX,adfunlink.com,REJECT
 DOMAIN-SUFFIX,ubixioe.com,REJECT
@@ -327,9 +319,25 @@ DOMAIN,opehs.tanx.com,REJECT
 DOMAIN,beacon-api.aliyuncs.com,REJECT
 DOMAIN,adash.man.aliyuncs.com,REJECT
 DOMAIN,applog.uc.cn,REJECT
+DOMAIN,atoken.m.taobao.com,REJECT
 AND,((DOMAIN-KEYWORD,adash),(DOMAIN-SUFFIX,ut.taobao.com)),REJECT
 URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch",REJECT
+DOMAIN,baichuan-sdk.alicdn.com,REJECT
+DOMAIN,acs4baichuan.m.taobao.com,REJECT
+DOMAIN,api.sm.cn,REJECT
+DOMAIN,c.sm.cn,REJECT
+DOMAIN,content-understand-strategy.sm.cn,REJECT
+DOMAIN,hc-ssp.sm.cn,REJECT
+DOMAIN,sdk-log.partner.sm.cn,REJECT
+DOMAIN,partner.uc.cn,REJECT
+DOMAIN,cpc-service-square.aiclk.com,REJECT
+DOMAIN,logrcv.aiclk.com,REJECT
+DOMAIN,acjs.aliyun.com,REJECT
+DOMAIN,retcode.alicdn.com,REJECT
+DOMAIN,arms-retcode.aliyuncs.com,REJECT
+DOMAIN,at.alicdn.com,REJECT
 DOMAIN,huichuan.sm.cn,REJECT
+DOMAIN,huichuan-mc.sm.cn,REJECT
 DOMAIN,nex.163.com,REJECT
 DOMAIN,iad.g.163.com,REJECT
 DOMAIN,gorgon.youdao.com,REJECT
@@ -389,6 +397,13 @@ DOMAIN,adapi.izuiyou.com,REJECT
 DOMAIN-SUFFIX,domob.cn,REJECT
 DOMAIN-SUFFIX,adwangmai.com,REJECT
 DOMAIN-SUFFIX,bxsnews.com,REJECT
+DOMAIN-SUFFIX,ranfenghd.com,REJECT
+DOMAIN-SUFFIX,mmstat.com,REJECT
+DOMAIN-SUFFIX,qchannel01.cn,REJECT
+DOMAIN-SUFFIX,ad.xelements.cn,REJECT
+DOMAIN-SUFFIX,adsrvr.cn,REJECT
+DOMAIN-SUFFIX,adsrvr.org,REJECT
+DOMAIN-SUFFIX,fancydsp.com,REJECT
 DOMAIN-SUFFIX,tradplusad.com,REJECT
 DOMAIN-SUFFIX,fancyapi.com,REJECT
 DOMAIN-SUFFIX,medproad.com,REJECT
@@ -781,7 +796,6 @@ DOMAIN-SUFFIX,znsv.baidu.com,REJECT
 IP-CIDR,180.76.76.112/32,REJECT,no-resolve
 DOMAIN,o2o-ad-log-gateway.alibaba.com,REJECT
 DOMAIN,eco.taobao.com,REJECT
-DOMAIN,baichuan-sdk.alicdn.com,REJECT
 DOMAIN-SUFFIX,mpush-api.aliyun.com,REJECT
 DOMAIN-SUFFIX,aecpm.alicdn.com,REJECT
 DOMAIN-SUFFIX,afp.alicdn.com,REJECT
@@ -1780,7 +1794,7 @@ https?:\/\/91porn\.com(\/|)$ https://91porn.com/index.php 302
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.flow\.plat\.section\/ response-body-json-jq '.data.data.components |= map(select(.data and (.data|type=="object") and .data.template and (.data.template|type=="object") and .data.template.name and (.data.template.name|type=="string") and (.data.template.name|contains("fish_city_kingkong"))))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.local\.home\/ response-body-json-jq '.data.sections |= map(select((.template.cardEnum != "ads") and (.cardType == "common")))'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq '.data.container.sections |= map(select(.template.name as $name | ["my_fy25_header","my_fy25_user_info","my_fy25_trade","my_fy25_appraise","my_fy25_tools"] | index($name)))'
-^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FleaMarket_remove_ads/adapter_FleaMarket_remove_ads.jq"
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.idle\.user\.page\.my\.adapter\/ response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/FleaMarket/adapter_FleaMarket_remove_ads.jq"
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlehome\.home\.circle\.list\/ response-body-json-jq '.data.circleList[].showInfo.titleImage |= (.lightUrl="" | .url="" | del(.width, .height))'
 ^https:\/\/g-acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\/ response-body-json-jq '.data.resultList |= map(if .data.item.main.exContent.dislikeFeedback.clickParam.args.bizType == "ad" then empty else . end)'
 ^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.search\.discover\/ response-body-json-jq '.data.resultList |= map(select(.type != "MarketHotSpot"))'
