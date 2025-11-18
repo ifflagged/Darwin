@@ -53,7 +53,7 @@ AND, ((DOMAIN-SUFFIX, chat.bilibili.com), (OR, ((DOMAIN-KEYWORD, stun), (DOMAIN-
 
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? response-body-json-del data.common_equip
 
-^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq"
 
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? response-body-json-jq '.data.vip |= if . != null and .status == 0 then . + { status: 1, type: 2, due_date: 9005270400000, role: 15 } else . end'
 
