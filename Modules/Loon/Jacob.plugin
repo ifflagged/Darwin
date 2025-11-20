@@ -276,6 +276,24 @@ DOMAIN-SUFFIX,l.qq.com,REJECT
 DOMAIN-SUFFIX,imtmp.net,REJECT
 DOMAIN-SUFFIX,ugdtimg.com,REJECT
 IP-CIDR,47.110.187.87/32,REJECT,no-resolve
+DOMAIN-SUFFIX,opadlink.com,REJECT
+DOMAIN-SUFFIX,staevent.work,REJECT
+DOMAIN-SUFFIX,openinstall.online,REJECT
+DOMAIN-SUFFIX,statchannel.store,REJECT
+DOMAIN-SUFFIX,oplinking.com,REJECT
+DOMAIN-SUFFIX,deepinstall.com,REJECT
+DOMAIN-SUFFIX,openinstall.com,REJECT
+DOMAIN-SUFFIX,installtongji.top,REJECT
+DOMAIN-SUFFIX,openlink.cc,REJECT
+DOMAIN-SUFFIX,opstatistics.com,REJECT
+DOMAIN-SUFFIX,installtongji.online,REJECT
+DOMAIN-SUFFIX,statschannel.xyz,REJECT
+DOMAIN-SUFFIX,staevent.xyz,REJECT
+DOMAIN-SUFFIX,opstatistics.cn,REJECT
+DOMAIN-SUFFIX,openinstall.top,REJECT
+DOMAIN-SUFFIX,openinstall.io,REJECT
+DOMAIN-SUFFIX,statsinstall.xyz,REJECT
+DOMAIN-SUFFIX,statchannel.top,REJECT
 DOMAIN-SUFFIX,getui.com,REJECT
 DOMAIN-SUFFIX,getui.net,REJECT
 DOMAIN-SUFFIX,igexin.com,REJECT
@@ -462,7 +480,6 @@ DOMAIN-SUFFIX,shuzilm.cn,REJECT
 DOMAIN-SUFFIX,u51.me,REJECT
 DOMAIN-SUFFIX,hiaiabc.com,REJECT
 DOMAIN-SUFFIX,fstats.xyz,REJECT
-DOMAIN-SUFFIX,openinstall.io,REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
 DOMAIN-SUFFIX,ad.gameley.com,REJECT
@@ -1447,7 +1464,7 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace 'Ac
 ^https:\/\/grpc\.biliapi\.net\/bilibili\.app\.(view\.v1\.View\/TFInfo|viewunite\.v1\.View\/ViewEndPage)$ mock-response-body data-type=base64 data="AAAAAAA=" mock-data-is-base64=true
 # Bilibili_remove_ads
 ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show|event\/list2)\? response-body-json-jq '.data |= with_entries(if .key | IN("show", "event_list") then .value = [] else . end)'
-^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/Bilibili/tab_Bilibili_remove_ads.jq"
+^https:\/\/app\.bilibili\.com\/x\/resource\/show\/tab\/v2\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/tab_Bilibili_remove_ads.jq"
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\? response-body-json-jq 'if .data.items then .data.items |= map(select((.banner_item == null) and (.ad_info == null) and (.card_goto == "av") and (.card_type | IN("small_cover_v2", "large_cover_single_v9", "large_cover_v1")))) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index\/story\? response-body-json-jq 'if .data.items then .data.items |= map(select((.ad_info == null) and (.card_goto | IN("vertical_ad_av", "vertical_ad_live", "vertical_ad_picture") | not)) | del(.story_cart_icon, .free_flow_toast, .image_infos, .course_info, .game_info)) end'
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine(\/ipad)?\? response-body-json-jq jq-path="https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/mine_Bilibili_remove_ads.jq"
