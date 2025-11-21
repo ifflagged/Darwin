@@ -1,0 +1,41 @@
+#!name=美丽修行去广告
+#!desc=移除开屏广告、版本更新弹窗、搜索标签、搜索反馈、横幅推广、产品推广、问卷调查、下拉广告，我的页面推广。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Meizhixiuxing.png
+#!category=Jacob
+
+#!openUrl=https://apps.apple.com/app/id1089854728
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-11-21 12:02:42
+
+[URL Rewrite]
+^https:\/\/api\.bevol\.com\/appmain\/app\/home\/launch$ - reject-dict
+^https:\/\/api\.bevol\.com\/appmain\/app\/home\/popup$ - reject-dict
+^https:\/\/api\.bevol\.com\/personal\/page$ - reject-dict
+
+[Body Rewrite]
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","versionPopUp"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","isShowSearchLabel"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","isShowSearchFeedBack"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","centerBannerAdvert"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","programmaticAdvertising"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","mattsData"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","questionnaireMap"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/page$ 'delpaths([["result","appPullDownAdvert"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["result","banners"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["'","result","returnList"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["|="]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["map(select(","adId"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["|"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/appmain\/app\/home\/feed$ 'delpaths([["not))'"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/trialbox\/shop\/app\/homePage$ 'delpaths([["result","bannerImages"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/trialbox\/shop\/app\/homePage$ 'delpaths([["result","firstPersonActivity"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/trialbox\/shop\/app\/homePage$ 'delpaths([["result","mainActivity"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/trialbox\/shop\/app\/homePage$ 'delpaths([["result","brandZone"]])'
+http-response-jq ^https:\/\/api\.bevol\.com\/trialbox\/shop\/app\/homePage$ 'delpaths([["result","imageAD2"]])'
+
+[MITM]
+hostname = %APPEND% api.bevol.com
+
