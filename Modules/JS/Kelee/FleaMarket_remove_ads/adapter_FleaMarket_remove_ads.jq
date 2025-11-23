@@ -1,18 +1,19 @@
-# 重建 data.container.sections[*].item.tool.exContent.tools 数组
-.data.container.sections |= map(
-  if .index == "5" then 
+# 仅当 item 中存在 tool 字段时，更新其 exContent.tools
+# 避免为不存在 tool 的 section 创建空结构
+.data.container.sections[] |= (
+  if .item.tool then
     .item.tool.exContent.tools = [
       [
         {
-          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/act-react/pages/e4mbwSjGRWxw",
+          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/fish-ad/pages/home?kun=true&fromScene=myPage",
           "exContent": {
-            "title": "简历认证",
-            "icon": "https://img.alicdn.com/imgextra/i4/O1CN01eiWw4r1GJlOaTIEfx_!!6000000000602-2-tps-84-84.png",
-            "toolId": 26
+            "title": "超级擦亮",
+            "icon": "https://gw.alicdn.com/imgextra/i2/O1CN01bVNpPu1eGbSDs0GSR_!!6000000003844-2-tps-84-84.png",
+            "toolId": 23
           },
           "clickParam": {
             "args": {
-              "toolId": "26"
+              "toolId": "23"
             },
             "arg1": "Function"
           }
@@ -32,23 +33,23 @@
           }
         },
         {
-          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/planting-notes/pages/publishCenter",
+          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/experience-officer/pages/home?kun=true",
           "exContent": {
-            "title": "宝贝上首页",
-            "icon": "https://gw.alicdn.com/imgextra/i3/O1CN01BOqDXJ1RA6uBkvYQW_!!6000000002070-2-tps-84-84.png",
-            "toolId": 34
+            "title": "闲鱼体验官",
+            "icon": "https://gw.alicdn.com/imgextra/i1/O1CN016leRFv1N0Fprgaghl_!!6000000001507-2-tps-84-84.png",
+            "toolId": 2
           },
           "clickParam": {
             "args": {
-              "toolId": "34"
+              "toolId": "2"
             },
             "arg1": "Function"
           }
         },
         {
-          "targetUrl": "https://h5.m.goofish.com/cea/idleFish-F2e/creator-pha/mypost?loadingVisible=false",
+          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/seafood-qa/pages/my-content?useCusFont=true&loadingVisible=false",
           "exContent": {
-            "title": "我的帖子",
+            "title": "帖子中心",
             "icon": "https://gw.alicdn.com/imgextra/i1/O1CN01Cge0QO1R2K5RfoaOw_!!6000000002053-2-tps-84-84.png",
             "toolId": 13
           },
@@ -76,20 +77,6 @@
           }
         },
         {
-          "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/experience-officer/pages/home?kun=true",
-          "exContent": {
-            "title": "闲鱼体验官",
-            "icon": "https://gw.alicdn.com/imgextra/i1/O1CN016leRFv1N0Fprgaghl_!!6000000001507-2-tps-84-84.png",
-            "toolId": 2
-          },
-          "clickParam": {
-            "args": {
-              "toolId": "2"
-            },
-            "arg1": "Function"
-          }
-        },
-        {
           "targetUrl": "https://h5.m.goofish.com/wow/moyu/moyu-project/cro-security-center/pages/security-center",
           "exContent": {
             "title": "安全中心",
@@ -105,7 +92,7 @@
         }
       ]
     ]
-  else 
-    . 
+  else
+    .
   end
 )
