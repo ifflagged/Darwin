@@ -134,7 +134,11 @@ if (url.includes("/gw/mtop.taobao.idlemtopsearch.search")) {
       obj.data.resultList = obj.data.resultList.filter(element => {  
         return element.data.template.name !== "idlefish_search_card_category_select";
       }); 
-  }  
+    }
+    
+    if (obj.data?.resultPrefixBar) {
+      delete obj.data.resultPrefixBar;
+    }
 }
 
 
