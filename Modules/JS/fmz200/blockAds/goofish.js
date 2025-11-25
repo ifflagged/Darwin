@@ -131,9 +131,14 @@ if (url.includes("/gw/mtop.taobao.idlemtopsearch.search")) {
           return true;  
       }); 
       
-      obj.data.resultList = obj.data.resultList.filter(element => {  
-        return element.data.template.name !== "idlefish_search_card_category_select";
-      }); 
+      //obj.data.resultList = obj.data.resultList.filter(element => {  
+        //return element.data.template.name !== "idlefish_search_card_category_select";
+      //});
+      
+      const excludeNames = ["idlefish_search_card_category_select", "idlefish_search_spu_market_publish"];
+      obj.data.resultList = obj.data.resultList.filter(element => {
+        return !excludeNames.includes(element.data.template.name);
+      });
     }
     
     if (obj.data?.resultPrefixBar) {
