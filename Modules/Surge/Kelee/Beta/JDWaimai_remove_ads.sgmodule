@@ -8,12 +8,13 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-28 02:43:29
+#!date=2025-11-28 02:52:04
 
 [Body Rewrite]
 http-response-jq ^https:\/\/color\.jddj\.com\/client\.action\?functionId=hours_home$ 'del(.result.config.searchFloor.data[].searchWords) | .result.data |= map(if .tnConfigVO?.businessCode == "nearby_HourlyGo_Operation_Tags" then empty else . end)'
 http-response-jq ^https:\/\/color\.jddj\.com\/client\.action\?functionId=wmHome$ '(.floors |= map(del(.data.tnData.newsInfo?))) | .floors |= (map(select(.mId != "newWalletIdFloor" and .mId != "recommendfloor"))) | .floors |= (map(.data |= (if .tnData? then del(.tnData.cardList, .tnData.cardListStatic, .tnData.walletList) else . end)))'
 http-response-jq ^https:\/\/api\.m\.jd\.com\/client\.action$ 'delpaths([["data","searchDTO","searchWords"]])'
+http-response-jq ^https:\/\/api\.m\.jd\.com\/client\.action$ 'delpaths([["data","wishlistDTO","bubbleTip"]])'
 http-response-jq ^https:\/\/api\.m\.jd\.com\/client\.action$ '.data.tabList |= (map(select(.code == "recommendation" or .code == "find_food")) | map(if .code == "recommendation" then .dpHomeFeedTabResultDTOList = .dpHomeFeedTabResultDTOList[0:2] else . end | .dpHomeBannerResultDTOList = []))'
 
 [Map Local]
