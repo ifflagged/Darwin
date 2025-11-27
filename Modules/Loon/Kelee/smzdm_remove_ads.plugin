@@ -8,7 +8,7 @@
 #!tag=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
-#!date=2025-11-12 04:00:04
+#!date=2025-11-27 21:44:57
 
 [Rule]
 DOMAIN,adx-api.zdmimg.com,REJECT
@@ -18,7 +18,7 @@ DOMAIN,adx-api.zdmimg.com,REJECT
 ^https:\/\/homepage-api\.smzdm\.com\/v3\/home\? response-body-json-jq jq-path="https://kelee.one/Resource/JQLang/smzdm/home_smzdm_remove_ads.jq"
 ^https:\/\/haojia-api\.smzdm\.com\/home\/list\? response-body-json-jq '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
 ^https:\/\/s-api\.smzdm\.com\/sou\/list_v10\? response-body-json-jq '.data.rows |= map(select(.model_type != "ads")) | .data.top_aladdin |= map(select(has("ad") | not))'
-^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-jq '.data.search_hot.home |= map(select(.article_tag.article_title != "广告"))'
+^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? response-body-json-jq '.data.search_hot.home |= map(select(.article_tag.article_title != "广告")) | .data.search_hot.home |= map(select(has("pos")))'
 ^https:\/\/app-api\.smzdm\.com\/util\/loading\? - reject-dict
 ^https:\/\/app-api\.smzdm\.com\/mychannel\/list$ - reject-dict
 ^https:\/\/h5\.smzdm\.com\/user\/coupon\/coupon_list\? - reject
