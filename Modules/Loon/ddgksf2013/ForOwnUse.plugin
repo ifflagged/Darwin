@@ -17,7 +17,7 @@ http-response ^https:\/\/claritywallpaper\.com\/clarity\/api\/(userInfo|special\
 http-response ^https?:\/\/api\.meiease\.cn\/shop\/subscription\/validate script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/ForOwnUse/PicsartProCrack.js, requires-body=true, timeout=60, tag=PicsartProCrack
 
 # ✅ 黄油相机
-http-response ^https?:\/\/api4\.bybutter\.com\/v4\/(users\/me$|shop\/me\/privileges$) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/ForOwnUse/BybutterProCrack.js, requires-body=true, timeout=60, tag=BybutterProCrack
+http-response ^https?:\/\/api4\.bybutter\.com\/v4\/(users\/me$|shop\/me\/privileges$) script-path=https://github.com/ddgksf2013/dev/raw/main/BybutterProCrack.js, requires-body=true, timeout=60, tag=BybutterProCrack
 
 # ✅ Focos
 http-response ^https?:\/\/.*oracle\.bendingspoonsapps\.com\/v\d\/(users\/setup|purchases\/verify\/apple) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/ddgksf2013/ForOwnUse/FocosProCrack.js, requires-body=true, timeout=60, tag=FocosProCrack
