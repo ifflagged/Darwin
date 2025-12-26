@@ -1,7 +1,21 @@
-Netflix.beta%0A：Error: 请求超时(20 秒)
+#!name=🍟 Fries: Netflix
+#!desc=(BETA) Netflix Mod
+#!author=VirgilClyne
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+#!category=Jacob
 
+#!openUrl=http://boxjs.com/#/app/GetSomeFries.Netflix.beta
+#!homepage=https://github.com/VirgilClyne/GetSomeFries/wiki/🍟-Netflix
 
+[Script]
+🍟 Netflix Web = type=http-response, pattern=^https?:\/\/www\.netflix\.com\/(api\/ftl\/probe), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/VirgilClyne/Netflix.beta/Netflix.beta.js, requires-body=true, max-size=0
 
+🍟 Netflix iOS = type=http-response, pattern=^https?:\/\/(ios|ios-anycast|ios-prefix)\.prod\.(ftl|cloud|http1)\.netflix\.com\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/VirgilClyne/Netflix.beta/Netflix.beta.js, requires-body=true, max-size=0
 
+🍟 Netflix Android = type=http-response, pattern=^https?:\/\/(android|android-anycast|android-prefix)\.prod\.(ftl|cloud)\.netflix\.com\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/VirgilClyne/Netflix.beta/Netflix.beta.js, requires-body=true, max-size=0
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+🍟 Netflix Chromecast = type=http-response, pattern=^https?:\/\/(cast|cast-uiboot|android-prefix)\.prod\.(http1)\.netflix\.com\/, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/VirgilClyne/Netflix.beta/Netflix.beta.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% www.netflix.com, *.prod.ftl.netflix.com, *.prod.cloud.netflix.com
+
