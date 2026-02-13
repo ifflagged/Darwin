@@ -17,7 +17,7 @@ const blockIds = [
 	"1000019",
 	"1430064",
 	"1120002",
-	"1900001"
+	"1130016"
 ];
 
 if (blockIds.includes(ua)) {
