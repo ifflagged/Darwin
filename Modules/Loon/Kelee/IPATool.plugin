@@ -1,19 +1,7 @@
-#!name=IPA工具箱
-#!desc=一个可以下载IPA包的工具箱
-#!author=小白脸
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+IPATool%0A：Error: Response code 502 (Bad Gateway or Proxy Error)
 
-#!tag=功能增强
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-11-29 09:33:52
 
-[Script]
-http-request ^https:\/\/apple-api\.com script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/IPATool/AppStoreAPI.js, requires-body=true, tag=App Store API
 
-http-request ^https:\/\/xiaobai\.app script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/IPATool/Installer.js, tag=安装器
 
-[MITM]
-hostname = apple-api.com, xiaobai.app
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
