@@ -1,17 +1,37 @@
+// 2023-08-21 10:25
 
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
-  <head>
-    <title>503 Resource temporarily unavailable</title>
-  </head>
-  <body>
-    <h1>Error 503 Resource temporarily unavailable</h1>
-    <p>Resource temporarily unavailable</p>
-    <h3>Error 54113</h3>
-    <p>Details: cache-chi-kigq8000070-CHI 1771458931 611471785</p>
-    <hr>
-    <p>Varnish cache server</p>
-  </body>
-</html>
+/**
+ [rewrite_local]
+ ^https:\/\/napi\.ithome\.com\/api\/(news\/index|topmenu\/getfeeds) url script-response-body https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js
+
+ [mitm]
+ hostname = napi.ithome.com
+ */
+
+const url = $request.url;
+if (!$response.body) $done({});
+let obj = JSON.parse($response.body);
+
+if (
+    url.includes("/api/news/index") ||
+    url.includes("/api/topmenu/getfeeds")
+) {
+  if (obj?.data?.list?.length > 0) {
+    let list = obj.data.list;
+    const newList = [];
+    for (let item of list) {
+      if (item?.feedContent?.smallTags?.some((i) =>
+          i?.text?.includes("广告"))
+      ) {
+        continue;
+      }
+      if ([10002, 10003].includes(item?.feedType)) {
+        continue;
+      }
+      newList.push(item);
+    }
+    obj.data.list = newList;
+  }
+}
+
+$done({ body: JSON.stringify(obj) });
