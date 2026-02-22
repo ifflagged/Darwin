@@ -1,24 +1,7 @@
-#!name=ReelShort去广告
-#!desc=移除开屏广告、为你推荐及各类弹窗，移除搜索栏填充词。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ReelShort.png
-#!category=Jacob
+ReelShort_remove_ads%0A：Error: Response code 502 (Bad Gateway or Proxy Error)
 
-#!openUrl=https://apps.apple.com/app/id1636235979
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-07-31 06:11:54
 
-[URL Rewrite]
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/app\/getSplashScreenConfig$ - reject-dict
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/landingPage$ - reject-dict
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getPayModeV2$ - reject-dict
 
-[Body Rewrite]
-http-response-jq ^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$ 'delpaths([["data","ad_vip"]])'
-http-response-jq ^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$ 'delpaths([["data","search_keyword_list"]])'
 
-[MITM]
-hostname = %APPEND% v-api.crazymaplestudios.com, d1k8g7qaebqd28.cloudfront.net
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
