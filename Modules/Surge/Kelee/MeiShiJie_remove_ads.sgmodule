@@ -1,7 +1,15 @@
-MeiShiJie_remove_ads%0A：Error: 请求超时(20 秒)
+#!name=美食杰去广告
+#!desc=移除开屏广告和信息流广告。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/MeiShiJie.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id399423833
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-05-13 15:17:08
 
+[MITM]
+hostname = %APPEND% newapi.meishi.cc
 
-
-
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
