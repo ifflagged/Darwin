@@ -1,7 +1,26 @@
-YoudaoDict_remove_ads%0A：Error: socket hang up
+#!name=网易有道词典去广告
+#!desc=移除开屏广告、弹窗广告、横幅广告、信息流广告、旧版翻译页面广告及搜索填充词。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
+#!tag=Jacob
 
+#!openUrl=https://apps.apple.com/app/id353115739
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-05-13 15:17:08
 
+[Rewrite]
+^https:\/\/gorgon\.youdao\.com\/gorgon\/brand\/prefetch\.s\? - reject-dict
+^https:\/\/gorgon\.youdao\.com\/gorgon\/request\.s\? - reject-dict
 
+[Script]
+http-response ^https:\/\/dict\.youdao\.com\/homepage\/toolbar\/get\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_13, argument=%5B%5B%22json-del%22%2C%5B%22data.vipTag%22%5D%5D%5D
 
+http-response ^https:\/\/dict\.youdao\.com\/course\/tab\/translateTab\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22data%22%5D%5D%5D
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+http-response ^https:\/\/dict\.youdao\.com\/course\/tab\/home\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_16, argument=%5B%5B%22json-del%22%2C%5B%22data.popup%22%2C%22data.tab%22%2C%22data.searchSuggestList%22%2C%22data.newBanner%22%2C%22data.icon.promotionList%22%2C%22data.icon.iconList%5B1%5D.bubble%22%2C%22data.icon.iconList%5B2%5D.bubble%22%2C%22data.icon.iconList%5B8%5D.bubble%22%5D%5D%5D
+
+[MITM]
+hostname = gorgon.youdao.com, dict.youdao.com
+

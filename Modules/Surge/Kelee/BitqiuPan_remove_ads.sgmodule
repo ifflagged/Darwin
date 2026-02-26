@@ -1,7 +1,22 @@
-BitqiuPan_remove_ads%0A：Error: socket hang up
+#!name=比特球云盘去广告
+#!desc=移除开屏广告和各类横幅推广。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BitqiuPan.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id1388178609
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-05-13 15:17:08
 
+[Map Local]
+^https:\/\/pan-api\.bitqiu\.com\/activity\/getPromoteGuide$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+^http:\/\/pan-api\.bitqiu\.com\/activity\/getUrlList$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+^https:\/\/pan-api\.bitqiu\.com\/activity\/guides$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+[MITM]
+hostname = %APPEND% pan-api.bitqiu.com
+
