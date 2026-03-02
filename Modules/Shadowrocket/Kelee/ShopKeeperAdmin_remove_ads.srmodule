@@ -1,18 +1,7 @@
-#!name=小店掌柜去广告
-#!desc=移除开屏广告、活动推广和页面跳转。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/ShopKeeperAdmin.png
-#!category=Jacob
+ShopKeeperAdmin_remove_ads%0A：Error: socket hang up
 
-#!openUrl=https://apps.apple.com/app/id1579610611
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-05-28 21:48:03
 
-[URL Rewrite]
-^https:\/\/mch\.juhesaas\.com\/api\/advertisement\/ - reject-dict
 
-[MITM]
-hostname = %APPEND% mch.juhesaas.com
 
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

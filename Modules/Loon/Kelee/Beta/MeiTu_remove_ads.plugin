@@ -1,21 +1,7 @@
-#!name=美图秀秀去广告
-#!desc=移除开屏广告、横幅推广，精简我的页面。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+MeiTu_remove_ads%0A：Error: socket hang up
 
-#!openUrl=https://apps.apple.com/app/id416048305
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-08-31 18:06:06
 
-[Rule]
-DOMAIN,adui.tg.meitu.com,REJECT
 
-[Rewrite]
-^https:\/\/api\.posters\.meitu\.com\/common\/init\.json response-body-json-del data.vip
 
-[MITM]
-hostname = api.posters.meitu.com
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
