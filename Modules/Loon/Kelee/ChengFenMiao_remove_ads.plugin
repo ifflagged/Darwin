@@ -1,7 +1,24 @@
-ChengFenMiao_remove_ads%0A：Error: Response code 502 (Bad Gateway or Proxy Error)
+#!name=成分喵去广告
+#!desc=移除首页推广活动、广告组件请求、移除被查商品购买链接、搜索发现。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
+#!tag=Jacob
 
+#!openUrl=https://apps.apple.com/app/id6444000785
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-11-21 13:02:33
 
+[Rewrite]
+^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\? - reject-dict
+^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\? - reject-dict
+^https:\/\/app\.chengfenmiao\.com\/item\/closet\? - reject-dict
+^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\? - reject-dict
 
+[Script]
+http-response ^https:\/\/app\.chengfenmiao\.com\/helper\/setting\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22detail_buy_sites%22%2C%22bottom_sites%22%5D%5D%5D
 
+[MITM]
+hostname = app.chengfenmiao.com
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
