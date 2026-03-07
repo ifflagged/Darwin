@@ -1,7 +1,28 @@
-PangguaiLife_remove_ads%0A：Error: 请求超时(20 秒)
+#!name=胖乖生活去广告
+#!desc=移除开屏广告、横幅轮播图、网格广告、信息流广告、浮窗广告，精简我的页面。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/PangguaiLife.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id1597902801
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-09-15 21:51:48
 
+[URL Rewrite]
+^https:\/\/userapi\.qiekj\.com\/slot\/get$ - reject-dict
+^https:\/\/userapi\.qiekj\.com\/appTitle\/get$ - reject-dict
+^https:\/\/userapi\.qiekj\.com\/integralRecord\/integralDailStatistics$ - reject-dict
+^https:\/\/userapi\.qiekj\.com\/local-life\/category$ - reject-dict
+^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsPage$ - reject-dict
+^https:\/\/userapi\.qiekj\.com\/task\/list$ - reject-dict
 
+[Script]
+body_rewrite_14 = type=http-response, pattern=^https:\/\/userapi\.qiekj\.com\/local-life\/tab-order$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
 
+body_rewrite_15 = type=http-response, pattern=^https:\/\/userapi\.qiekj\.com\/integralGoods\/queryIntegralGoodsCategoryList$, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, max-size=-1, timeout=30, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data%22%2C%5B%5D%5D%5D%5D%5D
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+[MITM]
+hostname = %APPEND% userapi.qiekj.com
+
