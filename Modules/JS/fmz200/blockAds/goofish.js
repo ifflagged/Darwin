@@ -94,11 +94,14 @@ if (url.includes("/mtop.idle.user.page.my.adapter")) {
 
 
   //  处理闲鱼会员信息  data.container.sections[index:0]
-  // obj.data.container.sections.forEach(section => {
-  //   if (section.index === "0" && section.item?.level) {
-  //     delete section.item.level;
-  //   }
-  // });
+  obj.data.container.sections.forEach(section => {
+     if (section.index === "0" && section.item?.level) {
+       delete section.item.level;
+     }
+     if (section.index === "0" && section.item?.tip) {
+       delete section.item.tip;
+     }
+  });
   
 }
 
