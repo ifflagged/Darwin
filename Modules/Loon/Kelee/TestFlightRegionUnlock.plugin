@@ -1,21 +1,7 @@
-#!name=TestFlight地区解锁
-#!desc=解除TestFlight的区域限制，支持tvOS。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+TestFlightRegionUnlock%0A：Error: Response code 502 (Bad Gateway or Proxy Error)
 
-#!openUrl=https://apps.apple.com/app/id899247664
-#!tag=功能增强
-#!loon_version=3.2.1(749)
-#!homepage=https://hub.kelee.one
-#!date=2025-09-02 23:42:06
 
-[Rule]
-DOMAIN,testflight.apple.com,PROXY
 
-[Script]
-http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_14, argument=%5B%5B%22replace-regex%22%2C%5B%5B%22%5C%22storefrontId%5C%22%20%3A%20%5C%22%5C%5Cd%7B6%7D-%5C%5Cd%7B2%7D%2C%5C%5Cd%7B2%7D%5C%22%2C%22%2C%22%5C%22storefrontId%5C%22%3A%5C%22143441-19%2C29%5C%22%2C%22%5D%5D%5D%5D
 
-[MITM]
-hostname = testflight.apple.com
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
