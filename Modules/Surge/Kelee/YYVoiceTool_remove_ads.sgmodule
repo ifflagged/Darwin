@@ -1,7 +1,25 @@
-YYVoiceTool_remove_ads%0A：Error: Response code 502 (Bad Gateway or Proxy Error)
+#!name=YY语音去广告
+#!desc=移除开屏广告、应用内弹窗、任务推广、频道横幅推广，精简广场顶部标签。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/YYVoiceTool.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id6738899698
+#!tag=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-11-23 23:03:22
 
+[URL Rewrite]
+^https:\/\/web\.yy\.com\/yyvoice_task_sys\/bar\.html\? - reject
 
+[Map Local]
+^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/flashscreen\/get\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/homepage\/banner\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+^https:\/\/yuyin-api\.baizhanlive\.com\/search\/search\/hotword\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+
+[MITM]
+hostname = %APPEND% yuyin-api.baizhanlive.com, web.yy.com
+
