@@ -1,57 +1,78 @@
+/*
+脚本引用 https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.js
+*/
+// 2024-08-20 09:49
+/*需要分流禁用掉 
+ip-cidr, 123.207.209.39/32, reject
+ip-cidr, 123.207.209.60/32, reject
+ip-cidr, 139.199.240.12/32, reject
+ip-cidr, 162.14.157.2/32, reject
+ip-cidr, 162.14.157.24/32, reject
+群友EDDA分享
+ip-cidr, 139.199.240.15/32, reject
+*/
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content="origin" name="referrer">
-    <title>Forbidden &middot; GitHub</title>
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-      }
-      body,
-      input,
-      button {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      .container { margin: 30px auto 40px auto; width: 800px; text-align: center; }
-      a { color: #4183c4; text-decoration: none; font-weight: bold; }
-      a:hover { text-decoration: underline; }
-      h1, h2, h3 { color: #666; }
-      ul { list-style: none; padding: 25px 0; }
-      li {
-        display: inline;
-        margin: 10px 50px 10px 0px;
-      }
-      .logo { display: inline-block; margin-top: 35px; }
-      .logo-img-2x { display: none; }
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
-        .logo-img-1x { display: none; }
-        .logo-img-2x { display: inline-block; }
-      }
-    </style>
-  </head>
-  <body>
+const url = $request.url;
+if (!$response.body) $done({});
 
-    <div class="container">
-      <h1>Access to this site has been restricted.</h1>
+let obj = JSON.parse($response.body);
 
-      <p>
-        <br>
-        If you believe this is an error,
-        please contact <a href="https://support.github.com">Support</a>.
-      </p>
+if (url.includes("/other/pGetSceneList")) {
+  if (obj && obj.data && obj.data.scene_list instanceof Array) {
+    obj.data.scene_list = obj.data.scene_list.filter(item => item.text !== "优惠商城");
+  }
+  if (obj && obj.data && obj.data.show_data instanceof Array) {
+    obj.data.show_data.forEach((block) => {
+      if (block.scene_ids instanceof Array) {
+        block.scene_ids = block.scene_ids.filter(id => id !== "scene_coupon_mall");
+      }
+    });
+  }
+}
 
-      <div id="s">
-        <a href="https://githubstatus.com">GitHub Status</a> &mdash;
-        <a href="https://twitter.com/githubstatus">@githubstatus</a>
-      </div>
-    </div>
-  </body>
-</html>
+if (url.includes("/homepage/v1/core")) {
+  const keepNavIds = ['dache_anycar', 'bike', 'driverservice'];
+  if (obj.data && obj.data.order_cards && obj.data.order_cards.nav_list_card && obj.data.order_cards.nav_list_card.data) {
+    obj.data.order_cards.nav_list_card.data = obj.data.order_cards.nav_list_card.data.filter(item => keepNavIds.includes(item.nav_id));
+  }
+  const keepBottomNavIds = ['v6x_home', 'home_page', 'user_center'];
+  if (obj.data && obj.data.disorder_cards && obj.data.disorder_cards.bottom_nav_list && obj.data.disorder_cards.bottom_nav_list.data) {
+    obj.data.disorder_cards.bottom_nav_list.data = obj.data.disorder_cards.bottom_nav_list.data.filter(item => keepBottomNavIds.includes(item.id));
+  }
+}
+
+if (url.includes("/ota/na/yuantu/infoList")) {
+  if (obj.data && obj.data.disorder_cards && obj.data.disorder_cards.top_banner_card && obj.data.disorder_cards.top_banner_card.data && obj.data.disorder_cards.top_banner_card.data[0] && obj.data.disorder_cards.top_banner_card.data[0].T === "yuentu_top_banner") {
+    obj.data.disorder_cards.top_banner_card.data.splice(0, 1);
+  }
+}
+
+if (url.includes("/gulfstream/passenger-center/v2/other/pInTripLayout")) {
+  const namesToRemove = ["passenger_common_casper"];
+  obj.data.order_components = obj.data.order_components.filter(
+    component => !(component.name && namesToRemove.includes(component.name))
+  );
+}
+
+if (url.includes("/usercenter/me")) {
+  const excludedTitles = ['天天领福利', '金融服务', '更多服务', '企业服务', '安全中心'];
+
+  if (obj.data && obj.data.cards) {
+    obj.data.cards = obj.data.cards.filter(card => !excludedTitles.includes(card.title));
+
+    obj.data.cards.forEach(card => {
+      if (card.tag === "wallet") {
+        if (card.items) {
+          card.items = card.items.filter(item => item.title === "优惠券");
+        }
+        if (card.card_type === 4 && card.bottom_items) {
+          card.bottom_items = card.bottom_items.filter(item => 
+            item.title === "省钱套餐" || item.title === "天天神券"
+          );
+        }
+      }
+    });
+  }
+}
+
+$done({ body: JSON.stringify(obj) });
