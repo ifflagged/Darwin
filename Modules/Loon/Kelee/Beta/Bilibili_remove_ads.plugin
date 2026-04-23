@@ -13,10 +13,10 @@
 #!date=2025-11-23 20:50:36
 
 [Argument]
-showUpList=select, "auto", "show", "hide",tag=[动态]中[最常访问]的显示方式, desc=auto：仅当列表中存在直播状态时显示；show：始终显示；hide：始终隐藏。
-purifyTopReplies=switch,"false","true",tag=移除评论区置顶广告, desc=移除评论区置顶广告
-airborne=switch,"false","true",tag=空降助手, desc=用于跳过视频中的广告
-logLevel=select, "off", "error", "warn", "info", "debug",tag=日志等级, desc=脚本的日志输出等级
+showUpList=select,"auto",tag=[动态]中[最常访问]的显示方式, desc=auto：仅当列表中存在直播状态时显示；show：始终显示；hide：始终隐藏。
+purifyTopReplies=switch,true,false,tag=移除评论区置顶广告, desc=移除评论区置顶广告
+airborne=switch,false,true,tag=空降助手, desc=用于跳过视频中的广告
+logLevel=select,"off",tag=日志等级, desc=脚本的日志输出等级
 
 [Rule]
 DOMAIN,bsbsb.top,PROXY
@@ -51,7 +51,7 @@ undefined undefined undefined
 [Script]
 http-request ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/Bilibili_proto_request_kokoryh.js, requires-body=true, binary-body-mode=true, tag=空降助手, enable={airborne}, argument=[{logLevel}]
 
-http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/Bilibili_proto_response_kokoryh.js, requires-body=true, binary-body-mode=true, tag=ProtoBuf处理, argument="[{showUpList}, {purifyTopReplies}, {airborne}, {logLevel}]"
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(app\.(show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(unite)?\.v1\.View\/(View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Bilibili_remove_ads/Bilibili_proto_response_kokoryh.js, requires-body=true, binary-body-mode=true, tag=ProtoBuf处理, argument=[{showUpList}, {purifyTopReplies}, {airborne}, {logLevel}]
 
 [MITM]
 hostname = grpc.biliapi.net, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, line3-h5-mobile-api.biligame.com
