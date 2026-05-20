@@ -1,22 +1,7 @@
-#!name=小米音箱去广告
-#!desc=移除开屏广告、应用内横幅广告及弹窗广告。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/XiaomiSpeaker.png
-#!category=Jacob
+XiaomiSpeaker_remove_ads%0A：Error: 请求超时(20 秒)
 
-#!openUrl=https://apps.apple.com/app/id1270594280
-#!category=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-07-09 08:04:43
 
-[Map Local]
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/advertise\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/halfScreenMulti\/(home|cache)\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/marketing-aibox\.v\.mitvos\.com\/payGuide\/tabPage\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-[MITM]
-hostname = %APPEND% marketing-aibox.v.mitvos.com
-
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
