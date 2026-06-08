@@ -1,25 +1,7 @@
-#!name=中华万年历去广告
-#!desc=移除开屏广告、弹窗、信息流推广，精简我的页面。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/EtouchEcalendar.png
-#!category=Jacob
+EtouchEcalendar_remove_ads%0A：Error: Response code 504 (Gateway Time-out)
 
-#!openUrl=https://apps.apple.com/app/id505424979
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-09-06 20:56:43
 
-[Rule]
-DOMAIN,sdk.ad.sfys365.com,REJECT
 
-[URL Rewrite]
-^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/auth\/voice_room_entrance\/list\? - reject-dict
-^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/question_spots\/panel\? - reject-dict
-^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/jujia\/flow\? - reject-dict
-^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/album\/hl_card\? - reject-dict
-^https:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/overview\? - reject-dict
 
-[MITM]
-hostname = %APPEND% v0-client-lz.rili.cn, client-lz.rili.cn
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
