@@ -1,4 +1,4 @@
-//  2026-05-14
+//  2026-05-28
 //  树先生
 //  当前文件内容仅供个人学习和研究使用，若使用过程中发生任何问题概不负责
 
@@ -108,7 +108,9 @@ if (url.includes("/mtop.taobao.idlehome.home.circle.list")) {
   // 过滤 circleList 数组，只保留 circleId 为 1 和 2 的元素
   obj.data.circleList = obj.data.circleList.filter(circle => circle.circleId === "1" || circle.circleId === "2");
   // 首页顶部列表
-  obj.data.next.headList = obj.data.next.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
+  if (obj.data?.next?.headList) {
+    obj.data.next.headList = obj.data.next.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
+  }
   obj.data.headList = obj.data.headList.filter(circle => circle.bizCode === "main" || circle.bizCode === "recycle");
 }
 
