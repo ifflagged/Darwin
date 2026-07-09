@@ -1,2 +1,6 @@
-429: Too Many Requests
-For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
+/**
+ * 航旅纵横
+ */
+const version = 'V1.0.1';
+const ua = $request.headers.rpid || $request.headers.Rpid;
+ua.includes("1000002") || ua.includes("1000019") ? $done({status: "HTTP/1.1 404 Not Found"}) : $done({});
