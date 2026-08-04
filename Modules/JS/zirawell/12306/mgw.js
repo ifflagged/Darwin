@@ -66,6 +66,7 @@ const blockListForABC = [
   "com.bankabc.credit.welfareCenter.getadverinfo",
   //"com.bankabc.credit.home.getCcocAdInfo",
   "com.bankabc.credit.query.custbillqry.getadv",
+  "com.bankabc.credit.query.adinfo.getadinfonew",
   "com.abchina.mbank.securitycenter.msmp.antiHijack"
 ];
 
