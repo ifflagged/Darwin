@@ -1,24 +1,7 @@
-#!name=漫客栈去广告
-#!desc=移除开屏广告、漫画广告、小说章末广告，精简我的页面。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+MKZ_remove_ads%0A：Error: socket hang up
 
-#!openUrl=https://apps.apple.com/app/id1189885433
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-05-13 15:17:08
 
-[Rewrite]
-^https:\/\/base\.mkzcdn\.com\/advert\/app\/read\/v\d - reject-dict
-^https:\/\/base\.mkzcdn\.com\/advert\/app\/story\/read\/v\d - reject-dict
-^https:\/\/base\.mkzcdn\.com\/advert\/app\/task\/motivate\/v\d - reject-dict
-^https:\/\/base\.mkzcdn\.com\/advert\/app\/user\/slide\d\/v\d\/ - reject-dict
 
-[Script]
-http-response ^https:\/\/base\.mkzcdn\.com\/app\/config\/ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/MKZ_remove_ads/MKZ_remove_ads.js, requires-body=true, tag=配置修改
 
-[MITM]
-hostname = base.mkzcdn.com
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
