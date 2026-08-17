@@ -1,23 +1,7 @@
-#!name=Follow每日签到
-#!desc=Follow每日签到，需要进入此插件的主页链接，阅读使用说明操作。
-#!author=gideonsenku[https://github.com/gideonsenku], 可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+FollowRSS_checkin%0A：Error: Response code 404 (Not Found)
 
-#!openUrl=https://follow.is
-#!tag=签到
-#!loon_version=3.2.4(787)
-#!homepage=https://github.com/luestr/ProxyResource/blob/main/Resource/Markdown/FollowRSS/README.md
-#!date=2025-05-13 15:17:08
 
-[Argument]
-token=input, "",tag=csrfToken, desc=这里需要输入csrfToken的值
-cookie=input, "",tag=Cookie, desc=这里需要输入Cookie的值
-cron=input, "0 1 * * *",tag=定时参数, desc=这里需要输入符合CRON表达式的参数
 
-[Script]
-cron "{cron}" script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FollowRSS_checkin/FollowRSS_checkin.js, timeout=120, tag=Follow每日签到, argument="[{token},{cookie}]"
 
-[MITM]
-hostname = api.follow.is
 
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈

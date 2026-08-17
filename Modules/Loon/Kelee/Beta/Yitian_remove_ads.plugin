@@ -1,20 +1,7 @@
-#!name=一甜相机去广告
-#!desc=移除开屏广告、悬浮广告及图片选择器横幅广告。
-#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
-#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Loon.png
-#!tag=Jacob
+Yitian_remove_ads%0A：Error: Response code 404 (Not Found)
 
-#!openUrl=https://apps.apple.com/app/id1415653267
-#!tag=去广告
-#!loon_version=3.2.4(787)
-#!homepage=https://hub.kelee.one
-#!date=2025-07-04 23:22:46
 
-[Rewrite]
-^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/system\/configs\? response-body-json-del data.shouldUseLMAdFirst data.incentiveCfgList
-^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v1\/ad\/ - reject-dict
-^https:\/\/(m2u-api\.getkwai|api-m2u\.kuaishou)\.com\/api-server\/api\/v4\/op\/actPositions\? - reject-dict
 
-[MITM]
-hostname = m2u-api.getkwai.com, api-m2u.kuaishou.com
 
+
+Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
