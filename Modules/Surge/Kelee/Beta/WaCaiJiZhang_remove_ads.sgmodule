@@ -1,7 +1,22 @@
-WaCaiJiZhang_remove_ads%0A：Error: Response code 404 (Not Found)
+#!name=挖财记账去广告
+#!desc=移除弹窗广告、推广语横幅和右下角悬浮广告。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/WaCaiJiZhang.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id1544045905
+#!category=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-06-30 21:53:43
 
+[Map Local]
+^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/ribbon\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/list\? data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
+^https:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
+[MITM]
+hostname = %APPEND% jz.wacaijizhang.com
+

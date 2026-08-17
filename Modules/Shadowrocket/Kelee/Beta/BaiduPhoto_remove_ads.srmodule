@@ -1,7 +1,23 @@
-BaiduPhoto_remove_ads%0A：Error: Response code 404 (Not Found)
+#!name=一刻相册去广告
+#!desc=移除开屏广告、横幅广告和弹窗推广。
+#!author=可莉🅥[https://github.com/luestr/ProxyResource/blob/main/README.md]
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/BaiduPhoto.png
+#!category=Jacob
 
+#!openUrl=https://apps.apple.com/app/id1467852587
+#!category=去广告
+#!loon_version=3.2.4(787)
+#!homepage=https://hub.kelee.one
+#!date=2025-05-13 15:17:08
 
+[URL Rewrite]
+^https:\/\/pan\.baidu\.com\/act\/api\/conf\?.*conf_key=youa_core_config_ios - reject-dict
+^https:\/\/pan\.baidu\.com\/youai\/material\/v1\/getbynavid\?.*nav_id=1 - reject-dict
 
+[Body Rewrite]
+http-response-jq ^https:\/\/mbd\.baidu\.com\/ccs\/v1\/start\/confsync\? 'delpaths([["data","service","config","advertisement"]])'
+http-response-jq ^https:\/\/mbd\.baidu\.com\/ccs\/v1\/start\/confsync\? 'delpaths([["data","service","config","youa","pm_config_ad"]])'
 
+[MITM]
+hostname = %APPEND% pan.baidu.com, mbd.baidu.com
 
-Script Hub 重写转换: ❌  可自行翻译错误信息或复制错误信息后点击通知进行反馈
