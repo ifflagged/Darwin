@@ -2271,7 +2271,7 @@ foliday = type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online
 
 umetrip_ads = type=http-response, pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/rewrite/umetrip_ads.js, requires-body=true, max-size=-1, timeout=60
 
-freshippo = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js, requires-body=true, max-size=-1, timeout=60
+freshippo = type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(?>indexpage|mypage|tabfeedstream), script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/rewrite/freshippo.js, requires-body=true, max-size=-1, timeout=60
 
 # 感谢【可莉】分享
 huifutianxia_ads = type=http-response, pattern=^https:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/rewrite/huifutianxia_ads.js, requires-body=true, max-size=-1, timeout=60
