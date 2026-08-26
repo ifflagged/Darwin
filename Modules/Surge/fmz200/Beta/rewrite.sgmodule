@@ -2920,7 +2920,7 @@ https://.+\.gamersky.com/v1/statisticAd data-type=text data="{}" status-code=200
 
 [Script]
 # hostname = ad.12306.cn
-12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, max-size=-1, timeout=60
+12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/rewrite/12306.js, requires-body=true, max-size=-1, timeout=60
 
 555Ad = type=http-response, pattern="^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}(:\d+)?\/api\/v\d\/movie\/index_recommend", script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/fmz200/rewrite/555Ad.js, requires-body=true, max-size=-1, timeout=60
 
