@@ -52,7 +52,7 @@ http-response ^https://api.apphud.com/v1/(customers|subscriptions)$ script-path=
 
 http-response ^https://api-production.endel.io/v4/call script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Alex0510/revenucar/endel.js, requires-body=true, tag=endel
 
-http-response ^https://ars.alar.my/api/v2/user/sync script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Alex0510/revenucar/alarmy.js, requires-body=true, tag=Alarmy
+http-response ^https://ars.alar.my/api/v2/user/sync script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/alarmy.js, requires-body=true, tag=Alarmy
 
 http-response ^https://rdp.duetdisplay.com/v1/users/validateReceipt script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Alex0510/revenucar/duet.js, requires-body=true, tag=duet
 
