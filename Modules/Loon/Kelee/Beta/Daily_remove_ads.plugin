@@ -11,7 +11,7 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https?:\/\/m\.pvp\.xoyo\.com\/conf\/server-mapping$ response-body-json-del data.splashConf data.splashConfNew
+response if ${url} ~= /^https?:\/\/m\.pvp\.xoyo\.com\/conf\/server-mapping$/i then response.json.delete(["data.splashConf", "data.splashConfNew"])
 
 [MITM]
 hostname = m.pvp.xoyo.com

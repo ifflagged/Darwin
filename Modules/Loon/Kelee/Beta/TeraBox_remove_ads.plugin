@@ -14,10 +14,10 @@
 DOMAIN,ymg-api.terabox.com,REJECT
 
 [Rewrite]
-^https:\/\/www\.terabox\.com\/adx\/ - reject-dict
-^https:\/\/www\.terabox\.com\/api\/ad\/ - reject-dict
-^https:\/\/www\.terabox\.com\/api\/page\/tips\? - reject-dict
-^https:\/\/www\.terabox\.com\/rest\/1\.0\/task\/common\/inttips\? - reject-dict
+request if ${url} ~= /^https:\/\/www\.terabox\.com\/adx\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.terabox\.com\/api\/ad\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.terabox\.com\/api\/page\/tips\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.terabox\.com\/rest\/1\.0\/task\/common\/inttips\?/i then reject_dict(200)
 
 [MITM]
 hostname = www.terabox.com

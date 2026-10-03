@@ -11,8 +11,8 @@
 #!date=2025-07-10 21:25:29
 
 [Rewrite]
-^https:\/\/conf-m-ssl\.xunlei\.com\/external\/ response-body-json-del values.me_config.entrance_list_vertical_enable values.me_config.common_service_list values.me_config.banner_service_list
-^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ response-body-json-jq '.slots |= map(select(.id == "xl_ios_mytab_vipicon" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == "清理助手" or . == "云盘容量" or . == "远程设备"))))'
+response if ${url} ~= /^https:\/\/conf-m-ssl\.xunlei\.com\/external\//i then response.json.delete(["values.me_config.entrance_list_vertical_enable", "values.me_config.common_service_list", "values.me_config.banner_service_list"])
+response if ${url} ~= /^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$/i then response.json.jq(".slots |= map(select(.id == \"xl_ios_mytab_vipicon\" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == \"清理助手\" or . == \"云盘容量\" or . == \"远程设备\"))))")
 
 [MITM]
 hostname = conf-m-ssl.xunlei.com, api-shoulei-ssl.xunlei.com

@@ -11,11 +11,11 @@
 #!date=2025-11-09 00:15:08
 
 [Rewrite]
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.user\.my\.content\.get\/ response-body-json-del data.banner data.performFilmVip.userProfitList
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.mypage\.feed\/ response-body-json-del data.feedCard
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.aristotle\.get\/ response-body-json-del data.data.top.keywords
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome\/ - reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get\/ - reject-dict
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.user\.my\.content\.get\//i then response.json.delete(["data.banner", "data.performFilmVip.userProfitList"])
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.mypage\.feed\//i then response.json.delete("data.feedCard")
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.aristotle\.get\//i then response.json.delete("data.data.top.keywords")
+request if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get\//i then reject_dict(200)
 
 [MITM]
 hostname = acs.m.taobao.com

@@ -14,7 +14,7 @@
 DOMAIN,adui.tg.meitu.com,REJECT
 
 [Rewrite]
-^https:\/\/api\.posters\.meitu\.com\/common\/init\.json response-body-json-del data.vip
+response if ${url} ~= /^https:\/\/api\.posters\.meitu\.com\/common\/init\.json/i then response.json.delete("data.vip")
 
 [MITM]
 hostname = api.posters.meitu.com

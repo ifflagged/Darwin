@@ -11,11 +11,11 @@
 #!date=2025-11-23 23:03:22
 
 [Rewrite]
-^https:\/\/yuyin-api\.baizhanlive\.com\/postsquare\/college\/page\/tabsV3\? response-body-json-jq '.data.tabList |= map(select(.code == "post" or .code == "teamup" or .code == "college" or .code == "aiSecretRoom"))'
-^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/flashscreen\/get\? - reject-dict
-^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/homepage\/banner\? - reject-dict
-^https:\/\/web\.yy\.com\/yyvoice_task_sys\/bar\.html\? - reject
-^https:\/\/yuyin-api\.baizhanlive\.com\/search\/search\/hotword\? - reject-dict
+response if ${url} ~= /^https:\/\/yuyin-api\.baizhanlive\.com\/postsquare\/college\/page\/tabsV3\?/i then response.json.jq(".data.tabList |= map(select(.code == \"post\" or .code == \"teamup\" or .code == \"college\" or .code == \"aiSecretRoom\"))")
+request if ${url} ~= /^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/flashscreen\/get\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/yuyin-api\.baizhanlive\.com\/homepage\/homepage\/banner\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/web\.yy\.com\/yyvoice_task_sys\/bar\.html\?/i then reject(200)
+request if ${url} ~= /^https:\/\/yuyin-api\.baizhanlive\.com\/search\/search\/hotword\?/i then reject_dict(200)
 
 [MITM]
 hostname = yuyin-api.baizhanlive.com, web.yy.com

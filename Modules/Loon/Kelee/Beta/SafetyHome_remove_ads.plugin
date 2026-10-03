@@ -14,7 +14,7 @@
 DOMAIN,ad.iot.360.cn,REJECT
 
 [Rewrite]
-^https:\/\/app\.home\.360\.cn\/v1\/config\/custom_config - reject-dict
+request if ${url} ~= /^https:\/\/app\.home\.360\.cn\/v1\/config\/custom_config/i then reject_dict(200)
 
 [MITM]
 hostname = app.home.360.cn

@@ -11,15 +11,15 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=advis - reject
-^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=vip_coupon - reject-dict
-^https:\/\/ptf\.flyertrip\.com\/static\/img\/common\/ic_plate_mine_button\.png - reject-img
-^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=getdata - reject-dict
+request if ${url} ~= /^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=advis/i then reject(200)
+request if ${url} ~= /^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=vip_coupon/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/ptf\.flyertrip\.com\/static\/img\/common\/ic_plate_mine_button\.png/i then reject_img(200)
+request if ${url} ~= /^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=getdata/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?version=5 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FlyerTea_remove_ads/FlyerTea_remove_ads.js, requires-body=true, tag=移除板块广告
+response if ${url} ~= /^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?version=5/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FlyerTea_remove_ads/FlyerTea_remove_ads.js") with tag="移除板块广告", requires_body=true
 
-http-response ^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=plugin&id=k_misign:sign script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FlyerTea_remove_ads/FlyerTea_remove_ads.js, requires-body=true, tag=移除签到弹窗广告
+response if ${url} ~= /^https:\/\/www\.flyert\.com\.cn\/api\/mobile\/index\.php\?module=plugin&id=k_misign:sign/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/FlyerTea_remove_ads/FlyerTea_remove_ads.js") with tag="移除签到弹窗广告", requires_body=true
 
 [MITM]
 hostname = www.flyert.com.cn, ptf.flyertrip.com

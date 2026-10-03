@@ -14,7 +14,7 @@
 DOMAIN,testflight.apple.com,PROXY
 
 [Rewrite]
-^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ request-body-replace-regex "storefrontId"\x20:\x20"\d{6}-\d{2},\d{2}", "storefrontId":"143441-19,29",
+request if ${url} ~= /^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$/i then request.body.replace(/"storefrontId" : "\d{6}-\d{2},\d{2}",/, "\"storefrontId\":\"143441-19,29\",")
 
 [MITM]
 hostname = testflight.apple.com

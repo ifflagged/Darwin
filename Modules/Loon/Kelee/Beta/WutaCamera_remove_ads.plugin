@@ -11,8 +11,8 @@
 #!date=2025-07-05 02:22:08
 
 [Rewrite]
-^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-body-json-del regular.splash big_day big_day_overrides regular.home_bottom_right_entry_v2 regular.pic_upload_alert regular.retouching_before_icon
-^https:\/\/api-release\.wuta-cam\.com\/ad_tree$ response-body-json-jq '.regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN("home","me"))))'
+response if ${url} ~= /^https:\/\/api-release\.wuta-cam\.com\/ad_tree$/i then response.json.delete(["regular.splash", "big_day", "big_day_overrides", "regular.home_bottom_right_entry_v2", "regular.pic_upload_alert", "regular.retouching_before_icon"])
+response if ${url} ~= /^https:\/\/api-release\.wuta-cam\.com\/ad_tree$/i then response.json.jq(".regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN(\"home\",\"me\"))))")
 
 [MITM]
 hostname = api-release.wuta-cam.com

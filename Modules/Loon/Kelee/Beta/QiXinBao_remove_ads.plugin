@@ -11,16 +11,16 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/appc\.qixin\.com\/v4\/general\/getSearchPlaceholderRedirect$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppFloatAd$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppBanners$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/user\/getUserActivitys$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/homePageRecommend\/recommendCard\d+ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/user\/getRecommendPersons$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/getRecommendEnts$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/getRecommendation$ - reject-dict
-^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppBottomBanners$ - reject-dict
-^https:\/\/qxb-minicode-pic-osscache\.qixin\.com\/web\/ - reject
+request if ${url} ~= /^https:\/\/appc\.qixin\.com\/v4\/general\/getSearchPlaceholderRedirect$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppFloatAd$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppBanners$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/user\/getUserActivitys$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/homePageRecommend\/recommendCard\d+/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/user\/getRecommendPersons$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/getRecommendEnts$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/getRecommendation$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appc-v6\.qixin\.com\/v4\/general\/getAppBottomBanners$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/qxb-minicode-pic-osscache\.qixin\.com\/web\//i then reject(200)
 
 [MITM]
 hostname = appc.qixin.com, appc-v6.qixin.com, qxb-minicode-pic-osscache.qixin.com

@@ -14,8 +14,8 @@
 DOMAIN,ads.reader.yueyouxs.com,REJECT
 
 [Rewrite]
-^https:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? response-body-json-del data.isShowDLPopup data.isShowGame data.touTiaoShowDlPopup data.offLineDownload.WatchVideoBtnDesc data.readVipFirstCfg data.readVipNormalCfg data.notifyAd data.hotStartSplashTime data.hotStartReqSwitch data.isShowBFTab data.popReqDelayTime data.benefitCfg data.chestTask data.hotStartAd data.activeTagList data.secondOrderCfg data.secondOrderList data.blockedWordsCfg data.aaReportListCfg data.pddAdSwitch data.isShowShelfAuthPopup data.firstPopUpAmount
-^https:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? response-body-json-replace data.isAdClosed true
+response if ${url} ~= /^https:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\?/i then response.json.delete(["data.isShowDLPopup", "data.isShowGame", "data.touTiaoShowDlPopup", "data.offLineDownload.WatchVideoBtnDesc", "data.readVipFirstCfg", "data.readVipNormalCfg", "data.notifyAd", "data.hotStartSplashTime", "data.hotStartReqSwitch", "data.isShowBFTab", "data.popReqDelayTime", "data.benefitCfg", "data.chestTask", "data.hotStartAd", "data.activeTagList", "data.secondOrderCfg", "data.secondOrderList", "data.blockedWordsCfg", "data.aaReportListCfg", "data.pddAdSwitch", "data.isShowShelfAuthPopup", "data.firstPopUpAmount"])
+response if ${url} ~= /^https:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\?/i then response.json.replace("data.isAdClosed", true)
 
 [MITM]
 hostname = goway.reader.yueyouxs.com

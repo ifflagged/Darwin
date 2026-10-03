@@ -11,9 +11,9 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/3\?iosVer=\d+\.\d+\.\d+&isGetList=1 - reject-dict
-^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/27\?iosVer=\d+\.\d+\.\d+&isGetList=1 - reject-dict
-^https:\/\/f-api\.kdocs\.cn\/godfather\/api\/thirdparty\/v1\/viewpager\?showLocal=mobileWebIndex - reject-dict
+request if ${url} ~= /^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/3\?iosVer=\d+\.\d+\.\d+&isGetList=1/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.kdocs\.cn\/kdg\/api\/v1\/cards\/type\/27\?iosVer=\d+\.\d+\.\d+&isGetList=1/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/f-api\.kdocs\.cn\/godfather\/api\/thirdparty\/v1\/viewpager\?showLocal=mobileWebIndex/i then reject_dict(200)
 
 [MITM]
 hostname = www.kdocs.cn, f-api.kdocs.cn

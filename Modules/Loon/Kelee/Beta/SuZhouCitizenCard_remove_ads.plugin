@@ -11,8 +11,8 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https?:\/\/newapp2\.szsmk\.com\/app\/config\/queryMainAd mock-response-body data-type=json data="{"message":"操作成功","main_ad_list":[],"code":"000000"}"
-^https?:\/\/newapp2\.szsmk\.com\/app\/config\/(queryCarousel|queryRecommendation)\/ mock-response-body data-type=json data="{"code":"000000","message":"操作成功","list":[]}"
+response if ${url} ~= /^https?:\/\/newapp2\.szsmk\.com\/app\/config\/queryMainAd/i then response.body.mock("json", "{", 200)
+response if ${url} ~= /^https?:\/\/newapp2\.szsmk\.com\/app\/config\/(queryCarousel|queryRecommendation)\//i then response.body.mock("json", "{", 200)
 
 [MITM]
 hostname = newapp2.szsmk.com

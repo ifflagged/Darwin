@@ -16,11 +16,11 @@ DOMAIN,ad.cyapi.cn,REJECT
 DOMAIN,gather.colorfulclouds.net,REJECT
 
 [Rewrite]
-^https:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) - reject-dict
-^https:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) - reject-dict
+request if ${url} ~= /^https:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product)/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures)/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/(wrapper\.cyapi\.cn|api\.caiyunapp\.com|cdn-w\.caiyunapp\.com)\/v1\/activity\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/ColorfulClouds_remove_ads/ColorfulClouds_remove_ads.js, requires-body=true, tag=彩云天气去广告
+response if ${url} ~= /^https:\/\/(wrapper\.cyapi\.cn|api\.caiyunapp\.com|cdn-w\.caiyunapp\.com)\/v1\/activity\?/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/ColorfulClouds_remove_ads/ColorfulClouds_remove_ads.js") with tag="彩云天气去广告", requires_body=true
 
 [MITM]
 hostname = biz.cyapi.cn, starplucker.cyapi.cn, api.caiyunapp.com, cdn-w.caiyunapp.com

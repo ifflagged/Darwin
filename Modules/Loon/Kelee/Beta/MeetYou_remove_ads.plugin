@@ -15,8 +15,8 @@ DOMAIN,ad.seeyouyima.com,REJECT
 DOMAIN,axxd.xmseeyouyima.com,REJECT
 
 [Rewrite]
-^https:\/\/common\.seeyouyima\.com\/v2\/conf_list$ response-body-json-del data.confList.Minor_mode_card
-^https:\/\/circle\.(xm)?seeyouyima\.com\/v\d\/article_recommend\? - reject
+response if ${url} ~= /^https:\/\/common\.seeyouyima\.com\/v2\/conf_list$/i then response.json.delete("data.confList.Minor_mode_card")
+request if ${url} ~= /^https:\/\/circle\.(xm)?seeyouyima\.com\/v\d\/article_recommend\?/i then reject(200)
 
 [MITM]
 hostname = circle.seeyouyima.com, circle.xmseeyouyima.com, common.seeyouyima.com

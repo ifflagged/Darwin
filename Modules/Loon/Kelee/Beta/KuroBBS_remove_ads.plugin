@@ -11,10 +11,10 @@
 #!date=2025-11-23 18:56:41
 
 [Rewrite]
-^https:\/\/api\.kurobbs\.com\/config\/getOpenScreen$ - reject-dict
-^https:\/\/api\.kurobbs\.com\/config\/index\/windows$ - reject-dict
-^https:\/\/api\.kurobbs\.com\/config\/search\/getSearchConfig\? - reject-dict
-^https:\/\/api\.kurobbs\.com\/forum\/app\/topic\/hotlist\? - reject-dict
+request if ${url} ~= /^https:\/\/api\.kurobbs\.com\/config\/getOpenScreen$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api\.kurobbs\.com\/config\/index\/windows$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api\.kurobbs\.com\/config\/search\/getSearchConfig\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api\.kurobbs\.com\/forum\/app\/topic\/hotlist\?/i then reject_dict(200)
 
 [MITM]
 hostname = api.kurobbs.com

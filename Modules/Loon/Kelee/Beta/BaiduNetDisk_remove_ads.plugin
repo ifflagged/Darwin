@@ -11,13 +11,13 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/pan\.baidu\.com\/api\/getconfig - reject-dict
-^https:\/\/pan\.baidu\.com\/api\/getsyscfg - reject-dict
-^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist - reject-dict
-^https:\/\/pan\.baidu\.com\/act\/api\/activityentry - reject-dict
-^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter - reject-dict
-^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list - reject-dict
-^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv - reject-dict
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getconfig/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/getsyscfg/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/act\/api\/activityentry/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv/i then reject_dict(200)
 
 [MITM]
 hostname = pan.baidu.com

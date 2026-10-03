@@ -12,8 +12,8 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-body-json-replace isShowCJAd 0
-^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\? response-body-json-del launchAd adBanners ad
+response if ${url} ~= /^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\?/i then response.json.replace("isShowCJAd", 0)
+response if ${url} ~= /^https:\/\/confssl\d?\.iweimai\.cn\/wm_ios_update\.json\?/i then response.json.delete(["launchAd", "adBanners", "ad"])
 
 [MITM]
 hostname = confssl*.iweimai.cn

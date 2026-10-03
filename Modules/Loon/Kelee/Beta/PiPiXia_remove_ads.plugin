@@ -11,11 +11,11 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/api(5-lq)?\.pipix\.com\/bds\/feed\/stream\/v2\/ response-body-json-jq '.data.data |= map(select(has("ad_info") | not))'
-^https:\/\/api(5-lq)?\.pipix\.com\/bds\/user\/check_in\/ response-body-json-jq '.data.profile_entrances |= map(select(.title != "放心借" and .title != "洋钱罐借款")) | del(.data.pet_interface_message)'
-^https:\/\/api(5-lq)?\.pipix\.com\/api\/ad\/ - reject-dict
-^https:\/\/api(5-lq)?\.pipix\.com\/bds\/banner\/ - reject-dict
-^https:\/\/api(5-lq)?\.pipix\.com\/bds\/feed\/follow_feed\/ - reject-dict
+response if ${url} ~= /^https:\/\/api(5-lq)?\.pipix\.com\/bds\/feed\/stream\/v2\//i then response.json.jq(".data.data |= map(select(has(\"ad_info\") | not))")
+response if ${url} ~= /^https:\/\/api(5-lq)?\.pipix\.com\/bds\/user\/check_in\//i then response.json.jq(".data.profile_entrances |= map(select(.title != \"放心借\" and .title != \"洋钱罐借款\")) | del(.data.pet_interface_message)")
+request if ${url} ~= /^https:\/\/api(5-lq)?\.pipix\.com\/api\/ad\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api(5-lq)?\.pipix\.com\/bds\/banner\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api(5-lq)?\.pipix\.com\/bds\/feed\/follow_feed\//i then reject_dict(200)
 
 [MITM]
 hostname = api.pipix.com, api5-lq.pipix.com

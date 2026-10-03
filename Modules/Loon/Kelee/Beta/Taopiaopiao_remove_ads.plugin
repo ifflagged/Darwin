@@ -11,12 +11,12 @@
 #!date=2025-11-08 23:45:23
 
 [Rewrite]
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-body-json-del data.returnValue.floatingBanner data.returnValue.searchShadeList
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\/ response-body-json-jq '.data.returnValue.topTab |= map(select(.activeImage | not)) | .data.returnValue.topTab |= map(del(.backgroundColor))'
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.aristotle\.get\/ response-body-json-jq 'def filter_nodes: map(if .data.componentId? and (.data.componentId | type == "string") and (.data.componentId | (contains("tpp_banner") or . == "tpp_guess_like")) then empty else .nodes |= (if . then filter_nodes else . end) end); .data.nodes |= (if . then filter_nodes else . end)'
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.popup\.get\/ - reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopindependentadvertiseapi\.queryadvertise\/ - reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopitemadvertiseapi\.queryadvertise\/ - reject-dict
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\//i then response.json.delete(["data.returnValue.floatingBanner", "data.returnValue.searchShadeList"])
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopintegrationapi\.homeconfig\//i then response.json.jq(".data.returnValue.topTab |= map(select(.activeImage | not)) | .data.returnValue.topTab |= map(del(.backgroundColor))")
+response if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.aristotle\.get\//i then response.json.jq("def filter_nodes: map(if .data.componentId? and (.data.componentId | type == \"string\") and (.data.componentId | (contains(\"tpp_banner\") or . == \"tpp_guess_like\")) then empty else .nodes |= (if . then filter_nodes else . end) end); .data.nodes |= (if . then filter_nodes else . end)")
+request if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.popup\.get\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopindependentadvertiseapi\.queryadvertise\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopitemadvertiseapi\.queryadvertise\//i then reject_dict(200)
 
 [MITM]
 hostname = acs.m.taobao.com

@@ -14,9 +14,9 @@
 DOMAIN,advert.mafengwo.cn,REJECT
 
 [Rewrite]
-^https:\/\/mapi\.mafengwo\.cn\/discovery\/get_index\/v7\? response-body-json-jq '.data.list |= map(select(.data.business_type != "gdcpm"))'
-^https:\/\/mapi\.mafengwo\.cn\/sales\/home\/get_header\/v3\? response-body-json-jq '.data.list[] |= ( .data |= del(.banners) )'
-^https:\/\/mapi\.mafengwo\.cn\/user\/growth\/get_growth_tip\/v1\? - reject-dict
+response if ${url} ~= /^https:\/\/mapi\.mafengwo\.cn\/discovery\/get_index\/v7\?/i then response.json.jq(".data.list |= map(select(.data.business_type != \"gdcpm\"))")
+response if ${url} ~= /^https:\/\/mapi\.mafengwo\.cn\/sales\/home\/get_header\/v3\?/i then response.json.jq(".data.list[] |= ( .data |= del(.banners) )")
+request if ${url} ~= /^https:\/\/mapi\.mafengwo\.cn\/user\/growth\/get_growth_tip\/v1\?/i then reject_dict(200)
 
 [MITM]
 hostname = mapi.mafengwo.cn

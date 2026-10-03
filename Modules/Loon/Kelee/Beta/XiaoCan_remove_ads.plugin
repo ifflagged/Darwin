@@ -11,9 +11,9 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/web2\.realtech-inc\.com\/oss\/xc-app-assets\/configs\/common\/theme\.json - reject-dict
-^https:\/\/sdk\.1rtb\.net\/sdk\/req_ad\? - reject-dict
-^https:\/\/gw\.xiaocantech\.com\/g\/pa - reject-dict
+request if ${url} ~= /^https:\/\/web2\.realtech-inc\.com\/oss\/xc-app-assets\/configs\/common\/theme\.json/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/sdk\.1rtb\.net\/sdk\/req_ad\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/gw\.xiaocantech\.com\/g\/pa/i then reject_dict(200)
 ^https:\/\/gw\.xiaocantech\.com\/rpc header-replace-regex 'methodname' '.*(GetBannerList|IsShowOrderAwardPopup|UserLifeShopList|BrandBannerList|GetPromotionGlobalCfg)' 'null'
 
 [MITM]

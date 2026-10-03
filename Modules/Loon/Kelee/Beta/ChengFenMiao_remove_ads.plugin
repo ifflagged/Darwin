@@ -11,11 +11,11 @@
 #!date=2025-11-21 13:02:33
 
 [Rewrite]
-^https:\/\/app\.chengfenmiao\.com\/helper\/setting\? response-body-json-del detail_buy_sites bottom_sites
-^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/item\/closet\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\? - reject-dict
+response if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/helper\/setting\?/i then response.json.delete(["detail_buy_sites", "bottom_sites"])
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/item\/closet\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\?/i then reject_dict(200)
 
 [MITM]
 hostname = app.chengfenmiao.com

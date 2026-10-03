@@ -15,7 +15,7 @@ DOMAIN,ad.jia.360.cn,REJECT
 DOMAIN,ad.iot.360.cn,REJECT
 
 [Rewrite]
-^https:\/\/jia\.360\.cn\/conf\/v1\.json response-body-json-del tab_conf ad_conf activity
+response if ${url} ~= /^https:\/\/jia\.360\.cn\/conf\/v1\.json/i then response.json.delete(["tab_conf", "ad_conf", "activity"])
 
 [MITM]
 hostname = jia.360.cn

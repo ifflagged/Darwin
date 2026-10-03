@@ -14,14 +14,14 @@
 DOMAIN,saad.ms.zhangyue.net,REJECT
 
 [Rewrite]
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zybook4\/iphone\/u\/p\/api\.php\? response-body-json-del Splash
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/bookstore\/read\/visual\/channel\/list\? response-body-json-jq '.body.list |= map(select(.id | contains("ad_") | not))'
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyapi\/bookstore\/ad\/ - reject-dict
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/bookstore\/ad\/ - reject-dict
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zybk\/api\/pop\/index\? - reject-dict
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyapi\/bookstore\/user\/mytab\? - reject-dict
-^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyboot\/activity\/mytab\? - reject-dict
-https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyam\/app\/app\.php\? - reject-dict
+response if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zybook4\/iphone\/u\/p\/api\.php\?/i then response.json.delete("Splash")
+response if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/bookstore\/read\/visual\/channel\/list\?/i then response.json.jq(".body.list |= map(select(.id | contains(\"ad_\") | not))")
+request if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyapi\/bookstore\/ad\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/bookstore\/ad\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zybk\/api\/pop\/index\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyapi\/bookstore\/user\/mytab\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyboot\/activity\/mytab\?/i then reject_dict(200)
+request if ${url} ~= /https:\/\/(webboot\.zhangyue\.com|ih2\.ireader\.com)\/zyam\/app\/app\.php\?/i then reject_dict(200)
 
 [MITM]
 hostname = webboot.zhangyue.com, ih2.ireader.com

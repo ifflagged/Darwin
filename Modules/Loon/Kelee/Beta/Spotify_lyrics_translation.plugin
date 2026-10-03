@@ -11,19 +11,19 @@
 #!date=2025-05-13 15:17:08
 
 [Script]
-http-response ^https?:\/\/api\.spotify\.com\/v1\/tracks\? script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_response.js, requires-body=true, tag=跟踪响应·JSON
+response if ${url} ~= /^https?:\/\/api\.spotify\.com\/v1\/tracks\?/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_response.js") with tag="跟踪响应·JSON", requires_body=true
 
-http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_request.js, requires-body=true, tag=歌词请求·JSON
+request if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_request.js") with tag="歌词请求·JSON", requires_body=true
 
-http-request ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_request.js, requires-body=true, binary-body-mode=true, tag=歌词请求·Proto
+request if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Spotify_request.js") with tag="歌词请求·Proto", requires_body=true, binary_body_mode=true
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=Translate script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Translate_response.js, requires-body=true, tag=翻译歌词响应·JSON
+response if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=Translate/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Translate_response.js") with tag="翻译歌词响应·JSON", requires_body=true
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=Translate script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Translate_response.js, requires-body=true, binary-body-mode=true, tag=翻译歌词响应·Proto
+response if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=Translate/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/Translate_response.js") with tag="翻译歌词响应·Proto", requires_body=true, binary_body_mode=true
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/External_Lyrics_response.js, requires-body=true, tag=外部歌词响应·JSON
+response if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/(.+)\?(.*)format=json(.*)subtype=External/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/External_Lyrics_response.js") with tag="外部歌词响应·JSON", requires_body=true
 
-http-response ^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/External_Lyrics_response.js, requires-body=true, binary-body-mode=true, tag=外部歌词响应·Proto
+response if ${url} ~= /^https?:\/\/spclient\.wg\.spotify\.com\/color-lyrics\/v2\/track\/\w+\?(.*)subtype=External/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Spotify_lyrics_translation/External_Lyrics_response.js") with tag="外部歌词响应·Proto", requires_body=true, binary_body_mode=true
 
 [MITM]
 hostname = api.spotify.com, spclient.wg.spotify.com
