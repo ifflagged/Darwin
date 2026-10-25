@@ -20,9 +20,9 @@ DOMAIN,ipv4.kkmh.com,REJECT
 ^https:\/\/(cdn-)?h5\.kuaikanmanhua\.com\/user\/scene\/api\/new_user\/sign_in\/list - reject-dict
 ^https:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/activities\/get - reject-dict
 ^https:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/mine\/business_config - reject-dict
-^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/userSignInInfo\?activitySignInConfigId - reject-dict
-^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/fetchButtonInfo\?buttonConfigId - reject-dict
-^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityText\/getUserActivityTextInfo\?activityTextConfigId - reject-dict
+^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/userSignInInfo\?(?:[^#?&]+&)*activitySignInConfigId - reject-dict
+^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/fetchButtonInfo\?(?:[^#?&]+&)*buttonConfigId - reject-dict
+^https:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityText\/getUserActivityTextInfo\?(?:[^#?&]+&)*activityTextConfigId - reject-dict
 ^https:\/\/(cdn-)?pay\.kkmh\.com\/v\d\/kb\/comic_page_banner\/detail - reject-dict
 ^https:\/\/(cdn-)?api\.kkmh\.com\/v\d\/business\/fake_push\/info - reject-dict
 ^https:\/\/(cdn-)?shop\.kkmh\.com\/mbff\/popup_administration\/page_management_popup_administration$ - reject-dict

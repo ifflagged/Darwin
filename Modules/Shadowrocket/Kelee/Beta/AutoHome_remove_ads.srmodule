@@ -25,10 +25,10 @@
 ^https:\/\/news\.app\.autohome\.com\.cn\/cont_v\d+(?:\.\d+){2}\/api\/article\/extenddata - reject-dict
 ^https:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/AppHandler\.ashx - reject-dict
 ^https:\/\/club\.app\.autohome\.com\.cn\/club_v\d+(?:\.\d+){2}\/club\/channelqa\/header - reject-dict
-^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=super\.list - reject-dict
+^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?(?:[^#?&]+&)*__action=super\.list - reject-dict
 ^https:\/\/autoapi\.autohome\.com\.cn\/arvr-dealercloud-api\/online\/aggregation\/exhibitionList - reject-dict
-^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=vrcore\.list - reject-dict
-^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?__action=platform\.search - reject-dict
+^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?(?:[^#?&]+&)*__action=vrcore\.list - reject-dict
+^https:\/\/dealer\.m\.autohome\.com\.cn\/handler\/other\/getdata\?(?:[^#?&]+&)*__action=platform\.search - reject-dict
 ^https:\/\/a\.athm\.cn\/clientlive\.api\.autohome\.com\.cn\/api\/live\/getserieswindowsinfo - reject-dict
 
 [Script]

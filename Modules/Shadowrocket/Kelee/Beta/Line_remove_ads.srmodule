@@ -39,7 +39,7 @@ URL-REGEX,"^https:\/\/uts-front\.line-apps\.com\/settings$",REJECT-DROP
 ^https:\/\/legy\.line-apps\.com\/line\.gcs\.GcsModuleService\/GetModulesByModuleIds$ - reject
 ^https:\/\/legy\.line-apps\.com:443\/tr\/event$ - reject
 ^https:\/\/web-mmap-pay\.line-apps\.com\/tw\/liff\/campaign\/v1\/aggregate\/ad\/banner\/ - reject-img
-^https:\/\/buy\.line\.me\/api\/graphql\?variables - reject
+^https:\/\/buy\.line\.me\/api\/graphql\?(?:[^#?&]+&)*variables - reject
 ^https:\/\/obs\.line-scdn\.net\/r\/linecrs\/.+\/m180x180$ - reject-img
 ^https:\/\/d\.line-scdn\.net\/lcp-prod-photo\/20.+\.(jpg|jpeg|png) - reject-img
 ^https:\/\/cix\.line-apps\.com\/R4\? - reject

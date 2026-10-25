@@ -19,7 +19,7 @@
 
 ^https:\/\/pan\.baidu\.com\/act\/api\/activityentry data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
-^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?(?:[^#?&]+&)*method=gamecenter data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 

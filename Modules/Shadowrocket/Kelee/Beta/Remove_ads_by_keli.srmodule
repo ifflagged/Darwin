@@ -97,10 +97,10 @@ DOMAIN,open-pixon.ads-pixiv.net,REJECT
 ^https?:\/\/sdk1xyajs\.data\.kuiniuca\.com - reject
 ^https:\/\/gw\.chuangkit\.com\/team\/app\/common\/ad\/ - reject-dict
 ^https:\/\/qiye\.gaoding\.com\/api\/v3\/oc\/v2\/delivery-pits\/ios-splash\/ - reject-dict
-^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.jpg\?imageMogr2\/quality\/ - reject-dict
-^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.(jpg|png)\?imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) - reject-dict
+^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.jpg\?(?:[^#?&]+&)*imageMogr2\/quality\/ - reject-dict
+^https:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.(jpg|png)\?(?:[^#?&]+&)*imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) - reject-dict
 ^https:\/\/api\.zcool\.com\.cn\/v\d\.\d\.\d/common\/open-screen - reject-dict
-^https:\/\/shealthyapi\.senssun\.com\/v1\/app\/banner\/findByType\?type=bottom$ - reject-dict
+^https:\/\/shealthyapi\.senssun\.com\/v1\/app\/banner\/findByType\?(?:[^#?&]+&)*type=bottom$ - reject-dict
 ^https:\/\/lanfanapp\.com\/api\/v1\/ads\/ - reject-dict
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_STARTUP - reject-dict
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_DEVICE - reject-dict
@@ -110,8 +110,8 @@ DOMAIN,open-pixon.ads-pixiv.net,REJECT
 ^https:\/\/api\.xiangji\.qq\.com\/splash$ - reject-dict
 ^https:\/\/cdn\.cmgadx\.com\/sdk\/pool\/ - reject-dict
 ^https:\/\/qadx\.qinlinad\.com\/ad\/ - reject-dict
-^https:\/\/watch\.iot\.mi\.com\/cgi-op\/api\/v1\/watch\/health\/resource\?business=MI_WATCH_SPORT - reject-dict
-^https:\/\/watch\.iot\.mi\.com\/cgi-op\/api\/v1\/watch\/health\/resource\?business=MI_HEALTH_DEVICE_TAB_PAGE - reject-dict
+^https:\/\/watch\.iot\.mi\.com\/cgi-op\/api\/v1\/watch\/health\/resource\?(?:[^#?&]+&)*business=MI_WATCH_SPORT - reject-dict
+^https:\/\/watch\.iot\.mi\.com\/cgi-op\/api\/v1\/watch\/health\/resource\?(?:[^#?&]+&)*business=MI_HEALTH_DEVICE_TAB_PAGE - reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryloadingbanner\/ - reject-dict
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.life\.popup\.get\/ - reject-dict
 ^https:\/\/d\.socdm\.com\/adsv\/ - reject-dict

@@ -15,7 +15,7 @@
 ^https:\/\/pan\.baidu\.com\/api\/getsyscfg - reject-dict
 ^https:\/\/pan\.baidu\.com\/api\/taskscore\/tasklist - reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/api\/activityentry - reject-dict
-^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?method=gamecenter - reject-dict
+^https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user\?(?:[^#?&]+&)*method=gamecenter - reject-dict
 ^https:\/\/pan\.baidu\.com\/act\/v2\/welfare\/list - reject-dict
 ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/pcs\/adv - reject-dict
 

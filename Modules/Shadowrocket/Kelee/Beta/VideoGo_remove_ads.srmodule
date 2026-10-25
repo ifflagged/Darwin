@@ -15,7 +15,7 @@
 ^https:\/\/i\.ys7\.com\/api\/user\/tabList - reject-dict
 ^https:\/\/api\.ys7\.com\/v3\/config\/service\/entrance\/bannerInfo - reject-dict
 ^https:\/\/api\.ys7\.com\/v3\/intelligent-app\/apps\/linkage - reject-dict
-^https:\/\/api\.ys7\.com\/v3\/configurations\/gray\/info\?grayTypes=185 - reject-dict
+^https:\/\/api\.ys7\.com\/v3\/configurations\/gray\/info\?(?:[^#?&]+&)*grayTypes=185 - reject-dict
 ^https:\/\/api\.ys7\.com\/v3\/videoclips\/square\/video\/query - reject-dict
 
 [MITM]

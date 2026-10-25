@@ -27,7 +27,7 @@ DOMAIN-SUFFIX,gdt.qq.com,REJECT
 ^https:\/\/api-cfg\.wtzw\.com\/v\d\/reward\/ - reject
 ^https:\/\/api-cfg\.wtzw\.com\/v\d\/adv\/ - reject
 ^https:\/\/api-cfg\.wtzw\.com\/v\d\/offline-adv\/index - reject-dict
-^https:\/\/api-cfg\.wtzw\.com\/v\d\/operation\/index\?ad_personal_switch - reject-dict
+^https:\/\/api-cfg\.wtzw\.com\/v\d\/operation\/index\?(?:[^#?&]+&)*ad_personal_switch - reject-dict
 ^https:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/withdraw\/init - reject-dict
 
 [Body Rewrite]

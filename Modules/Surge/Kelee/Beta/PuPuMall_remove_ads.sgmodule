@@ -12,7 +12,7 @@
 
 [URL Rewrite]
 ^https:\/\/j1\.pupuapi\.com\/client\/account\/discount\/order - reject
-^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=100 - reject
+^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?(?:[^#?&]+&)*position_types=100 - reject
 
 [Script]
 移除朴朴超市广告 = type=http-response, pattern=^https:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7, script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/PuPuMall_remove_ads/PuPuMall_remove_ads.js, requires-body=true

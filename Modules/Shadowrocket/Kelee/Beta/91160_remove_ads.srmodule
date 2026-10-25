@@ -18,7 +18,7 @@
 ^https:\/\/snsapi\.91160\.com\/hotword\/open\/v1\/getSearchExplore\? - reject-dict
 ^https:\/\/snsapi\.91160\.com\/hotword\/open\/v1\/getHotWordPlate\? - reject-dict
 ^https:\/\/snsapi\.91160\.com\/engine\/backgroundWord\/queryForFrontend\? - reject-dict
-^https:\/\/patientappapi\.91160\.com\/cus_index\.php\?c=adver - reject
+^https:\/\/patientappapi\.91160\.com\/cus_index\.php\?(?:[^#?&]+&)*c=adver - reject
 
 [Body Rewrite]
 http-response-jq ^https:\/\/soapi\.91160\.com\/homepage-recommendation\/recommendation\/medical\/complex\? 'delpaths([["data","checkupList"]])'
