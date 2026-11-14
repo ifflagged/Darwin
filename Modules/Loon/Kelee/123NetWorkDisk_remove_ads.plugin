@@ -11,7 +11,7 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/www\.123pan\.com\/api\/config\/get - reject-dict
+request if ${url} ~= /^https:\/\/www\.123pan\.com\/api\/config\/get/i then reject_dict(200)
 
 [MITM]
 hostname = www.123pan.com

@@ -299,11 +299,11 @@ DOMAIN-SUFFIX,rayjump.com,REJECT
 DOMAIN-SUFFIX,rixengine.com,REJECT
 
 [Rewrite]
-ad.aggrxinc.com, - reject
-^https:\/\/video-dsp\.pddpic\.com\/market-dsp-video\/ - reject
-^https:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_ - reject
-^https:\/\/images\.pinduoduo\.com\/mrk\/ - reject
-^https:\/\/images\.pinduoduo\.com\/marketing_api\/ - reject
+request if ${url} ~= /ad.aggrxinc.com,/i then reject(200)
+request if ${url} ~= /^https:\/\/video-dsp\.pddpic\.com\/market-dsp-video\//i then reject(200)
+request if ${url} ~= /^https:\/\/t-dsp\.pinduoduo\.com\/dspcb\/i\/mrk_/i then reject(200)
+request if ${url} ~= /^https:\/\/images\.pinduoduo\.com\/mrk\//i then reject(200)
+request if ${url} ~= /^https:\/\/images\.pinduoduo\.com\/marketing_api\//i then reject(200)
 
 [MITM]
 hostname = video-dsp.pddpic.com, t-dsp.pinduoduo.com, images.pinduoduo.com

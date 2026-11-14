@@ -17,15 +17,15 @@ DOMAIN,stun1.douyucdn.cn,REJECT
 DOMAIN,stun1.qvb.qcloud.com,REJECT
 
 [Rewrite]
-^(http:\/\/)((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(hlsh5p1\.douyucdn2\.cn)(.*) $1$5$6 307
-^https:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo - reject-dict
+request if ${url} ~= /^(http:\/\/)((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(hlsh5p1\.douyucdn2\.cn)(.*)/i then redirect(307, "$1$5$6")
+request if ${url} ~= /^https:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_19, argument=%5B%5B%22json-del%22%2C%5B%22data.pendant_a%22%2C%22data.entrance_d%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.pendant_a\",\"data.entrance_d\"]]]") with tag="body_rewrite_19", timeout=30, requires_body=true
 
-http-response ^https:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_20, argument=%5B%5B%22json-replace%22%2C%5B%5B%22greatGodGameSitterSwitch%22%2C0%5D%2C%5B%22followMoreAnchorEntrance%22%2C0%5D%2C%5B%22sdklivebanner%22%2C0%5D%2C%5B%22homeActFloatSwitch%22%2C0%5D%2C%5B%22bringGoodsSwitch%22%2C0%5D%2C%5B%22qqGameSwitch%22%2C0%5D%5D%5D%5D
+response if ${url} ~= /^https:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-replace\",[[\"greatGodGameSitterSwitch\",0],[\"followMoreAnchorEntrance\",0],[\"sdklivebanner\",0],[\"homeActFloatSwitch\",0],[\"bringGoodsSwitch\",0],[\"qqGameSwitch\",0]]]]") with tag="body_rewrite_20", timeout=30, requires_body=true
 
-http-response ^https:\/\/apiv2\.douyucdn\.cn\/mgapi\/livenc\/home\/getRecV3 script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Douyu_remove_ads/Douyu_remove_ads.js, requires-body=true, tag=移除首页轮播图和视频流广告
+response if ${url} ~= /^https:\/\/apiv2\.douyucdn\.cn\/mgapi\/livenc\/home\/getRecV3/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Douyu_remove_ads/Douyu_remove_ads.js") with tag="移除首页轮播图和视频流广告", requires_body=true
 
 [MITM]
 hostname = rtbapi.douyucdn.cn, apiv2.douyucdn.cn, venus.douyucdn.cn

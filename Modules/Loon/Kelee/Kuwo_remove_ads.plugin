@@ -24,9 +24,9 @@ URL-REGEX,"^http:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/album\/adBar\/",REJECT-DICT
 
 [Rewrite]
 http-response ^http:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/tingshu\/index\/radio response-body-json-jq 'walk(if type == "object" and .type == "stripAdvert" then del(.child) else . end)'
-^https:\/\/vip\d\.kuwo\.cn\/commercia\/vipconf\/projectPage\/getPageContent - reject-dict
-^https:\/\/tingshu\.kuwo\.cn\/v2\/api\/pay\/user\/info - reject-dict
-^https:\/\/appi\.kuwo\.cn\/kuwopay\/personal\/cells - reject-dict
+request if ${url} ~= /^https:\/\/vip\d\.kuwo\.cn\/commercia\/vipconf\/projectPage\/getPageContent/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/tingshu\.kuwo\.cn\/v2\/api\/pay\/user\/info/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/appi\.kuwo\.cn\/kuwopay\/personal\/cells/i then reject_dict(200)
 
 [MITM]
 hostname = appi.kuwo.cn, mc.tencentmusic.com, vip*.kuwo.cn, tingshu.kuwo.cn

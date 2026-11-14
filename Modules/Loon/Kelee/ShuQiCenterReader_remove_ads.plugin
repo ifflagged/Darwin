@@ -14,13 +14,13 @@
 DOMAIN,render-web.11222.cn,REJECT
 
 [Rewrite]
-^https:\/\/huichuan\.sm\.cn\/nativead - reject-dict
-^https:\/\/ocean\.shuqireader\.com\/api\/route\/iosReadPage\/adV2 - reject-dict
-^https:\/\/ocean\.shuqireader\.com\/api\/route\/ios\/readPage$ - reject-dict
-^https:\/\/ocean\.shuqireader\.com\/api\/render\/load\/resource - reject
+request if ${url} ~= /^https:\/\/huichuan\.sm\.cn\/nativead/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/ocean\.shuqireader\.com\/api\/route\/iosReadPage\/adV2/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/ocean\.shuqireader\.com\/api\/route\/ios\/readPage$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/ocean\.shuqireader\.com\/api\/render\/load\/resource/i then reject(200)
 
 [Script]
-http-response ^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/ShuQiCenterReader_remove_ads/ShuQiCenterReader_remove_ads.js, requires-body=true, tag=移除书城横幅和阅读广告
+response if ${url} ~= /^https:\/\/ocean\.shuqireader\.com\/sqios\/render\/render\/page\/bookstore$/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/ShuQiCenterReader_remove_ads/ShuQiCenterReader_remove_ads.js") with tag="移除书城横幅和阅读广告", requires_body=true
 
 [MITM]
 hostname = ocean.shuqireader.com, huichuan.sm.cn

@@ -14,11 +14,11 @@
 URL-REGEX,"^https:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/",REJECT
 
 [Rewrite]
-^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ - reject-dict
-^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ - reject
+request if ${url} ~= /^https:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$/i then reject(200)
 
 [Script]
-http-response ^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_14, argument=%5B%5B%22json-del%22%2C%5B%22data.templates%5B0%5D.data.banner%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\?/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.templates[0].data.banner\"]]]") with tag="body_rewrite_14", timeout=30, requires_body=true
 
 [MITM]
 hostname = ask.zhaopin.com, cgate.zhaopin.com

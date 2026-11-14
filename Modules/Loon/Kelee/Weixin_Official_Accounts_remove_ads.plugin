@@ -14,8 +14,8 @@
 DOMAIN-SUFFIX,wxs.qq.com,REJECT
 
 [Rewrite]
-^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? - reject-dict
-^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-dict
+request if ${url} ~= /^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword/i then reject_dict(200)
 
 [MITM]
 hostname = mp.weixin.qq.com

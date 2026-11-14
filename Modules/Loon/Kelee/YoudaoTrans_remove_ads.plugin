@@ -11,9 +11,9 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/gorgon\.youdao\.com\/gorgon\/v2\/request\.s - reject-dict
-^https:\/\/gorgon\.youdao\.com\/gorgon\/brand\/prefetch\.s - reject-dict
-^https:\/\/gorgon\.youdao\.com\/gorgon\/request\.s - reject-dict
+request if ${url} ~= /^https:\/\/gorgon\.youdao\.com\/gorgon\/v2\/request\.s/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/gorgon\.youdao\.com\/gorgon\/brand\/prefetch\.s/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/gorgon\.youdao\.com\/gorgon\/request\.s/i then reject_dict(200)
 
 [MITM]
 hostname = gorgon.youdao.com

@@ -11,14 +11,14 @@
 #!date=2025-07-31 06:11:54
 
 [Rewrite]
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/app\/getSplashScreenConfig$ - reject-dict
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/landingPage$ - reject-dict
-^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getPayModeV2$ - reject-dict
+request if ${url} ~= /^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/app\/getSplashScreenConfig$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/landingPage$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getPayModeV2$/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_14, argument=%5B%5B%22json-del%22%2C%5B%22data.ad_vip%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.ad_vip\"]]]") with tag="body_rewrite_14", timeout=30, requires_body=true
 
-http-response ^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_16, argument=%5B%5B%22json-del%22%2C%5B%22data.search_keyword_list%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.search_keyword_list\"]]]") with tag="body_rewrite_16", timeout=30, requires_body=true
 
 [MITM]
 hostname = v-api.crazymaplestudios.com, d1k8g7qaebqd28.cloudfront.net

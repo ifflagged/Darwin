@@ -14,14 +14,14 @@
 DOMAIN,adx.zuoyebang.com,REJECT
 
 [Rewrite]
-^https:\/\/www\.kuaiduizuoye\.com\/init\/ad\/ - reject-dict
-^https:\/\/www\.kuaiduizuoye\.com\/activity\/init\/checkappconfig$ - reject-dict
-^https:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/appbannersv3$ - reject-dict
-^https:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/initbanner$ - reject-dict
-^https:\/\/apivip\.kuaiduizuoye\.com\/viponline\/scancode\/mycard$ - reject-dict
+request if ${url} ~= /^https:\/\/www\.kuaiduizuoye\.com\/init\/ad\//i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.kuaiduizuoye\.com\/activity\/init\/checkappconfig$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/appbannersv3$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/initbanner$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/apivip\.kuaiduizuoye\.com\/viponline\/scancode\/mycard$/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/www\.kuaiduizuoye\.com\/codesearch\/aid\/home$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_18, argument=%5B%5B%22json-del%22%2C%5B%22data.homeBannerList%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/www\.kuaiduizuoye\.com\/codesearch\/aid\/home$/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.homeBannerList\"]]]") with tag="body_rewrite_18", timeout=30, requires_body=true
 
 [MITM]
 hostname = www.kuaiduizuoye.com, apivip.kuaiduizuoye.com

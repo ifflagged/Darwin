@@ -11,9 +11,9 @@
 #!date=2025-06-30 21:53:43
 
 [Rewrite]
-^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/ribbon\? - reject-dict
-^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/list\? - reject-dict
-^https:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$ - reject-dict
+request if ${url} ~= /^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/ribbon\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/jz\.wacaijizhang\.com\/api\/banners\/list\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$/i then reject_dict(200)
 
 [MITM]
 hostname = jz.wacaijizhang.com

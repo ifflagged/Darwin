@@ -11,8 +11,8 @@
 #!date=2025-07-16 02:49:51
 
 [Rewrite]
-^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\? response-body-json-jq '.data |= map(select(.protocolId == 1))'
-^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? - reject-dict
+response if ${url} ~= /^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\?/i then response.json.jq(".data |= map(select(.protocolId == 1))")
+request if ${url} ~= /^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\?/i then reject_dict(200)
 
 [MITM]
 hostname = api.wfdata.club

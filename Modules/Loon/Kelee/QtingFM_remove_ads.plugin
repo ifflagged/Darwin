@@ -11,22 +11,22 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\? response-body-json-jq 'del(.data.head[].data[] | select(.title == "超级会员")) | del(.data.head[].data[] | select(.link.type == "RadioStation")) | del(.data.head[] | select(.title == "听头条")) | del(.data.feeds[] | select(.type == "ListenListRadio"))'
-^https:\/\/entry\.qtfm\.cn\/api\/v\d\/personal\/\?carrier response-body-json-jq 'delpaths([["data", "membership"], ["data", "level_info"]]) | .data.discovery.entries |= map(select(.title != "借钱"))'
-^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$ - reject
-^https:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$ - reject
-^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\? - reject-dict
-^https:\/\/recpage-c\.qtfm\.cn\/v\d\/favorites$ - reject-dict
-^https:\/\/user\.qtfm\.cn\/u\d\/api\/v\d\/user\/following_podcaster\? - reject-dict
+response if ${url} ~= /^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\?/i then response.json.jq("del(.data.head[].data[] | select(.title == \"超级会员\")) | del(.data.head[].data[] | select(.link.type == \"RadioStation\")) | del(.data.head[] | select(.title == \"听头条\")) | del(.data.feeds[] | select(.type == \"ListenListRadio\"))")
+response if ${url} ~= /^https:\/\/entry\.qtfm\.cn\/api\/v\d\/personal\/\?carrier/i then response.json.jq("delpaths([[\"data\", \"membership\"], [\"data\", \"level_info\"]]) | .data.discovery.entries |= map(select(.title != \"借钱\"))")
+request if ${url} ~= /^https:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$/i then reject(200)
+request if ${url} ~= /^https:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$/i then reject(200)
+request if ${url} ~= /^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/recpage-c\.qtfm\.cn\/v\d\/favorites$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/user\.qtfm\.cn\/u\d\/api\/v\d\/user\/following_podcaster\?/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$ script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_14, argument=%5B%5B%22json-replace%22%2C%5B%5B%22data.display_icon%22%2Cfalse%5D%5D%5D%5D
+response if ${url} ~= /^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_icon$/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-replace\",[[\"data.display_icon\",false]]]]") with tag="body_rewrite_14", timeout=30, requires_body=true
 
-http-response ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_16, argument=%5B%5B%22json-del%22%2C%5B%22data.related_recommend%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8}/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.related_recommend\"]]]") with tag="body_rewrite_16", timeout=30, requires_body=true
 
-http-response ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_17, argument=%5B%5B%22json-del%22%2C%5B%22data.banner%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.banner\"]]]") with tag="body_rewrite_17", timeout=30, requires_body=true
 
-http-response ^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_21, argument=%5B%5B%22json-del%22%2C%5B%22data.recommends%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\?/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.recommends\"]]]") with tag="body_rewrite_21", timeout=30, requires_body=true
 
 [MITM]
 hostname = app.qtfm.cn, entry.qtfm.cn, recpage-c.qtfm.cn, user.qtfm.cn, search.qtfm.cn

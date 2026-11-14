@@ -11,11 +11,11 @@
 #!date=2025-07-21 18:21:13
 
 [Rewrite]
-^https:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list response-body-json-jq '.data |= map(select(.type != "DISCOVERY_HEADER" and .type != "DISCOVERY_BANNER"))'
-^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash - reject-dict
-^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai - reject-dict
-^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get - reject-dict
-^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/category - reject-dict
+response if ${url} ~= /^https:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list/i then response.json.jq(".data |= map(select(.type != \"DISCOVERY_HEADER\" and .type != \"DISCOVERY_BANNER\"))")
+request if ${url} ~= /^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get/i then reject_dict(200)
+request if ${url} ~= /^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/category/i then reject_dict(200)
 
 [MITM]
 hostname = api.xiaoyuzhoufm.com

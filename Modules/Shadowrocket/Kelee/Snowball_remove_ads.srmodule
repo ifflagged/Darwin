@@ -5,7 +5,7 @@
 #!category=Jacob
 
 #!openUrl=https://apps.apple.com/app/id492180369
-#!tag=去广告
+#!category=去广告
 #!loon_version=3.2.4(787)
 #!homepage=https://hub.kelee.one
 #!date=2025-11-25 03:30:07
@@ -19,7 +19,7 @@
 ^https:\/\/api\.xueqiu\.com\/snowflake-theme\/query\/v1\/hot_event\/rich_tag_new\.json\? - reject-dict
 ^https:\/\/api\.xueqiu\.com\/query\/v1\/hot_event\/tag\.json\? - reject-dict
 ^https:\/\/open\.xueqiu\.com\/mpaas\/config\/content\?.+cube_detail_bottom_operation_trade_button - reject-dict
-^https:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/zj_card\.json\?feed_id=207 - reject-dict
+^https:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/zj_card\.json\?(?:[^#?&]+&)*feed_id=207 - reject-dict
 ^https:\/\/api\.xueqiu\.com\/recommend-proxy\/card\/portfolio_tab_symbol\.json - reject-dict
 ^https:\/\/stock\.xueqiu\.com\/v5\/stock\/group\/recommend\/default\/list\.json - reject-dict
 ^https:\/\/api\.xueqiu\.com\/livestream\/structure\/live\/hotCard\.json - reject-dict

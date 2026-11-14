@@ -12,19 +12,19 @@
 #!input=App_ID
 
 [Argument]
-CaptureAccountToken=switch,"false","true",tag=捕获账号令牌, desc=此开关控制插件是否捕获账户令牌
-RunTask=switch,"false","true",tag=自动加入TF, desc=此开关控制是否启动定时任务
-RunMonitor=switch,"false","true",tag=监控TF位置, desc=此开关控制是否启动定时任务
-TaskCron=input, "0 0/2 * * * ?",tag=加入TF定时参数, desc=这里需要输入符合CRON表达式的参数
-TaskMonitor=input, "0 * * * * ?",tag=监控TF定时参数, desc=这里需要输入符合CRON表达式的参数
+CaptureAccountToken=switch,false,true,tag=捕获账号令牌, desc=此开关控制插件是否捕获账户令牌
+RunTask=switch,true,false,tag=自动加入TF, desc=此开关控制是否启动定时任务
+RunMonitor=switch,true,false,tag=监控TF位置, desc=此开关控制是否启动定时任务
+TaskCron=input,"0 0/2 * * * ?",tag=加入TF定时参数, desc=这里需要输入符合CRON表达式的参数
+TaskMonitor=input,"0 * * * * ?",tag=监控TF定时参数, desc=这里需要输入符合CRON表达式的参数
 
 [Rule]
 DOMAIN,testflight.apple.com,PROXY
 
 [Script]
-http-request ^https?:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/apps$ script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/CaptureAccountToken.js, tag=获取账号令牌, enable={CaptureAccountToken}
+request if ${url} ~= /^https?:\/\/testflight\.apple\.com\/v3\/accounts\/.*\/apps$/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/CaptureAccountToken.js") with tag="获取账号令牌", enable=${CaptureAccountToken}
 
-cron "{TaskCron}" script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/AutoJoinTF.js, timeout=600, tag=自动加入TF, enable={RunTask}
+cron ${TaskCron} then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/AutoJoinTF.js") with tag="自动加入TF", timeout=600, enable=${RunTask}
 
-cron "{TaskMonitor}" script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/AutoMonitorTF.js, timeout=30, tag=监控TF位置, enable={RunMonitor}
+cron ${TaskMonitor} then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Auto_Join_TF/AutoMonitorTF.js") with tag="监控TF位置", timeout=30, enable=${RunMonitor}
 

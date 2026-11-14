@@ -11,9 +11,9 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/pan-api\.bitqiu\.com\/activity\/getPromoteGuide$ - reject-dict
-^http:\/\/pan-api\.bitqiu\.com\/activity\/getUrlList$ - reject-dict
-^https:\/\/pan-api\.bitqiu\.com\/activity\/guides$ - reject-dict
+request if ${url} ~= /^https:\/\/pan-api\.bitqiu\.com\/activity\/getPromoteGuide$/i then reject_dict(200)
+request if ${url} ~= /^http:\/\/pan-api\.bitqiu\.com\/activity\/getUrlList$/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/pan-api\.bitqiu\.com\/activity\/guides$/i then reject_dict(200)
 
 [MITM]
 hostname = pan-api.bitqiu.com

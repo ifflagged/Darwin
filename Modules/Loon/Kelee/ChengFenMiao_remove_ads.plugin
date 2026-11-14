@@ -11,13 +11,13 @@
 #!date=2025-11-21 13:02:33
 
 [Rewrite]
-^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/item\/closet\? - reject-dict
-^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\? - reject-dict
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/Listing\/LiveHots\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/helper\/VersionCheck\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/item\/closet\?/i then reject_dict(200)
+request if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/Helper\/HotWords\?/i then reject_dict(200)
 
 [Script]
-http-response ^https:\/\/app\.chengfenmiao\.com\/helper\/setting\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_15, argument=%5B%5B%22json-del%22%2C%5B%22detail_buy_sites%22%2C%22bottom_sites%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/app\.chengfenmiao\.com\/helper\/setting\?/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"detail_buy_sites\",\"bottom_sites\"]]]") with tag="body_rewrite_15", timeout=30, requires_body=true
 
 [MITM]
 hostname = app.chengfenmiao.com

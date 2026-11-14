@@ -37,9 +37,9 @@ DOMAIN,pre-acs.youku.com,REJECT
 DOMAIN,youku-acs.m.taobao.com,REJECT
 
 [Script]
-http-response ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_37, argument=%5B%5B%22json-del%22%2C%5B%22data.data.ad%22%2C%22data.data.watermark%22%2C%22data.data.ykad%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.data.ad\",\"data.data.watermark\",\"data.data.ykad\"]]]") with tag="body_rewrite_37", timeout=30, requires_body=true
 
-http-response ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js, requires-body=true, timeout=30, tag=body_rewrite_38, argument=%5B%5B%22json-del%22%2C%5B%22data.tipContent%22%2C%22data.tipContentNew%22%5D%5D%5D
+response if ${url} ~= /^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\?/i then script("https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/body-rewrite.js", "[[\"json-del\",[\"data.tipContent\",\"data.tipContentNew\"]]]") with tag="body_rewrite_38", timeout=30, requires_body=true
 
 [MITM]
 hostname = push.m.youku.com, un-acs.youku.com

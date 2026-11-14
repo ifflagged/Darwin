@@ -11,14 +11,14 @@
 #!date=2025-05-13 15:17:08
 
 [Rewrite]
-^https:\/\/duckduckgo\.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 307
-^https:\/\/duckduckgo\.com\/\?q=bdimg\+([^&]+).+ https://image.baidu.com/search/index?tn=baiduimage&word=$1 307
-^https:\/\/duckduckgo\.com\/\?q=gimg\+([^&]+).+ https://www.google.com/search?&tbm=isch&q=$1 307
-^https:\/\/duckduckgo\.com\/\?q=b\+([^&]+).+ https://www.bing.com/search?q=$1 307
-^https:\/\/duckduckgo\.com\/\?q=wk\+([^&]+).+ https://zh.wikipedia.org/wiki/$1 307
-^https:\/\/duckduckgo\.com\/\?q=qm\+([^&]+).+ https://www.qimai.cn/search/index/country/cn/search/$1 307
-^https:\/\/duckduckgo\.com\/\?q=gh\+([^&]+).+ https://github.com/search?q=$1 307
-^https:\/\/duckduckgo\.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 307
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=bd\+([^&]+).+/i then redirect(307, "https://www.baidu.com/s?wd=$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=bdimg\+([^&]+).+/i then redirect(307, "https://image.baidu.com/search/index?tn=baiduimage&word=$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=gimg\+([^&]+).+/i then redirect(307, "https://www.google.com/search?&tbm=isch&q=$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=b\+([^&]+).+/i then redirect(307, "https://www.bing.com/search?q=$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=wk\+([^&]+).+/i then redirect(307, "https://zh.wikipedia.org/wiki/$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=qm\+([^&]+).+/i then redirect(307, "https://www.qimai.cn/search/index/country/cn/search/$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=gh\+([^&]+).+/i then redirect(307, "https://github.com/search?q=$1")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=([^&]+).+/i then redirect(307, "https://www.google.com/search?q=$1")
 
 [MITM]
 hostname = duckduckgo.com

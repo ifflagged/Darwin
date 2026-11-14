@@ -17,11 +17,11 @@ DOMAIN,sub-store.vercel.app,PROXY
 DOMAIN,ip-api.com,PROXY
 
 [Script]
-http-request ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/sub-store-1.min.js, requires-body=true, timeout=120, tag=Sub-Store Core
+request if ${url} ~= /^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info)))/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/sub-store-1.min.js") with tag="Sub-Store Core", timeout=120, requires_body=true
 
-http-request ^https?:\/\/sub\.store script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/sub-store-0.min.js, requires-body=true, timeout=120, tag=Sub-Store Simple
+request if ${url} ~= /^https?:\/\/sub\.store/i then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/sub-store-0.min.js") with tag="Sub-Store Simple", timeout=120, requires_body=true
 
-cron "0 0 1 ? * ?" script-path=https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/cron-sync-artifacts.min.js, tag=Sub-Store Sync
+cron "0 0 1 ? * ?" then script("https://github.com/ifflagged/Darwin/raw/main/Modules/JS/Kelee/Sub-Store/cron-sync-artifacts.min.js") with tag="Sub-Store Sync"
 
 [MITM]
 hostname = sub.store
