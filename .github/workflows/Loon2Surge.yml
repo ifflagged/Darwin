@@ -50,7 +50,7 @@ jobs:
         run: |
           python3 .shalala_tmp/Scripts/Darwin/Loon2Surge.py \
             --url-list .shalala_tmp/Scripts/Darwin/Links/Module-URLs.txt \
-            -o Modules/Surge \
+            -o Modules/Surge
 
       # 4. 清理临时目录并提交变更到 Darwin 仓库
       - name: Clean temp files and push to Darwin
