@@ -1,5 +1,3 @@
-
-
 name: Sync Loon Plugins to Surge Modules
 
 on:
@@ -71,4 +69,5 @@ jobs:
           fi
 
           git commit -m "Sync Special Modules"
+          git pull --rebase
           git push
