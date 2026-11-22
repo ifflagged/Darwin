@@ -1,0 +1,12 @@
+#!name=去哪儿旅行去广告
+#!desc=移除去哪儿旅行广告
+#!author=ccyykk666[https://github.com/ccyykk666]
+
+[Map Local]
+^https:\/\/homefront\.qunar\.com\/front\/splash\/ad(?:\?.*)?$ data-type=text data="{\"bstatus\":{\"code\":0,\"des\":\"成功\"},\"data\":{\"sdkAdSwitch\":false,\"programmaticAd\":false,\"shakeSwitch\":false,\"maxShowTimes\":0,\"sdkMaxShowTimes\":0}}" status-code=200 header="Content-Type: application/json; charset=utf-8"
+
+[Script]
+去哪儿旅行去广告 = type=http-response, pattern=^https:\/\/slugger\.qunar\.com\/slugger-proxy\?(?:[^#]*&)?qrt=(?:p_homeRecommend|qpub_animateSloganView|p_secondScreen_cards|pp_gw_u_myMainCard|pp_gw_u_myHeadInfo|suggestion_operation_app|innovation_popular_recommend|innovation_rankinglist_head|innovation_single_rankinglist|content_api_common_desert_damo_getPostList|content_api_common_feed_open_postList)(?:&[^#]*)?$, requires-body=1, binary-body-mode=1, max-size=0, timeout=10, script-path=https://raw.githubusercontent.com/ccyykk666/Loon-Plugin/main/plugins/qunar/qunar_ad_filter.js
+
+[MITM]
+hostname = %APPEND% slugger.qunar.com, homefront.qunar.com
