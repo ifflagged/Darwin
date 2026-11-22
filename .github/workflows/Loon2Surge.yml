@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/ShalalaLala
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKENS }}
           path: .shalala_tmp
           fetch-depth: 1
 
