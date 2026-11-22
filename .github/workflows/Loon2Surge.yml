@@ -1,0 +1,74 @@
+
+
+name: Sync Loon Plugins to Surge Modules
+
+on:
+  # 1. 修改本仓库 workflow 时触发
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - '.github/workflows/Loon2Surge.yml'
+  # 2. 定时拉取上游最新规则（每天北京时间 08:00 与 20:00 自动同步）
+  schedule:
+    - cron: '0 0,12 * * *'
+  # 3. 支持在 Actions 页面手动触发
+  workflow_dispatch:
+
+concurrency:
+  group: loon2surge-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-modules:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出当前 Darwin 仓库（产物存放库）
+      - name: Checkout Darwin repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 2. 检出私库 ShalalaLala 到临时目录（获取转换脚本与链接清单）
+      - name: Checkout ShalalaLala repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/ShalalaLala
+          token: ${{ secrets.ACTION_TOKEN }}
+          path: .shalala_tmp
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 3. 执行转换并输出到 Darwin 仓库的 Modules/Surge/<作者>/
+      - name: Fetch and convert Loon plugins to Surge modules
+        run: |
+          python3 .shalala_tmp/Scripts/Darwin/Loon2Surge.py \
+            --url-list .shalala_tmp/Scripts/Darwin/Links/Module-URLs.txt \
+            -o Modules/Surge \
+            --clean
+
+      # 4. 清理临时目录并提交变更到 Darwin 仓库
+      - name: Clean temp files and push to Darwin
+        run: |
+          rm -rf .shalala_tmp
+
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+          git add Modules/Surge
+
+          if git diff --staged --quiet; then
+            echo "No changes detected in Modules/Surge."
+            exit 0
+          fi
+
+          git commit -m "Sync Special Modules"
+          git push
